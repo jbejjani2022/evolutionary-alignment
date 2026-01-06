@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Evolution Strategies fine-tuning for language model conciseness.
 
@@ -86,11 +87,10 @@ initial_seed = args.initial_seed             # Initial random seed
 
 
 # --- Load Dataset from JSONL File ---
-# Load training data from conciseness/data/train.jsonl
 dataset = []
 with open('../data/train.jsonl', 'r') as f:
     for line in f:
-        if line.strip():  # Skip empty lines
+        if line.strip():
             data = json.loads(line)
             dataset.append((data['question'], data['answer']))
             
@@ -110,12 +110,48 @@ def _load_jsonl_pairs(path):
 if os.path.exists(_eval_path):
     eval_dataset = _load_jsonl_pairs(_eval_path)
 else:
-    eval_dataset = None  # disables eval cleanly
+    eval_dataset = None
 
 
-def compute_reward(generated_text, target_text):
-    # Negative absolute difference in length
-    return -abs(len(generated_text) - len(target_text))
+# Global tokenizer reference (set in main, used for chat template)
+_tokenizer = None
+
+
+def format_prompt_with_chat_template(question: str) -> str:
+    """Apply chat template to raw question for Qwen2.5-Instruct."""
+    global _tokenizer
+    messages = [{"role": "user", "content": question}]
+    formatted = _tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True
+    )
+    return formatted
+
+
+def clean_completion(text: str) -> str:
+    """Remove EOS/chat-end tokens and strip whitespace."""
+    global _tokenizer
+    text = text.strip()
+    # Qwen2.5 uses <|im_end|> as the chat end token
+    im_end_token = "<|im_end|>"
+    eos_token = _tokenizer.eos_token or ""
+    
+    for token in [im_end_token, eos_token]:
+        if token and text.endswith(token):
+            text = text[:-len(token)].strip()
+    return text
+
+
+def compute_reward(generated_text: str, target_text: str) -> float:
+    """
+    Reward: negative absolute difference in character length.
+    generated_text should be the completion only (after cleaning).
+    """
+    gen_clean = clean_completion(generated_text)
+    target_clean = target_text.strip()
+    return -abs(len(gen_clean) - len(target_clean))
+
 
 def get_save_dir(model_name, initial_seed, iteration, dataset_size, args, is_final=False):
     """Generate consistent save directory path for checkpoints and final model"""
@@ -128,6 +164,7 @@ def get_save_dir(model_name, initial_seed, iteration, dataset_size, args, is_fin
     )
     return save_dir
 
+
 def save_model_checkpoint(model, tokenizer, iteration, model_name, initial_seed, args, dataset_size, wandb_run=None):
     """Save model checkpoint at specified iteration"""
     save_dir = get_save_dir(model_name, initial_seed, iteration, dataset_size, args, is_final=False)
@@ -139,6 +176,7 @@ def save_model_checkpoint(model, tokenizer, iteration, model_name, initial_seed,
     if wandb_run is not None:
         wandb_run.log({"checkpoint_saved": True, "checkpoint_iteration": iteration, "checkpoint_path": save_dir}, step=iteration)
 
+
 def force_memory_cleanup():
     """Force aggressive memory cleanup"""
     gc.collect()
@@ -147,55 +185,85 @@ def force_memory_cleanup():
         torch.cuda.ipc_collect()
         torch.cuda.synchronize()
 
+
 def evaluate_model(model, tokenizer, input_text, target_text, accelerator, seed_idx=None, thread_id=None, verbose=False, return_text=False):
     """
     Generate a response from the model given an input (single or batch) and compute rewards.
+    
+    - input_text should be RAW questions (chat template applied here)
+    - Returns completion only (prompt stripped), cleaned of special tokens
     """
     if verbose:
         print(f"Process {accelerator.process_index} Thread {thread_id} evaluating seed {seed_idx}")
 
     # Handle both single input and batch input
     is_batch = isinstance(input_text, list)
-    input_texts = input_text if is_batch else [input_text]
+    input_texts_raw = input_text if is_batch else [input_text]
     target_texts = target_text if is_batch else [target_text]
 
+    # Apply chat template to all inputs
+    input_texts_formatted = [format_prompt_with_chat_template(q) for q in input_texts_raw]
+
     # Batch tokenization
-    tokenized_inputs = tokenizer(input_texts, return_tensors="pt", padding=True, padding_side="left")
+    tokenized_inputs = tokenizer(
+        input_texts_formatted, 
+        return_tensors="pt", 
+        padding=True,
+        add_special_tokens=False  # Chat template already includes special tokens
+    )
     input_ids = tokenized_inputs["input_ids"].to(accelerator.device)
     attention_mask = tokenized_inputs["attention_mask"].to(accelerator.device)
+    
+    # Store input length for completion extraction
+    prompt_length = input_ids.shape[1]
+
     with torch.inference_mode():
-        outputs = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens=max_new_tokens, do_sample=do_sample)
+        outputs = model.generate(
+            input_ids, 
+            attention_mask=attention_mask, 
+            max_new_tokens=max_new_tokens, 
+            do_sample=do_sample,
+            pad_token_id=tokenizer.pad_token_id,
+            eos_token_id=tokenizer.eos_token_id,
+        )
         if torch.cuda.is_available():
             torch.cuda.synchronize(accelerator.device)
 
-    # Decode batch outputs
+    # Decode completion only (strip the prompt)
     generated_texts = []
-    for i in range(len(input_texts)):
+    for i in range(len(input_texts_formatted)):
+        # Get only the new tokens (completion)
+        completion_ids = outputs[i][prompt_length:]
+        
         try:
-            generated_text = tokenizer.decode(outputs[i], skip_special_tokens=True)
+            completion_text = tokenizer.decode(completion_ids, skip_special_tokens=False)
         except TypeError:
-            tokens = tokenizer.convert_ids_to_tokens(outputs[i], skip_special_tokens=True)
+            tokens = tokenizer.convert_ids_to_tokens(completion_ids)
             filtered = [t for t in tokens if t is not None]
-            generated_text = tokenizer.convert_tokens_to_string(filtered)
-        generated_texts.append(generated_text)
+            completion_text = tokenizer.convert_tokens_to_string(filtered)
+        
+        # Clean the completion (remove <|im_end|>, EOS, etc.)
+        completion_text = clean_completion(completion_text)
+        generated_texts.append(completion_text)
 
     del input_ids, outputs
     torch.cuda.empty_cache()
 
-    # Compute rewards for batch texts
+    # Compute rewards using cleaned completions
     rewards = [compute_reward(gen_text, tgt_text) for gen_text, tgt_text in zip(generated_texts, target_texts)]
-
 
     if return_text:
         return rewards, generated_texts
     else:
         return rewards
 
+
 def _truncate(s: str, n: int) -> str:
     if s is None:
         return ""
     s = str(s)
     return s if len(s) <= n else (s[:n] + "…")
+
 
 def evaluate_eval_set_distributed(model, tokenizer, eval_dataset, accelerator, verbose=False):
     """
@@ -208,7 +276,7 @@ def evaluate_eval_set_distributed(model, tokenizer, eval_dataset, accelerator, v
     n = len(eval_dataset)
     device = accelerator.device
 
-    # Assign eval examples by index to processes (like your seed assignment)
+    # Assign eval examples by index to processes
     local_indices = [i for i in range(n) if (i % accelerator.num_processes) == accelerator.process_index]
     local_inputs = [eval_dataset[i][0] for i in local_indices]
     local_targets = [eval_dataset[i][1] for i in local_indices]
@@ -216,7 +284,7 @@ def evaluate_eval_set_distributed(model, tokenizer, eval_dataset, accelerator, v
     if verbose:
         print(f"[Eval] process {accelerator.process_index} evaluating {len(local_indices)}/{n} examples")
 
-    # Compute local rewards (batched) using your existing evaluate_model
+    # Compute local rewards (batched)
     local_rewards = []
     if len(local_inputs) > 0:
         local_rewards = evaluate_model(
@@ -228,7 +296,7 @@ def evaluate_eval_set_distributed(model, tokenizer, eval_dataset, accelerator, v
             return_text=False
         )
 
-    # Build a full rewards tensor and reduce across processes (each index is filled by exactly one process)
+    # Build a full rewards tensor and reduce across processes
     rewards_tensor = torch.zeros(n, device=device, dtype=torch.float32)
     for idx, r in zip(local_indices, local_rewards):
         rewards_tensor[idx] = float(r)
@@ -246,6 +314,7 @@ def evaluate_eval_set_distributed(model, tokenizer, eval_dataset, accelerator, v
     force_memory_cleanup()
 
     return mean, mn, mx, std, rewards
+
 
 def log_eval_completions_to_wandb(model, tokenizer, eval_dataset, accelerator, wandb_run, step, max_rows, max_chars, seed):
     """
@@ -274,17 +343,20 @@ def log_eval_completions_to_wandb(model, tokenizer, eval_dataset, accelerator, w
         return_text=True
     )
 
-    table = wandb.Table(columns=["idx", "question", "target", "generated", "reward"])
+    table = wandb.Table(columns=["idx", "question", "target", "generated", "gen_len", "target_len", "reward"])
     for i, q, t, g, r in zip(sample_indices, input_texts, target_texts, generated_texts, rewards):
         table.add_data(
             int(i),
             _truncate(q, max_chars),
             _truncate(t, max_chars),
             _truncate(g, max_chars),
+            len(g),
+            len(t),
             float(r),
         )
 
     wandb_run.log({"eval/completions": table}, step=step)
+
 
 def process_seed(seed_args):
     """Function to process a single seed, used for thread pool"""
@@ -297,7 +369,6 @@ def process_seed(seed_args):
     seed_shift = 0
     for name, param in model.named_parameters():
         gen = torch.Generator(device=param.device)
-
         gen.manual_seed(int(seed+seed_shift))
         seed_shift += 1
 
@@ -309,22 +380,21 @@ def process_seed(seed_args):
         )
         param.data.add_(SIGMA * noise)
 
-    # Ensure weights are fully loaded before evaluation
     if torch.cuda.is_available():
         torch.cuda.synchronize(accelerator.device)
 
     # Evaluate all prompts with perturbed weights in batch
+    # Pass raw questions - chat template applied inside evaluate_model
     input_texts = [input_text for input_text, _ in dataset]
     target_texts = [target_text for _, target_text in dataset]
     rewards = evaluate_model(model, tokenizer, input_texts, target_texts, accelerator,
                            seed_idx=seed_idx, thread_id=thread_id, verbose=verbose, return_text=False)
     total_reward = sum(rewards)
 
-    # Restore original weights (direct inplace modification)
+    # Restore original weights
     seed_shift = 0
     for name, param in model.named_parameters():
         gen = torch.Generator(device=param.device)
-
         gen.manual_seed(int(seed+seed_shift))
         seed_shift += 1
 
@@ -341,7 +411,6 @@ def process_seed(seed_args):
 
     average_reward = total_reward / len(dataset)
 
-
     force_memory_cleanup()
 
     if verbose:
@@ -350,14 +419,126 @@ def process_seed(seed_args):
     return seed_idx, average_reward
 
 
+def verify_setup(tokenizer, accelerator, args):
+    """
+    Print verification info for debugging. Call on rank 0 only.
+    Matches GRPO script output format for easy comparison.
+    """
+    print("\n" + "=" * 60)
+    print("SETUP VERIFICATION")
+    print("=" * 60)
+    
+    # Tokenizer checks
+    print(f"\n[Tokenizer]")
+    print(f"  pad_token: {repr(tokenizer.pad_token)} (id={tokenizer.pad_token_id})")
+    print(f"  eos_token: {repr(tokenizer.eos_token)} (id={tokenizer.eos_token_id})")
+    print(f"  padding_side: {tokenizer.padding_side}")
+    
+    # Check for Qwen chat tokens
+    im_end_id = tokenizer.encode("<|im_end|>", add_special_tokens=False)
+    print(f"  <|im_end|> token ids: {im_end_id}")
+    
+    # Sample prompt check
+    if len(dataset) > 0:
+        sample_q, sample_a = dataset[0]
+        formatted = format_prompt_with_chat_template(sample_q)
+        
+        print(f"\n[Sample Formatted Prompt]")
+        print(f"  Prompt:")
+        print(f"    {repr(formatted)[:200]}...")
+        print(f"  Answer: {repr(sample_a)}")
+        
+        # Verify chat template applied
+        if "<|im_start|>" not in formatted:
+            print("  ⚠️  WARNING: Prompt missing <|im_start|> - chat template may not be applied!")
+        else:
+            print("  ✓ Chat template detected")
+        
+        if "<|im_start|>assistant" in formatted:
+            print("  ✓ Generation prompt added (ends with assistant turn)")
+        else:
+            print("  ⚠️  WARNING: Missing assistant generation prompt!")
+    
+    # Training config summary
+    print(f"\n[Training Config]")
+    print(f"  algorithm: Evolution Strategies")
+    print(f"  sigma (noise scale): {SIGMA}")
+    print(f"  alpha (learning rate): {ALPHA}")
+    print(f"  population_size: {POPULATION_SIZE}")
+    print(f"  iterations: {NUM_ITERATIONS}")
+    print(f"  max_new_tokens: {max_new_tokens}")
+    print(f"  do_sample: {do_sample}")
+    print(f"  seed: {initial_seed}")
+    
+    # Dataset info
+    print(f"\n[Dataset]")
+    print(f"  train_size: {len(dataset)}")
+    print(f"  eval_size: {len(eval_dataset) if eval_dataset else 0}")
+    print(f"  eval_steps: {args.eval_steps}")
+    
+    # Distributed info
+    print(f"\n[Distributed]")
+    print(f"  num_processes: {accelerator.num_processes}")
+    print(f"  gpu_threads: {args.gpu_threads}")
+    
+    print("\n" + "=" * 60 + "\n")
+
+
+def verify_completion_extraction(model, tokenizer, accelerator):
+    """
+    Run a single test generation to verify completion extraction is working.
+    Call on rank 0 only.
+    """
+    if len(dataset) == 0:
+        return
+    
+    print("[Completion Extraction Test]")
+    
+    sample_q, sample_a = dataset[0]
+    
+    # Get completion using our evaluate_model function
+    rewards, completions = evaluate_model(
+        model, tokenizer,
+        [sample_q], [sample_a],
+        accelerator,
+        seed_idx=None, thread_id=None,
+        verbose=False,
+        return_text=True
+    )
+    
+    completion = completions[0]
+    reward = rewards[0]
+    
+    print(f"  Input question: {repr(sample_q)}")
+    print(f"  Target answer: {repr(sample_a)} (len={len(sample_a)})")
+    print(f"  Generated completion: {repr(completion[:100])}{'...' if len(completion) > 100 else ''}")
+    print(f"  Completion length: {len(completion)}")
+    print(f"  Reward: {reward}")
+    
+    # Sanity check: completion should NOT contain the prompt
+    if sample_q in completion:
+        print("  ⚠️  WARNING: Completion contains the input question - extraction may be broken!")
+    else:
+        print("  ✓ Completion does not contain input (extraction working)")
+    
+    # Check if completion contains chat template artifacts
+    if "<|im_start|>" in completion:
+        print("  ⚠️  WARNING: Completion contains <|im_start|> - may need additional cleaning")
+    else:
+        print("  ✓ No chat template artifacts in completion")
+    
+    print()
+
+
 # --- Main Evolution Strategies Loop ---
 def main():
+    global _tokenizer
+    
     accelerator = Accelerator()
 
     # Initialize wandb only on main process
     wandb_run = None
     if accelerator.is_main_process and not args.no_wandb:
-        # Generate run name if not provided
         run_name = args.wandb_run_name
         if run_name is None:
             run_name = f"es_seed{args.initial_seed}_sigma{SIGMA}_alpha{ALPHA}_pop{POPULATION_SIZE}"
@@ -367,6 +548,7 @@ def main():
             name=run_name,
             entity=args.wandb_entity,
             config={
+                "algorithm": "evolution_strategies",
                 "model_name": args.model_name,
                 "initial_seed": args.initial_seed,
                 "sigma": SIGMA,
@@ -380,18 +562,10 @@ def main():
                 "gpu_threads": args.gpu_threads,
                 "num_processes": accelerator.num_processes,
                 "dataset_size": len(dataset),
+                "eval_dataset_size": len(eval_dataset) if eval_dataset else 0,
             }
         )
         wandb_run = wandb.run
-
-    if accelerator.is_main_process:
-        print(f"Total processes: {accelerator.num_processes}, GPU threads per process: {args.gpu_threads}")
-        print(f"Population size: {POPULATION_SIZE}, Iterations: {NUM_ITERATIONS}")
-        print(f"Sigma: {SIGMA}, Alpha: {ALPHA}")
-        if eval_dataset is None:
-            print(f"[Eval] Disabled: eval file not found at '{args.eval_jsonl}' (and no fallback 'eval.jsonl').")
-        else:
-            print(f"[Eval] Loaded {len(eval_dataset)} eval examples from '{_eval_path}'. Eval every {args.eval_steps} steps.")
 
     # Load model
     model_name = args.model_name
@@ -400,38 +574,52 @@ def main():
     if accelerator.is_main_process:
         print(f"Loading model {model_name}...")
 
-
-    # Load model
     model_list = []
     for model_index in range(args.gpu_threads):
         model_list.append(AutoModelForCausalLM.from_pretrained(
             model_name,
             cache_dir=hf_cache_dir,
-            device_map={"": accelerator.process_index},  # Assign devices explicitly
+            device_map={"": accelerator.process_index},
             torch_dtype=torch.float16 if args.precision == 'fp16' else (torch.bfloat16 if args.precision == 'bf16' else torch.float32),
         ))
+    
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False, cache_dir=hf_cache_dir)
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    tokenizer.padding_side = "left"
+    
+    # Set global tokenizer for chat template functions
+    _tokenizer = tokenizer
 
     if accelerator.is_main_process:
-        print("Model loaded successfully")
+        print("Model loaded successfully\n")
+        
+        # Run verification checks
+        verify_setup(tokenizer, accelerator, args)
+        
+        # Test completion extraction with a real generation
+        verify_completion_extraction(model_list[0], tokenizer, accelerator)
 
-    # Prepare model with accelerator
     for model in model_list:
-        model.eval()  # Turn off dropout, etc.
+        model.eval()
 
     force_memory_cleanup()
 
-    # Record total training start time
-    training_start_time = time.time()
+    # Synchronize before starting training
+    if accelerator.num_processes > 1:
+        torch.distributed.barrier()
 
+    if accelerator.is_main_process:
+        print("=" * 60)
+        print("STARTING TRAINING")
+        print("=" * 60 + "\n")
+
+    training_start_time = time.time()
     np.random.seed(initial_seed)
 
     for iteration in range(NUM_ITERATIONS):
-        # Record iteration start time
         iter_start_time = time.time()
-
-        # Force garbage collection
         force_memory_cleanup()
 
         if args.verbose:
@@ -448,25 +636,23 @@ def main():
                 print(f"Worker process {accelerator.process_index} waiting for seeds")
             seeds_tensor = torch.zeros(POPULATION_SIZE, dtype=torch.long, device=accelerator.device)
 
-        # Broadcast seeds from main process to all processes
-        if accelerator.num_processes>1:
+        if accelerator.num_processes > 1:
             torch.distributed.broadcast(seeds_tensor, src=0)
-        seeds = seeds_tensor.cpu().tolist()  # Convert back to list for all processes
+        seeds = seeds_tensor.cpu().tolist()
 
         if args.verbose:
             print(f"Process {accelerator.process_index} received seeds")
 
-        # Assign seeds to each process for processing
+        # Assign seeds to each process
         local_seeds = []
         for seed_idx, seed in enumerate(seeds):
-            # Simple task assignment: assign seeds by process ID
             if seed_idx % accelerator.num_processes == accelerator.process_index:
                 local_seeds.append((seed_idx, seed))
 
         if args.verbose:
             print(f"Process {accelerator.process_index} assigned {len(local_seeds)} seeds: {[idx for idx, _ in local_seeds]}")
 
-        # Process seeds in smaller batches to reduce memory pressure
+        # Process seeds in batches
         local_rewards = []
         batch_size = max(1, min(args.gpu_threads, len(local_seeds)))
 
@@ -475,41 +661,33 @@ def main():
             batch_seeds = local_seeds[batch_start:batch_end]
 
             with ThreadPoolExecutor(max_workers=len(batch_seeds)) as executor:
-                # Prepare thread arguments
                 thread_args = []
                 for thread_id, (seed_idx, seed) in enumerate(batch_seeds):
-                    # Pass verbose flag as argument to process_seed function
                     thread_args.append((seed_idx, seed, model_list[thread_id], tokenizer, accelerator, thread_id, args.verbose))
 
-                # Execute in parallel and collect results
                 results = list(executor.map(process_seed, thread_args))
                 local_rewards.extend(results)
 
-            # Clean up between batches
             force_memory_cleanup()
 
         # Collect rewards from all processes
         all_rewards = torch.zeros(POPULATION_SIZE, device=accelerator.device)
 
-        # Fill in locally computed rewards
         for seed_idx, reward in local_rewards:
             all_rewards[seed_idx] = reward
 
-        # Aggregate rewards from all processes (each process will get the full reward list)
-        if accelerator.num_processes>1:
+        if accelerator.num_processes > 1:
             torch.distributed.all_reduce(all_rewards, op=torch.distributed.ReduceOp.SUM)
 
-        # Convert aggregated rewards back to Python list
         rewards = all_rewards.cpu().tolist()
-        # Clean up no longer needed tensor
         del all_rewards
         force_memory_cleanup()
 
-        # Convert rewards to a tensor and normalize.
+        # Normalize rewards
         rewards_tensor = np.array(rewards, dtype=np.float32)
         rewards_normalized = (rewards_tensor - rewards_tensor.mean()) / (rewards_tensor.std() + 1e-8)
 
-        # Aggregate perturbations and update model weights
+        # Update model weights
         if args.verbose:
             print(f"Process {accelerator.process_index} updating model weights")
         original_model = model_list[0]
@@ -536,12 +714,12 @@ def main():
             torch.cuda.empty_cache()
             seed_shift += 1
 
+        # Sync weights across model copies
         for model_idx in range(1, len(model_list)):
             original_model_tmp = model_list[model_idx]
             for name, param in original_model_tmp.named_parameters():
                 param.data.copy_(original_model.get_parameter(name).data.clone())
 
-        # Synchronize to ensure weight updates are complete
         if torch.cuda.is_available():
             torch.cuda.synchronize(accelerator.device)
 
@@ -568,10 +746,8 @@ def main():
                             "eval/reward/max": eval_max,
                             "eval/reward/std": eval_std,
                             "eval/size": len(eval_dataset),
-                            "eval/path": _eval_path,
                         }, step=iteration + 1)
 
-                        # Log a few completions for sanity checking
                         log_eval_completions_to_wandb(
                             original_model, tokenizer, eval_dataset, accelerator,
                             wandb_run=wandb_run,
@@ -595,7 +771,6 @@ def main():
             print(f"Iteration {iteration + 1}/{NUM_ITERATIONS}, Time: {iter_time:.2f}s, Mean: {mean_reward:.2f}, Min: {min_reward:.2f}, Max: {max_reward:.2f}")
             print(f"GPU Memory: {torch.cuda.memory_allocated() / 1024**2:.2f}MB allocated, {torch.cuda.max_memory_allocated() / 1024**2:.2f}MB peak")
 
-            # Log metrics to wandb
             if wandb_run is not None:
                 wandb_run.log({
                     "iteration": iteration + 1,
@@ -609,14 +784,17 @@ def main():
                 }, step=iteration + 1)
 
             # Save checkpoint every save_steps iterations
-            if (iteration + 1) % args.save_steps == 0:
-                save_model_checkpoint(original_model, tokenizer, iteration + 1, model_name, initial_seed, args, len(dataset), wandb_run)
+            if args.save_steps > 0 and (iteration + 1) % args.save_steps == 0:
+                save_model_checkpoint(
+                    original_model, tokenizer, iteration + 1,
+                    model_name, initial_seed, args, len(dataset), wandb_run
+                )
 
     total_time = time.time() - training_start_time
 
-
-    # Save the final fine-tuned model weights.
+    # Save the final model
     if accelerator.is_main_process:
+        print("\n" + "=" * 60)
         print(f"Training completed in {total_time:.2f}s ({total_time/60:.2f} minutes)")
         save_dir = get_save_dir(model_name, initial_seed, NUM_ITERATIONS, len(dataset), args, is_final=True)
         os.makedirs(save_dir, exist_ok=True)
@@ -624,8 +802,8 @@ def main():
         original_model.save_pretrained(save_dir)
         tokenizer.save_pretrained(save_dir)
         print(f"Final model saved successfully.")
+        print("=" * 60)
         
-        # Log final model save to wandb
         if wandb_run is not None:
             wandb_run.log({
                 "final_model_saved": True,
@@ -634,6 +812,7 @@ def main():
                 "total_training_time_minutes": total_time / 60,
             }, step=NUM_ITERATIONS)
             wandb_run.finish()
+
 
 if __name__ == "__main__":
     os.environ["PYTHONWARNINGS"] = "ignore"
