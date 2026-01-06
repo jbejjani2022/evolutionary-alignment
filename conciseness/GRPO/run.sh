@@ -7,11 +7,11 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --gpus-per-node=4
 #SBATCH --cpus-per-task=64
-#SBATCH --time=01:00:00
+#SBATCH --time=24:00:00
 #SBATCH --mem=256GB
 #SBATCH --mail-user=jbejjani@college.harvard.edu
 #SBATCH --mail-type=ALL
-#SBATCH --array=0-1%1
+#SBATCH --array=0-1%2
 
 set -euo pipefail
 
@@ -20,11 +20,11 @@ module load cuda/12.9.1-fasrc01
 module load cudnn/9.10.2.21_cuda12-fasrc01
 
 mamba deactivate
-source activate /n/holylabs/LABS/sham_lab/Users/jbejjani/envs/evolutionary-alignment
+mamba activate /n/holylabs/LABS/sham_lab/Users/jbejjani/envs/evolutionary-alignment
 
 CONFIG=${CONFIG:-grpo_conciseness_trl.yaml}
-BETAS=(0.1 0.0) # (0.0 0.01 0.0167 0.0464)
-SEEDS=(11) # (11 22 33 44)
+BETAS=(0.0 0.0464) # (0.0 0.01 0.0167 0.0464)
+SEEDS=(0) # (0 1 2 3)
 NB=${#BETAS[@]}
 NS=${#SEEDS[@]}
 IDX=${SLURM_ARRAY_TASK_ID}
@@ -55,6 +55,7 @@ export TOKENIZERS_PARALLELISM=false
 export TRANSFORMERS_NO_ADVISORY_WARNINGS=1
 export WANDB__SERVICE_WAIT=300
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+export TRITON_CACHE_DIR=/n/netscratch/sham_lab/Everyone/jbejjani/triton_cache
 
 # Optional: turn on vLLM-backed generation to reduce GPU mem during sampling
 # export USE_VLLM=1
