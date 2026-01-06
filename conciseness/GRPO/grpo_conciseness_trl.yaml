@@ -4,6 +4,8 @@
 
 model_name: Qwen/Qwen2.5-7B-Instruct
 
+hf_cache_dir: /n/netscratch/sham_lab/Everyone/jbejjani/hf_cache
+
 # Data (2 train, 8 eval; Appendix A.1 / Tables 4 & 5)
 train_jsonl: /n/holylabs/LABS/sham_lab/Users/jbejjani/evolutionary-alignment/conciseness/data/train.jsonl
 eval_jsonl: /n/holylabs/LABS/sham_lab/Users/jbejjani/evolutionary-alignment/conciseness/data/eval.jsonl
@@ -30,15 +32,11 @@ max_steps: 1000
 gradient_accumulation_steps: 15
 
 # Logging / output
-project: trl_grpo_concise
+project: trl_grpo_concise_fix
 entity: KURE-Spring-25
-output_dir: /n/netscratch/sham_lab/Everyone/jbejjani/evolutionary-alignment/conciseness/GRPO
-save_steps: 200
+output_dir: /n/netscratch/sham_lab/Everyone/jbejjani/evolutionary-alignment/conciseness/GRPO/fix
+save_steps: 500
 logging_steps: 5
-
-# Sweep (Table 2 focuses on β)
-betas: [0.0, 0.01, 0.0167, 0.0464]
-seeds: [11, 22, 33, 44]
 
 # Plain GRPO (Table 2);
 loss_type: grpo

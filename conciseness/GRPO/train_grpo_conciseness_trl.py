@@ -207,7 +207,11 @@ def main():
     os.environ["WANDB_PROJECT"] = str(cfg["project"])
 
     # Tokenizer
-    tokenizer = AutoTokenizer.from_pretrained(cfg["model_name"], use_fast=False)
+    tokenizer = AutoTokenizer.from_pretrained(
+        cfg["model_name"],
+        use_fast=False,
+        cache_dir=cfg.get("hf_cache_dir", "hf_cache")
+    )
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "left"
