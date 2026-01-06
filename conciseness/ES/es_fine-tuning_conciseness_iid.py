@@ -764,7 +764,7 @@ def main():
                     "train/reward/max": max_reward,
                     "train/reward/std": std_reward,
                     # Time metrics
-                    "time/iteration": iter_time,
+                    "train/step_time": iter_time,
                     # GPU metrics
                     "gpu_memory/allocated_mb": torch.cuda.memory_allocated() / 1024**2,
                     "gpu_memory/peak_mb": torch.cuda.max_memory_allocated() / 1024**2,
@@ -786,10 +786,12 @@ def main():
                     if wandb_run is not None:
                         # Use consistent eval metric names
                         wandb_run.log({
-                            "eval/reward/mean": eval_mean,
+                            "eval/reward": eval_mean,
+                            "eval/rewards/reward_fn/mean": eval_mean,
                             "eval/reward/min": eval_min,
                             "eval/reward/max": eval_max,
-                            "eval/reward/std": eval_std,
+                            "eval/reward_std": eval_std,
+                            "eval/rewards/reward_fn/std": eval_std,
                         }, step=iteration + 1)
 
                     # Log completions to both stdout and wandb
