@@ -182,8 +182,7 @@ def verify_setup(tokenizer, train_ds, cfg, args):
 
 class LogCompletionsToStdoutCallback:
     """
-    Callback to print completions to stdout when LogCompletionsCallback logs to wandb.
-    This hooks into the trainer's evaluation to print samples.
+    Callback to generate and print completions to stdout.
     """
     def __init__(self, trainer, tokenizer, eval_dataset, num_prompts=8, freq=50, max_chars=500):
         self.trainer = trainer
@@ -199,6 +198,60 @@ class LogCompletionsToStdoutCallback:
             return ""
         s = str(s)
         return s if len(s) <= n else (s[:n] + "…")
+    
+    def _clean_completion(self, text):
+        """Remove EOS/chat-end tokens and strip whitespace."""
+        text = text.strip()
+        im_end_token = "<|im_end|>"
+        eos_token = self.tokenizer.eos_token or ""
+        for token in [im_end_token, eos_token]:
+            if token and text.endswith(token):
+                text = text[:-len(token)].strip()
+        return text
+    
+    def _generate_completions(self, prompts):
+        """Generate completions for a list of prompts."""
+        import torch
+        
+        model = self.trainer.model
+        device = next(model.parameters()).device
+        
+        # Tokenize prompts
+        tokenized = self.tokenizer(
+            prompts,
+            return_tensors="pt",
+            padding=True,
+            add_special_tokens=False  # Chat template already includes special tokens
+        )
+        input_ids = tokenized["input_ids"].to(device)
+        attention_mask = tokenized["attention_mask"].to(device)
+        prompt_length = input_ids.shape[1]
+        
+        # Generate
+        with torch.inference_mode():
+            outputs = model.generate(
+                input_ids,
+                attention_mask=attention_mask,
+                max_new_tokens=100,  # Match eval generation length
+                do_sample=False,  # Greedy for deterministic eval
+                pad_token_id=self.tokenizer.pad_token_id,
+                eos_token_id=self.tokenizer.eos_token_id,
+            )
+        
+        # Decode completions only (strip prompt)
+        completions = []
+        for i in range(len(prompts)):
+            completion_ids = outputs[i][prompt_length:]
+            try:
+                completion_text = self.tokenizer.decode(completion_ids, skip_special_tokens=False)
+            except TypeError:
+                tokens = self.tokenizer.convert_ids_to_tokens(completion_ids)
+                filtered = [t for t in tokens if t is not None]
+                completion_text = self.tokenizer.convert_tokens_to_string(filtered)
+            completion_text = self._clean_completion(completion_text)
+            completions.append(completion_text)
+        
+        return completions
     
     def maybe_log(self, step):
         """Call this periodically to check if we should log."""
@@ -219,16 +272,27 @@ class LogCompletionsToStdoutCallback:
         rng = np.random.RandomState(step)
         indices = rng.choice(n, size=k, replace=False).tolist()
         
+        # Gather samples
+        samples = [self.eval_dataset[idx] for idx in indices]
+        prompts = [s.get('prompt', '') for s in samples]
+        answers = [s.get('answer', '') for s in samples]
+        
+        # Generate completions
+        completions = self._generate_completions(prompts)
+        
+        # Compute rewards
+        rewards = [-abs(len(c) - len(a)) for c, a in zip(completions, answers)]
+        
         print(f"\n[Eval Completions - Step {step}]")
         print("-" * 80)
         
         for i, idx in enumerate(indices):
-            sample = self.eval_dataset[idx]
-            prompt = sample.get('prompt', '')
-            answer = sample.get('answer', '')
+            prompt = prompts[i]
+            answer = answers[i]
+            completion = completions[i]
+            reward = rewards[i]
             
             # Extract just the user question from the formatted prompt for display
-            # The prompt is formatted with chat template, extract the content
             display_prompt = prompt
             if '<|im_start|>user\n' in prompt:
                 start = prompt.find('<|im_start|>user\n') + len('<|im_start|>user\n')
@@ -239,7 +303,8 @@ class LogCompletionsToStdoutCallback:
             print(f"  [{i+1}/{k}] idx={idx}")
             print(f"    Prompt: {self._truncate(display_prompt, self.max_chars)}")
             print(f"    Target: {self._truncate(answer, self.max_chars)} (len={len(answer)})")
-            print(f"    (Completion logged to wandb)")
+            print(f"    Generated: {self._truncate(completion, self.max_chars)} (len={len(completion)})")
+            print(f"    Reward: {reward:.2f}")
             print()
         
         print("-" * 80)
