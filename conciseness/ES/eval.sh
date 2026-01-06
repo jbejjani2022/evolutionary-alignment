@@ -20,7 +20,7 @@ module load cudnn/9.10.2.21_cuda12-fasrc01
 
 # Activate conda environment
 mamba deactivate
-source activate /n/holylabs/LABS/sham_lab/Users/jbejjani/envs/evolutionary-alignment
+mamba activate /n/holylabs/LABS/sham_lab/Users/jbejjani/envs/evolutionary-alignment
 
 cd ..
 
@@ -30,8 +30,9 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 sigma=0.001
 alpha=0.0005
 
-python conciseness_eval_seeds_sweep.py \
+python conciseness_eval_es_seeds_sweep.py \
         --baseline_model_name Qwen/Qwen2.5-7B-Instruct \
+        --hf_cache_dir /n/netscratch/sham_lab/Everyone/jbejjani/hf_cache \
         --precision bf16 \
         --max_new_tokens 128 \
         --num_samples 20 \
