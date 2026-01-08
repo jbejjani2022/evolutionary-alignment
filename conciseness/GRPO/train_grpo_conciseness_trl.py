@@ -76,22 +76,21 @@ def make_reward_func_from_map(cfg: dict, tokenizer):
     TRL passes completions as strings (assistant response only, no prompt).
     We strip any trailing <|im_end|> or EOS artifacts before measuring length.
     """
-    # Get special tokens to strip from completions
-    eos_token = tokenizer.eos_token or ""
-    # Qwen2.5 uses <|im_end|> as the chat end token
     im_end_token = "<|im_end|>"
+    eos_token = tokenizer.eos_token or ""
+    
+    # Track iterations (each call to reward_fn = 1 iteration)
+    iteration_counter = [0]
     
     def clean_completion(text: str) -> str:
         """Remove EOS/chat-end tokens and strip whitespace."""
         text = text.strip()
-        # Remove trailing special tokens (may appear if generation stopped naturally)
         for token in [im_end_token, eos_token]:
             if token and text.endswith(token):
                 text = text[:-len(token)].strip()
         return text
 
     def reward_fn(completions, **kwargs):
-        # TRL passes dataset columns via **kwargs; answers arrive under "answer".
         answers = kwargs.get("answer", None)
         
         if answers is None:
@@ -102,30 +101,31 @@ def make_reward_func_from_map(cfg: dict, tokenizer):
         
         for completion, answer in zip(completions, answers):
             text = completion if isinstance(completion, str) else str(completion)
-            
-            # Clean the completion (remove special tokens)
             y = clean_completion(text)
             a = (answer or "").strip()
-            
-            # Reward: negative absolute difference in character length
             r = -abs(len(y) - len(a))
-            
             rewards.append(float(r))
             decoded_len.append(len(y))
 
-        # W&B logging on rank 0 - use consistent metric names with ES
+        # Increment iteration counter
+        iteration_counter[0] += 1
+        iteration = iteration_counter[0]
+
+        # W&B logging on rank 0
         try:
             import wandb
+            import numpy as np
             if os.environ.get("RANK", "0") == "0" and len(rewards) > 0:
                 wandb.log({
-                    "train/decoded_length/mean": sum(decoded_len) / len(decoded_len),
-                    "train/decoded_length/min": min(decoded_len),
-                    "train/decoded_length/max": max(decoded_len),
+                    "iteration": iteration,
                     "train/reward/mean": sum(rewards) / len(rewards),
                     "train/reward/min": min(rewards),
                     "train/reward/max": max(rewards),
-                    "train/reward/std": float(__import__('numpy').std(rewards)) if len(rewards) > 1 else 0.0,
-                }, commit=False)
+                    "train/reward/std": float(np.std(rewards)) if len(rewards) > 1 else 0.0,
+                    "train/decoded_length/mean": sum(decoded_len) / len(decoded_len),
+                    "train/decoded_length/min": min(decoded_len),
+                    "train/decoded_length/max": max(decoded_len),
+                })
         except Exception:
             pass
         
