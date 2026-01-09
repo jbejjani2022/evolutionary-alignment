@@ -130,9 +130,14 @@ def clean_completion(text: str) -> str:
     im_end_token = "<|im_end|>"
     eos_token = _tokenizer.eos_token or ""
     
-    for token in [im_end_token, eos_token]:
-        if token and text.endswith(token):
-            text = text[:-len(token)].strip()
+    # Strip repeatedly until no more special tokens
+    changed = True
+    while changed:
+        changed = False
+        for token in [im_end_token, eos_token]:
+            if token and text.endswith(token):
+                text = text[:-len(token)].strip()
+                changed = True
     return text
 
 
@@ -597,25 +602,33 @@ def main():
 
     # Collect metrics from successful evaluations
     reward_means = []
+    normalized_reward_means = []
     kl_means = []
     
     for seed, result in seed_results.items():
         if "error" not in result:
             reward_means.append(result["reward"]["mean"])
+            normalized_reward_means.append(result["reward"]["normalized"]["mean"])
             if not np.isnan(result["kl"]["mean_per_token"]):
                 kl_means.append(result["kl"]["mean_per_token"])
 
     if reward_means:
         aggregate_reward_mean = float(np.mean(reward_means))
         aggregate_reward_std = float(np.std(reward_means)) if len(reward_means) > 1 else 0.0
+        normalized_reward_mean = float(np.mean(normalized_reward_means))
+        normalized_reward_std = float(np.std(normalized_reward_means)) if len(normalized_reward_means) > 1 else 0.0
         print(f"Reward across seeds:")
         print(f"  Mean of means: {aggregate_reward_mean:.4f}")
         print(f"  Std of means: {aggregate_reward_std:.4f}")
+        print(f"  Mean of normalized means: {normalized_reward_mean:.4f}")
+        print(f"  Std of normalized means: {normalized_reward_std:.4f}")
         print(f"  Successful seeds: {len(reward_means)}")
     else:
         print("No successful reward evaluations to aggregate")
         aggregate_reward_mean = float('nan')
         aggregate_reward_std = float('nan')
+        normalized_reward_mean = float('nan')
+        normalized_reward_std = float('nan')
 
     if kl_means:
         aggregate_kl_mean = float(np.mean(kl_means))
@@ -649,6 +662,8 @@ def main():
         "aggregate": {
             "reward_mean": aggregate_reward_mean,
             "reward_std": aggregate_reward_std,
+            "normalized_reward_mean": normalized_reward_mean,
+            "normalized_reward_std": normalized_reward_std,
             "kl_mean": aggregate_kl_mean,
             "kl_std": aggregate_kl_std,
             "successful_seeds": len(reward_means),
@@ -663,8 +678,11 @@ def main():
     if args.algorithm == 'es':
         results["config"]["sigma"] = args.sigma
         results["config"]["alpha"] = args.alpha
+        results["sigma"] = args.sigma
+        results["alpha"] = args.alpha
     else:
         results["config"]["beta"] = args.beta
+        results["beta"] = args.beta
 
     # Determine output path
     if args.output_json:
