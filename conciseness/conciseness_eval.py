@@ -72,7 +72,7 @@ def parse_args():
                         help='Model precision')
     parser.add_argument('--max_new_tokens', type=int, default=128,
                         help='Maximum number of tokens to generate')
-    parser.add_argument('--do_sample', action='store_true', default=True,
+    parser.add_argument('--do_sample', action='store_true', default=False,
                         help='Enable sampling vs greedy decoding')
     parser.add_argument('--num_samples', type=int, default=20,
                         help='Number of responses to generate per prompt')
@@ -133,6 +133,31 @@ def parse_args():
 
 # Global tokenizer reference for helper functions
 _tokenizer = None
+
+
+def trim_ids(ids, terminators, pad_id):
+    ids_list = ids.tolist()
+    for i, t in enumerate(ids_list):
+        if t == pad_id or t in terminators:
+            return ids[:i]   # exclude stop/pad
+    return ids
+
+
+def get_terminator_ids(tokenizer, model=None):
+    # Prefer model generation_config if available
+    if model is not None and hasattr(model, "generation_config"):
+        eos = model.generation_config.eos_token_id
+        if eos is not None:
+            return eos if isinstance(eos, (list, tuple)) else [int(eos)]
+
+    # Fallback: tokenizer eos + im_end
+    terminators = []
+    if tokenizer.eos_token_id is not None:
+        terminators.append(int(tokenizer.eos_token_id))
+    im_end_id = tokenizer.convert_tokens_to_ids("<|im_end|>")
+    if im_end_id is not None:
+        terminators.append(int(im_end_id))
+    return list(dict.fromkeys(terminators))  # unique, preserve order
 
 
 def format_prompt_with_chat_template(question: str) -> str:
@@ -321,8 +346,9 @@ def generate_batched_samples(model, tokenizer, formatted_prompt, num_samples, ar
         # Expand for batch generation
         batch_input_ids = input_ids.expand(batch_size, -1)
         batch_attention_mask = attention_mask.expand(batch_size, -1)
-        
+
         with torch.inference_mode():
+            terminators = get_terminator_ids(tokenizer, model)
             outputs = model.generate(
                 batch_input_ids,
                 attention_mask=batch_attention_mask,
@@ -331,7 +357,7 @@ def generate_batched_samples(model, tokenizer, formatted_prompt, num_samples, ar
                 temperature=args.temperature,
                 top_p=args.top_p,
                 pad_token_id=tokenizer.pad_token_id,
-                eos_token_id=tokenizer.eos_token_id,
+                eos_token_id=terminators,
             )
         
         for i in range(batch_size):
@@ -339,10 +365,12 @@ def generate_batched_samples(model, tokenizer, formatted_prompt, num_samples, ar
             completion_ids = full_ids[prompt_length:]
             
             try:
-                # Decode with skip_special_tokens=True to get clean text
-                generated_answer = tokenizer.decode(completion_ids, skip_special_tokens=True)
+                terminators = set(get_terminator_ids(tokenizer, model))
+                trimmed_completion_ids = trim_ids(completion_ids, terminators, tokenizer.pad_token_id)
+                num_answer_tokens = int(trimmed_completion_ids.numel())
+                generated_answer = tokenizer.decode(trimmed_completion_ids, skip_special_tokens=True).strip()
             except TypeError:
-                tokens = tokenizer.convert_ids_to_tokens(completion_ids)
+                tokens = tokenizer.convert_ids_to_tokens(trimmed_completion_id.tolist())
                 filtered = [t for t in tokens if t is not None]
                 generated_answer = tokenizer.convert_tokens_to_string(filtered)
             
@@ -355,7 +383,7 @@ def generate_batched_samples(model, tokenizer, formatted_prompt, num_samples, ar
                 raw_answer = tokenizer.decode(completion_ids, skip_special_tokens=False)
                 generated_answer = clean_completion(raw_answer)
             
-            results.append((full_ids, completion_ids, generated_answer, prompt_length))
+            results.append((full_ids, completion_ids, generated_answer, prompt_length, num_answer_tokens))
     
     return results
 
@@ -422,10 +450,9 @@ def evaluate_single_model(model_path, tokenizer, dataset, device, dtype, args, b
             
             question_completions = []
             
-            for sample_idx, (full_ids, completion_ids, generated_answer, prompt_length) in enumerate(generation_results):
+            for sample_idx, (full_ids, completion_ids, generated_answer, prompt_length, num_answer_tokens) in enumerate(generation_results):
                 # Compute reward
                 reward = compute_reward(generated_answer, target_answer)
-                num_answer_tokens = len(completion_ids)
                 
                 completion_info = {
                     "sample_idx": sample_idx,
@@ -589,13 +616,14 @@ def evaluate_single_model(model_path, tokenizer, dataset, device, dtype, args, b
     del model_ref
     force_memory_cleanup()
     
-    # Now compute KL on CPU
     print("  Computing KL divergence (phase 3: KL calculation on CPU)...")
     all_per_token_kls = []
     per_sample_kl_means = []
     
     batch_idx = 0
     seq_idx_in_batch = 0
+    
+    terminators = set(get_terminator_ids(tokenizer))
     
     for seq_idx in range(num_sequences):
         # Find the right batch and position
@@ -610,27 +638,44 @@ def evaluate_single_model(model_path, tokenizer, dataset, device, dtype, args, b
         ft_logps_seq = all_ft_logps[batch_idx][seq_idx_in_batch]
         ref_logps_seq = all_ref_logps[batch_idx][seq_idx_in_batch]
         
-        # KL only on generated tokens (after prompt)
+        # Start checking tokens immediately after prompt
         gen_start_idx = max(prompt_len - 1, 0)
         
         if gen_start_idx < ft_logps_seq.shape[0]:
+            # Slice valid logprobs
+            # Note: ft_logps_seq is already shifted (len = seq_len - 1)
             ft_gen_logps = ft_logps_seq[gen_start_idx:seq_len-1]
             ref_gen_logps = ref_logps_seq[gen_start_idx:seq_len-1]
-            
-            # Get generated token ids for EOS truncation
+
+            # Get corresponding token IDs to check for padding/EOS
+            # seq[1:] aligns with the logps array
             generated_token_ids = seq[1:][gen_start_idx:seq_len-1]
             
-            # Truncate at EOS
-            if tokenizer.eos_token_id is not None:
-                eos_positions = (generated_token_ids == tokenizer.eos_token_id).nonzero(as_tuple=False)
-                if eos_positions.numel() > 0:
-                    cutoff = eos_positions[0, 0].item() + 1
-                    ft_gen_logps = ft_gen_logps[:cutoff]
-                    ref_gen_logps = ref_gen_logps[:cutoff]
+            # Create mask for valid tokens (stop at first pad or terminator)
+            stop_mask = (generated_token_ids == tokenizer.pad_token_id)
+            for tid in terminators:
+                stop_mask |= (generated_token_ids == tid)
+
+            stop_pos = stop_mask.nonzero(as_tuple=False)
+            cutoff = None
+            if stop_pos.numel() > 0:
+                cutoff = stop_pos[0, 0].item()
+                # Include the EOS token in the KL calc, but stop after it
+                # If you strictly want content only, use [:cutoff]
+                # Usually we include the EOS prediction as it is part of the generation
+                ft_gen_logps = ft_gen_logps[:cutoff+1] 
+                ref_gen_logps = ref_gen_logps[:cutoff+1]
             
             if ft_gen_logps.shape[0] > 0:
+                # KL(FT || Ref)
+                # This measures how much the FT model diverges from the base (Ref) model
+                # k3 from Schulman (2020)
                 logp_diff = ref_gen_logps - ft_gen_logps
                 per_token_kl = torch.exp(logp_diff) - logp_diff - 1
+                
+                # Optional: Clamp to avoid extreme outliers if P_ref is extremely low
+                # per_token_kl = torch.clamp(per_token_kl, min=-10.0, max=100.0)
+                
                 per_token_kl_list = per_token_kl.tolist()
                 
                 if per_token_kl_list:
