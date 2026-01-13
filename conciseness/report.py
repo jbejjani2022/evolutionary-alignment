@@ -54,6 +54,8 @@ def process_grpo_evals(evals_dir):
         
         # Extract aggregate metrics
         aggregate = data.get("aggregate", {})
+        reward_mean = aggregate.get("reward_mean")
+        reward_std = aggregate.get("reward_std")
         normalized_reward_mean = aggregate.get("normalized_reward_mean")
         normalized_reward_std = aggregate.get("normalized_reward_std")
         mean_kl = aggregate.get("kl_mean")
@@ -70,6 +72,8 @@ def process_grpo_evals(evals_dir):
         # Create report entry
         entry = {
             "beta": beta,
+            "aggregate_reward_mean": reward_mean,
+            "aggregate_reward_std": reward_std,
             "aggregate_normalized_reward_mean": normalized_reward_mean,
             "aggregate_normalized_reward_std": normalized_reward_std,
             "num_seeds_hacked_reward": hacked_seeds,
@@ -109,6 +113,8 @@ def process_es_evals(evals_dir):
         
         # Extract aggregate metrics
         aggregate = data.get("aggregate", {})
+        reward_mean = aggregate.get("reward_mean")
+        reward_std = aggregate.get("reward_std")
         normalized_reward_mean = aggregate.get("normalized_reward_mean")
         normalized_reward_std = aggregate.get("normalized_reward_std")
         mean_kl = aggregate.get("kl_mean")
@@ -126,6 +132,8 @@ def process_es_evals(evals_dir):
         entry = {
             "alpha": alpha,
             "sigma": sigma,
+            "aggregate_reward_mean": reward_mean,
+            "aggregate_reward_std": reward_std,
             "aggregate_normalized_reward_mean": normalized_reward_mean,
             "aggregate_normalized_reward_std": normalized_reward_std,
             "num_seeds_hacked_reward": hacked_seeds,
