@@ -1,0 +1,3626 @@
+usage: mamba [-h] [-v] [--no-plugins] [-V] COMMAND ...
+mamba: error: argument COMMAND: invalid choice: 'shell' (choose from 'activate', 'deactivate', 'clean', 'compare', 'config', 'create', 'info', 'init', 'install', 'list', 'notices', 'package', 'remove', 'uninstall', 'rename', 'run', 'search', 'update', 'upgrade', 'doctor', 'repoquery', 'env')
+/n/sw/helmod-rocky8/apps/lmod/lmod/init/bash: eval: line 145: syntax error near unexpected token `&&'
+/n/sw/helmod-rocky8/apps/lmod/lmod/init/bash: eval: line 145: ` && mamba deactivate'
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+[W111 19:43:47.941053012 socket.cpp:755] [c10d] The client socket cannot be initialized to connect to [localhost]:29500 (errno: 97 - Address family not supported by protocol).
+[W111 19:43:54.397465933 socket.cpp:755] [c10d] The client socket cannot be initialized to connect to [localhost]:29500 (errno: 97 - Address family not supported by protocol).
+[W111 19:43:55.415180681 socket.cpp:755] [c10d] The client socket cannot be initialized to connect to [localhost]:29500 (errno: 97 - Address family not supported by protocol).
+[W111 19:43:55.606970930 socket.cpp:755] [c10d] The client socket cannot be initialized to connect to [localhost]:29500 (errno: 97 - Address family not supported by protocol).
+[W111 19:43:55.966654920 socket.cpp:755] [c10d] The client socket cannot be initialized to connect to [localhost]:29500 (errno: 97 - Address family not supported by protocol).
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+wandb: Currently logged in as: jbejjani (addbiomechanics) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]wandb: setting up run lqyz9sdx
+wandb: Tracking run with wandb version 0.23.0
+wandb: Run data is saved locally in /n/holylabs/sham_lab/Users/jbejjani/evolutionary-alignment/conciseness/ES/wandb/run-20260111_194356-lqyz9sdx
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run qwen2.5-7b_es_conciseness_alpha0.0015_sigma0.01_seed2
+wandb: ⭐️ View project at https://wandb.ai/KURE-Spring-25/conciseness_1_9
+wandb: 🚀 View run at https://wandb.ai/KURE-Spring-25/conciseness_1_9/runs/lqyz9sdx
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.99it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.91it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.79it/s]Loading model Qwen/Qwen2.5-7B-Instruct...
+Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  2.08it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  2.06it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.94it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  2.11it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  2.09it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.96it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.24it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.17it/s]
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.85it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.21it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.14it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  2.04it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.99it/s]
+Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.93it/s]/n/holylabs/LABS/sham_lab/Users/jbejjani/envs/evolutionary-alignment/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank2]:[W111 19:43:59.311732429 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 2]  using GPU 2 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/n/holylabs/LABS/sham_lab/Users/jbejjani/envs/evolutionary-alignment/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank1]:[W111 19:43:59.318570525 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 1]  using GPU 1 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/n/holylabs/LABS/sham_lab/Users/jbejjani/envs/evolutionary-alignment/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank3]:[W111 19:44:00.477582643 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 3]  using GPU 3 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.94it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  2.04it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.99it/s]
+Model loaded successfully
+
+[EOS Token IDs] Using [151643, 151645] for generation stopping
+
+============================================================
+SETUP VERIFICATION
+============================================================
+
+[Tokenizer]
+  pad_token: '<|endoftext|>' (id=151643)
+  eos_token: '<|im_end|>' (id=151645)
+  padding_side: left
+  <|im_end|> token ids: [151645]
+  eos_token_ids for generation: [151643, 151645]
+  ✓ Multiple EOS tokens configured (generation will stop on <|im_end|>)
+
+[Sample Formatted Prompt]
+  Prompt:
+    '<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nSolve: 3 + 5 =<|im_end|>\n<|im_start|>assistant\n'...
+  Answer: '8'
+  ✓ Chat template detected
+  ✓ Generation prompt added (ends with assistant turn)
+
+[Training Config]
+  algorithm: Evolution Strategies
+  sigma (noise scale): 0.01
+  alpha (learning rate): 0.0015
+  population_size: 30
+  max_steps: 1000
+  max_completion_length: 128
+  do_sample: False
+  seed: 2
+
+[Dataset]
+  train_size: 2
+  eval_size: 8
+  eval_steps: 50
+
+[Distributed]
+  num_processes: 4
+  gpu_threads: 1
+
+============================================================
+
+[Completion Extraction Test]
+  Input question: 'Solve: 3 + 5 ='
+  Target answer: '8' (len=1)
+  Generated completion: '3 + 5 equals 8.'
+  Completion length: 15
+  Reward: -14
+  ✓ Completion does not contain input (extraction working)
+  ✓ No chat template artifacts in completion
+  ✓ No special tokens in completion (skip_special_tokens=True working)
+
+[Callbacks]
+  ✓ Stdout completion logging enabled (every 50 steps)
+  ✗ No wandb table logging for completions
+/n/holylabs/LABS/sham_lab/Users/jbejjani/envs/evolutionary-alignment/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank0]:[W111 19:44:01.171598879 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+============================================================
+STARTING TRAINING
+============================================================
+
+Iteration 1/1000, Time: 22.98s, Mean: -480.37, Min: -583.50, Max: -368.00, Std: 57.89
+GPU Memory: 15662.64MB allocated, 16702.64MB peak
+Iteration 2/1000, Time: 21.98s, Mean: -469.40, Min: -560.50, Max: -356.50, Std: 58.52
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 3/1000, Time: 22.01s, Mean: -456.65, Min: -637.50, Max: -253.00, Std: 89.11
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 4/1000, Time: 21.98s, Mean: -435.90, Min: -641.50, Max: -237.00, Std: 97.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 5/1000, Time: 21.97s, Mean: -449.02, Min: -608.00, Max: -302.50, Std: 65.94
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 6/1000, Time: 22.03s, Mean: -422.97, Min: -577.00, Max: -158.00, Std: 92.73
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 7/1000, Time: 21.96s, Mean: -434.47, Min: -592.00, Max: -286.00, Std: 73.19
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 8/1000, Time: 21.95s, Mean: -400.25, Min: -557.00, Max: -206.50, Std: 90.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 9/1000, Time: 20.95s, Mean: -417.62, Min: -526.00, Max: -103.00, Std: 78.12
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 10/1000, Time: 22.00s, Mean: -403.97, Min: -569.50, Max: -198.50, Std: 93.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 11/1000, Time: 21.96s, Mean: -443.87, Min: -545.50, Max: -255.00, Std: 67.08
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 12/1000, Time: 21.99s, Mean: -424.40, Min: -624.00, Max: -225.00, Std: 73.16
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 13/1000, Time: 22.01s, Mean: -446.08, Min: -601.00, Max: -265.00, Std: 72.37
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 14/1000, Time: 21.97s, Mean: -410.65, Min: -567.50, Max: -256.50, Std: 69.33
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 15/1000, Time: 21.99s, Mean: -422.80, Min: -577.00, Max: -215.50, Std: 70.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 16/1000, Time: 22.06s, Mean: -428.77, Min: -599.00, Max: -252.00, Std: 83.81
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 17/1000, Time: 22.01s, Mean: -419.93, Min: -513.50, Max: -288.00, Std: 56.58
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 18/1000, Time: 22.10s, Mean: -424.12, Min: -550.50, Max: -333.50, Std: 60.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 19/1000, Time: 22.00s, Mean: -404.25, Min: -579.50, Max: -191.00, Std: 93.33
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 20/1000, Time: 21.68s, Mean: -415.35, Min: -563.00, Max: -231.50, Std: 89.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 21/1000, Time: 22.01s, Mean: -425.83, Min: -561.00, Max: -277.50, Std: 66.54
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 22/1000, Time: 21.98s, Mean: -416.03, Min: -655.00, Max: -235.00, Std: 84.50
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 23/1000, Time: 20.90s, Mean: -398.52, Min: -531.50, Max: -60.00, Std: 97.33
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 24/1000, Time: 22.01s, Mean: -421.85, Min: -577.50, Max: -236.50, Std: 84.77
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 25/1000, Time: 22.03s, Mean: -429.83, Min: -586.50, Max: -291.00, Std: 70.12
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 26/1000, Time: 21.98s, Mean: -401.93, Min: -589.00, Max: -266.50, Std: 63.52
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 27/1000, Time: 22.03s, Mean: -405.67, Min: -546.50, Max: -153.00, Std: 92.41
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 28/1000, Time: 21.97s, Mean: -394.92, Min: -559.00, Max: -192.00, Std: 82.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 29/1000, Time: 21.99s, Mean: -430.92, Min: -641.50, Max: -238.00, Std: 94.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 30/1000, Time: 22.16s, Mean: -392.55, Min: -530.50, Max: -217.00, Std: 76.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 31/1000, Time: 22.11s, Mean: -374.52, Min: -557.50, Max: -220.50, Std: 88.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 32/1000, Time: 22.05s, Mean: -352.48, Min: -463.00, Max: -153.00, Std: 75.36
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 33/1000, Time: 21.32s, Mean: -361.83, Min: -564.00, Max: -178.50, Std: 90.22
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 34/1000, Time: 22.01s, Mean: -377.73, Min: -550.00, Max: -212.00, Std: 85.35
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 35/1000, Time: 22.05s, Mean: -393.63, Min: -582.00, Max: -226.50, Std: 95.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 36/1000, Time: 21.99s, Mean: -412.60, Min: -584.00, Max: -230.00, Std: 88.26
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 37/1000, Time: 21.99s, Mean: -386.30, Min: -552.50, Max: -220.50, Std: 72.69
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 38/1000, Time: 22.04s, Mean: -379.28, Min: -513.50, Max: -270.00, Std: 63.54
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 39/1000, Time: 22.04s, Mean: -371.93, Min: -613.50, Max: -159.00, Std: 92.44
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 40/1000, Time: 21.99s, Mean: -375.23, Min: -722.50, Max: -45.50, Std: 118.44
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 41/1000, Time: 21.99s, Mean: -415.65, Min: -553.00, Max: -214.00, Std: 86.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 42/1000, Time: 22.01s, Mean: -382.27, Min: -579.50, Max: -244.00, Std: 80.35
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 43/1000, Time: 21.97s, Mean: -371.08, Min: -512.00, Max: -153.50, Std: 70.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 44/1000, Time: 21.96s, Mean: -364.32, Min: -550.50, Max: -187.00, Std: 79.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 45/1000, Time: 22.01s, Mean: -399.30, Min: -513.00, Max: -239.00, Std: 66.16
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 46/1000, Time: 21.97s, Mean: -375.25, Min: -549.00, Max: -79.50, Std: 98.05
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 47/1000, Time: 22.01s, Mean: -354.20, Min: -568.00, Max: -124.50, Std: 96.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 48/1000, Time: 21.99s, Mean: -336.53, Min: -494.50, Max: -148.00, Std: 86.31
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 49/1000, Time: 21.98s, Mean: -369.22, Min: -558.00, Max: -45.00, Std: 100.84
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 50/1000, Time: 22.07s, Mean: -348.78, Min: -561.50, Max: -146.50, Std: 93.69
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 50: Mean -152.25  Min -363.00  Max -25.00  Std 122.86
+
+[Eval Completions - Step 50] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated: The capital of France is Paris. (len=31)
+    Reward: -26.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated: 12 × 7 = 84
+
+This is the product of multiplying 12 by 7. (len=56)
+    Reward: -54.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated: The statement "All cats are mammals" is true. Cats belong to the biological class Mammalia, which includes all mammals. Therefore, since cats are a type of mammal, the statement is correct. (len=189)
+    Reward: -185.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated: The sequence you've provided is a simple arithmetic progression where each number increases by 2 from the previous one. The next number in the sequence after 8 would be 10. (len=172)
+    Reward: -170.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated: The translation of "Hello" to Spanish is "Hola." (len=48)
+    Reward: -44.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated: To find 15% of 200, you can use the following calculation:
+
+\[ 15\% \text{ of } 200 = \frac{15}{100} \times 200 \]
+
+\[ = 0.15 \times 200 \]
+
+\[ = 30 \]
+
+So, 15% of 200 is 30. (len=174)
+    Reward: -172.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated: One primary color in the subtractive color model (used in pigments and printing) is **red**. However, it's important to note that the specific set of primary colors can vary depending on the context. In additive color models (used in light), such as on computer screens, the primary colors are red, green, and blue. (len=315)
+    Reward: -312.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated: A week consists of 7 days. (len=26)
+    Reward: -25.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 50] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated: 3 + 5 equals 8. (len=15)
+    Reward: -14.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated: Based on the information provided:
+
+1. All birds can fly.
+2. Penguins are birds.
+
+The conclusion that can be drawn is: Penguins should be able to fly, based on the premise that all birds can fly. However, in reality, penguins cannot fly due to their physical adaptations, such as their large size and flight feathers modified for swimming.
+
+So, while the logical conclusion from the given premises would be that penguins can fly, we know from biological facts that penguins cannot fly. The premise of… (len=571)
+    Reward: -569.00
+
+--------------------------------------------------------------------------------
+Iteration 51/1000, Time: 22.00s, Mean: -391.00, Min: -621.00, Max: -227.50, Std: 82.81
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 52/1000, Time: 20.85s, Mean: -353.12, Min: -511.00, Max: -84.00, Std: 86.05
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 53/1000, Time: 21.98s, Mean: -355.92, Min: -520.00, Max: -241.50, Std: 68.81
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 54/1000, Time: 22.02s, Mean: -367.10, Min: -536.00, Max: -194.50, Std: 79.47
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 55/1000, Time: 22.00s, Mean: -367.12, Min: -497.00, Max: -175.50, Std: 81.04
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 56/1000, Time: 21.97s, Mean: -347.43, Min: -564.00, Max: -167.50, Std: 85.17
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 57/1000, Time: 22.01s, Mean: -328.52, Min: -511.50, Max: -189.00, Std: 86.30
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 58/1000, Time: 21.98s, Mean: -345.15, Min: -500.00, Max: -204.00, Std: 63.31
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 59/1000, Time: 21.96s, Mean: -329.08, Min: -481.50, Max: -110.50, Std: 92.21
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 60/1000, Time: 22.02s, Mean: -363.10, Min: -527.50, Max: -130.00, Std: 87.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 61/1000, Time: 22.24s, Mean: -345.20, Min: -469.00, Max: -216.50, Std: 70.38
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 62/1000, Time: 22.06s, Mean: -356.12, Min: -510.50, Max: -141.50, Std: 92.64
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 63/1000, Time: 21.98s, Mean: -355.45, Min: -544.00, Max: -73.50, Std: 91.00
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 64/1000, Time: 21.97s, Mean: -341.82, Min: -493.50, Max: -172.50, Std: 86.05
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 65/1000, Time: 22.02s, Mean: -330.27, Min: -444.00, Max: -76.00, Std: 98.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 66/1000, Time: 21.97s, Mean: -332.35, Min: -586.00, Max: -108.00, Std: 92.17
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 67/1000, Time: 21.45s, Mean: -344.68, Min: -533.50, Max: -158.50, Std: 79.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 68/1000, Time: 21.74s, Mean: -306.33, Min: -467.50, Max: -145.00, Std: 87.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 69/1000, Time: 21.85s, Mean: -335.33, Min: -454.50, Max: -129.00, Std: 77.04
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 70/1000, Time: 20.94s, Mean: -287.72, Min: -487.50, Max: -18.50, Std: 115.43
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 71/1000, Time: 21.97s, Mean: -300.63, Min: -518.00, Max: -135.50, Std: 84.23
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 72/1000, Time: 22.01s, Mean: -316.00, Min: -553.50, Max: -150.50, Std: 80.34
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 73/1000, Time: 21.97s, Mean: -356.10, Min: -519.00, Max: -180.00, Std: 77.28
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 74/1000, Time: 21.97s, Mean: -310.15, Min: -516.50, Max: -114.50, Std: 88.38
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 75/1000, Time: 22.01s, Mean: -327.83, Min: -469.50, Max: -169.00, Std: 74.37
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 76/1000, Time: 21.69s, Mean: -294.53, Min: -445.50, Max: -133.00, Std: 83.27
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 77/1000, Time: 21.98s, Mean: -340.08, Min: -490.00, Max: -177.00, Std: 86.00
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 78/1000, Time: 21.98s, Mean: -292.95, Min: -439.00, Max: -132.50, Std: 79.89
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 79/1000, Time: 21.99s, Mean: -301.48, Min: -443.00, Max: -44.50, Std: 95.38
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 80/1000, Time: 22.01s, Mean: -333.15, Min: -467.00, Max: -184.50, Std: 75.87
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 81/1000, Time: 21.57s, Mean: -267.77, Min: -413.50, Max: -35.50, Std: 88.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 82/1000, Time: 22.00s, Mean: -314.00, Min: -427.00, Max: -122.00, Std: 76.64
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 83/1000, Time: 21.98s, Mean: -308.83, Min: -536.50, Max: -123.50, Std: 82.36
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 84/1000, Time: 20.40s, Mean: -291.12, Min: -437.00, Max: -72.50, Std: 97.10
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 85/1000, Time: 21.97s, Mean: -302.18, Min: -442.00, Max: -69.50, Std: 80.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 86/1000, Time: 22.02s, Mean: -281.45, Min: -488.50, Max: -53.50, Std: 102.18
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 87/1000, Time: 22.01s, Mean: -298.55, Min: -442.00, Max: -122.50, Std: 72.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 88/1000, Time: 21.62s, Mean: -291.12, Min: -514.50, Max: -121.50, Std: 90.33
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 89/1000, Time: 22.07s, Mean: -290.02, Min: -439.00, Max: -137.50, Std: 92.05
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 90/1000, Time: 22.02s, Mean: -304.37, Min: -447.50, Max: -149.50, Std: 74.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 91/1000, Time: 22.02s, Mean: -273.28, Min: -475.00, Max: -7.50, Std: 111.35
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 92/1000, Time: 22.03s, Mean: -300.55, Min: -450.50, Max: -172.00, Std: 75.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 93/1000, Time: 22.03s, Mean: -295.43, Min: -452.50, Max: -111.50, Std: 84.32
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 94/1000, Time: 21.99s, Mean: -287.58, Min: -460.50, Max: -60.00, Std: 93.49
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 95/1000, Time: 20.87s, Mean: -292.82, Min: -563.00, Max: -141.00, Std: 92.89
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 96/1000, Time: 22.01s, Mean: -299.58, Min: -450.50, Max: -149.50, Std: 78.55
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 97/1000, Time: 21.79s, Mean: -283.73, Min: -460.00, Max: -81.50, Std: 90.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 98/1000, Time: 21.99s, Mean: -288.33, Min: -483.00, Max: -92.50, Std: 86.13
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 99/1000, Time: 20.94s, Mean: -280.67, Min: -481.50, Max: -29.50, Std: 86.29
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 100/1000, Time: 20.12s, Mean: -274.55, Min: -515.50, Max: -29.00, Std: 93.56
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 100: Mean -51.12  Min -106.00  Max -2.00  Std 40.44
+
+[Eval Completions - Step 100] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated: 法国的首都城市是巴黎（Paris）。 (len=18)
+    Reward: -13.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated: \( 12 \times 7 = 84 \) (len=22)
+    Reward: -20.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated: 这个陈述是正确的。所有猫都是哺乳动物。哺乳动物是一类生物，它们的特点是母体能够哺育幼体。猫属于哺乳纲，这意味着它们以这种方式繁殖和养育后代。所以，“所有猫都是哺乳动物”是一个正确的陈述。 (len=93)
+    Reward: -89.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated: 接下来的数字是10。这个序列是一个等差数列，每个数都比前一个数大2。所以2, 4, 6, 8, 后面应该是10。 (len=56)
+    Reward: -54.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated: "Hola" (len=6)
+    Reward: -2.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated: 要计算 15% 的 200，可以使用以下的计算方法：
+
+\[ 15\% \times 200 = \frac{15}{100} \times 200 \]
+
+\[ = 0.15 \times 200 \]
+
+\[ = 30 \]
+
+所以，15% 的 200 等于 30。 (len=135)
+    Reward: -133.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated: 红（红色）。在颜色理论中，红、蓝和黄被传统上认为是三原色或主色。 (len=32)
+    Reward: -29.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated: 一周有7天。这是国际通用的七日周期，从星期一到星期日。 (len=27)
+    Reward: -26.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 100] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated: 3 + 5 等于 8。 (len=11)
+    Reward: -10.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated: 根据你给出的前提，如果所有鸟类都能飞行，并且假设“所有鸟类”这个定义不包含任何例外情况（例如，不考虑因环境、体型等自然原因而不能飞行的鸟类），那么按照逻辑推理，如果所有鸟类可以飞行，而企鹅是鸟类，那么理论上企鹅也应该是可以飞行的。
+
+然而，实际上企鹅确实不能飞行。企鹅是鸟类的一种，但因为其进化过程中的特定变化和适应海洋生活的需要，企鹅已经失去了飞行的能力。企鹅的身体结构更适合在水中游泳和捕食，而不是在空中飞行。因此，尽管从逻辑上 (len=216)
+    Reward: -214.00
+
+--------------------------------------------------------------------------------
+Iteration 101/1000, Time: 20.97s, Mean: -285.47, Min: -513.50, Max: -46.00, Std: 86.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 102/1000, Time: 21.99s, Mean: -295.38, Min: -457.00, Max: -153.50, Std: 80.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 103/1000, Time: 19.56s, Mean: -237.43, Min: -469.00, Max: -12.00, Std: 111.69
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 104/1000, Time: 22.02s, Mean: -288.98, Min: -477.00, Max: -81.00, Std: 92.89
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 105/1000, Time: 21.85s, Mean: -267.48, Min: -591.50, Max: -146.50, Std: 99.27
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 106/1000, Time: 21.64s, Mean: -274.95, Min: -449.00, Max: -41.50, Std: 74.34
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 107/1000, Time: 22.01s, Mean: -268.92, Min: -400.00, Max: -11.50, Std: 89.09
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 108/1000, Time: 20.88s, Mean: -272.27, Min: -416.00, Max: -28.00, Std: 94.00
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 109/1000, Time: 20.48s, Mean: -287.25, Min: -427.50, Max: -73.00, Std: 89.91
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 110/1000, Time: 22.01s, Mean: -256.75, Min: -561.00, Max: -48.50, Std: 96.87
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 111/1000, Time: 21.46s, Mean: -266.63, Min: -415.50, Max: -78.00, Std: 80.36
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 112/1000, Time: 21.97s, Mean: -266.13, Min: -506.00, Max: -25.50, Std: 107.94
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 113/1000, Time: 19.13s, Mean: -225.57, Min: -387.00, Max: -22.50, Std: 107.43
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 114/1000, Time: 20.93s, Mean: -230.48, Min: -434.50, Max: -32.00, Std: 94.50
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 115/1000, Time: 22.02s, Mean: -247.87, Min: -403.50, Max: -75.50, Std: 79.32
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 116/1000, Time: 22.00s, Mean: -253.23, Min: -396.50, Max: -33.00, Std: 85.21
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 117/1000, Time: 20.60s, Mean: -227.12, Min: -369.00, Max: -23.00, Std: 99.00
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 118/1000, Time: 20.93s, Mean: -266.32, Min: -433.00, Max: -66.00, Std: 93.16
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 119/1000, Time: 18.70s, Mean: -205.72, Min: -397.50, Max: -19.00, Std: 98.13
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 120/1000, Time: 21.58s, Mean: -242.05, Min: -403.00, Max: -67.00, Std: 92.54
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 121/1000, Time: 20.82s, Mean: -286.63, Min: -607.00, Max: -116.00, Std: 103.09
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 122/1000, Time: 22.01s, Mean: -212.45, Min: -388.00, Max: -92.50, Std: 75.60
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 123/1000, Time: 21.91s, Mean: -243.75, Min: -500.50, Max: -36.50, Std: 100.15
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 124/1000, Time: 20.87s, Mean: -251.85, Min: -479.00, Max: -59.50, Std: 91.57
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 125/1000, Time: 20.77s, Mean: -228.53, Min: -430.50, Max: -14.50, Std: 89.35
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 126/1000, Time: 19.30s, Mean: -215.23, Min: -490.00, Max: -18.50, Std: 122.15
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 127/1000, Time: 20.36s, Mean: -252.08, Min: -423.00, Max: -78.50, Std: 93.58
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 128/1000, Time: 20.05s, Mean: -234.12, Min: -368.00, Max: -23.50, Std: 84.76
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 129/1000, Time: 22.01s, Mean: -238.45, Min: -423.00, Max: -47.50, Std: 85.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 130/1000, Time: 19.19s, Mean: -201.63, Min: -370.00, Max: -6.50, Std: 88.30
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 131/1000, Time: 18.99s, Mean: -228.12, Min: -635.00, Max: -30.50, Std: 117.06
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 132/1000, Time: 20.22s, Mean: -243.68, Min: -464.50, Max: -41.50, Std: 111.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 133/1000, Time: 20.58s, Mean: -202.57, Min: -375.50, Max: -10.50, Std: 85.79
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 134/1000, Time: 20.89s, Mean: -245.37, Min: -417.00, Max: -30.50, Std: 98.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 135/1000, Time: 19.85s, Mean: -210.22, Min: -489.50, Max: -17.50, Std: 88.75
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 136/1000, Time: 20.20s, Mean: -196.83, Min: -352.00, Max: -21.50, Std: 95.36
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 137/1000, Time: 17.68s, Mean: -178.32, Min: -527.50, Max: -10.50, Std: 118.69
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 138/1000, Time: 21.50s, Mean: -208.17, Min: -366.00, Max: -28.50, Std: 97.64
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 139/1000, Time: 18.95s, Mean: -183.82, Min: -327.50, Max: -5.00, Std: 92.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 140/1000, Time: 18.18s, Mean: -191.72, Min: -530.00, Max: -9.00, Std: 113.90
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 141/1000, Time: 20.18s, Mean: -172.38, Min: -423.50, Max: -29.00, Std: 114.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 142/1000, Time: 19.64s, Mean: -199.25, Min: -411.50, Max: -22.50, Std: 101.20
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 143/1000, Time: 18.49s, Mean: -194.73, Min: -446.00, Max: -45.50, Std: 93.75
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 144/1000, Time: 18.16s, Mean: -179.15, Min: -440.00, Max: -2.50, Std: 104.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 145/1000, Time: 19.05s, Mean: -159.47, Min: -361.00, Max: -12.50, Std: 102.68
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 146/1000, Time: 18.61s, Mean: -179.97, Min: -412.50, Max: -42.00, Std: 100.68
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 147/1000, Time: 17.07s, Mean: -150.22, Min: -410.00, Max: -6.50, Std: 103.43
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 148/1000, Time: 19.01s, Mean: -214.05, Min: -425.00, Max: -2.50, Std: 112.46
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 149/1000, Time: 21.16s, Mean: -160.32, Min: -356.50, Max: -23.50, Std: 82.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 150/1000, Time: 19.11s, Mean: -185.88, Min: -367.50, Max: -25.00, Std: 92.38
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 150: Mean -70.62  Min -133.00  Max -11.00  Std 42.35
+
+[Eval Completions - Step 150] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated: 法国的首都是巴黎（Paris）。 (len=16)
+    Reward: -11.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated: \( 12 \times 7 = 84 \) (len=22)
+    Reward: -20.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated: 这个陈述是正确的。所有猫都是哺乳动物。哺乳动物是一类生物的科学分类，指的是能够通过乳腺给后代提供营养的一类动物。猫属于脊椎动物门、哺乳动物纲。哺乳动物不仅包括家猫，也包括其他常见的哺乳动物，如人类、狗、牛和大多数非原生鱼类的哺乳动物。所以，从生物学的角度来看，“所有猫都是哺乳动物”这个陈述是正确的。 (len=150)
+    Reward: -146.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated: 这个序列是一个等差数列，每个数比前一个数大2。所以接下来的数字是10。完整的序列应该是：2, 4, 6, 8, 10。 (len=59)
+    Reward: -57.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated: "Hello"在西班牙语中可以翻译为 "¡Hola!" 或 "Buenas tardes"（用于下午或傍晚）等。最常用的是 "¡Hola!"。所以：
+
+- 早上：¡Hola!
+- 下午或晚上：¡Hola! 或 ¡Buenas tardes!
+
+如果你要使用的具体时间，请选择合适的表达。通常 "¡Hola!" 适用于早上。 (len=161)
+    Reward: -157.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated: 要计算 15%的 200，可以使用以下计算方法：
+
+\[ 15\% \times 200 = \frac{15}{100} \times 200 \]
+
+\[ = 0.15 \times 200 \]
+
+\[ = 30 \]
+
+所以，15%的200等于30。 (len=129)
+    Reward: -127.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated: 一个主要的原色之一是红色。其他主要原色包括蓝色和黄色。 (len=27)
+    Reward: -24.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated: 一周有7天。具体来说，一周包括星期一、星期二、星期三、星期四、星期五、星期六和星期日。 (len=43)
+    Reward: -42.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 150] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated: 3 + 5 等于 8。 (len=11)
+    Reward: -10.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated: 根据您给出的前提，如果所有鸟类都能飞行，并且假设您说的“所有鸟”确实包含无飞行能力的鸟（例如企鹅），那么按照这个逻辑，理论上，企鹅也应该能够飞行。然而，实际上企鹅是不能飞行的，这与您给定的前提有些矛盾。一般来说，企鹅不能飞行，尽管它们是鸟类，因为进化过程中失去了飞行的能力。
+
+所以，要回答您具体的问题：如果按照您给定的前提，即所有鸟都能飞行，而企鹅是鸟，那么按照这个前提，企鹅也应该是可以飞行的。但现实中，企鹅 (len=206)
+    Reward: -204.00
+
+--------------------------------------------------------------------------------
+Iteration 151/1000, Time: 16.43s, Mean: -144.28, Min: -344.50, Max: -5.00, Std: 89.89
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 152/1000, Time: 20.22s, Mean: -190.98, Min: -388.50, Max: -36.00, Std: 102.26
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 153/1000, Time: 19.10s, Mean: -186.75, Min: -537.00, Max: -4.50, Std: 139.91
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 154/1000, Time: 19.83s, Mean: -182.18, Min: -381.00, Max: -2.50, Std: 111.96
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 155/1000, Time: 18.19s, Mean: -160.23, Min: -327.00, Max: -5.50, Std: 98.87
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 156/1000, Time: 19.13s, Mean: -146.20, Min: -345.50, Max: -12.50, Std: 91.41
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 157/1000, Time: 15.69s, Mean: -135.12, Min: -344.00, Max: -5.50, Std: 97.51
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 158/1000, Time: 17.33s, Mean: -150.35, Min: -386.00, Max: -7.00, Std: 115.73
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 159/1000, Time: 16.28s, Mean: -128.10, Min: -322.50, Max: -3.00, Std: 90.52
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 160/1000, Time: 14.42s, Mean: -87.02, Min: -251.00, Max: -5.50, Std: 66.16
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 161/1000, Time: 16.38s, Mean: -126.28, Min: -314.50, Max: -1.50, Std: 101.21
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 162/1000, Time: 18.00s, Mean: -131.85, Min: -391.50, Max: -2.00, Std: 110.92
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 163/1000, Time: 18.94s, Mean: -135.12, Min: -347.00, Max: -14.50, Std: 93.19
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 164/1000, Time: 17.96s, Mean: -121.77, Min: -309.50, Max: -12.00, Std: 84.37
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 165/1000, Time: 16.11s, Mean: -134.95, Min: -382.50, Max: -1.00, Std: 101.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 166/1000, Time: 15.94s, Mean: -133.58, Min: -376.50, Max: -5.00, Std: 97.95
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 167/1000, Time: 16.91s, Mean: -99.98, Min: -311.00, Max: -1.00, Std: 88.25
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 168/1000, Time: 15.34s, Mean: -127.07, Min: -385.00, Max: -7.50, Std: 102.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 169/1000, Time: 15.91s, Mean: -140.70, Min: -409.50, Max: -10.00, Std: 124.49
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 170/1000, Time: 18.23s, Mean: -113.72, Min: -292.00, Max: -4.50, Std: 85.73
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 171/1000, Time: 13.17s, Mean: -97.23, Min: -350.50, Max: -13.50, Std: 88.23
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 172/1000, Time: 15.02s, Mean: -110.13, Min: -488.00, Max: -1.00, Std: 123.85
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 173/1000, Time: 14.25s, Mean: -63.97, Min: -262.50, Max: -6.00, Std: 68.24
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 174/1000, Time: 13.09s, Mean: -98.77, Min: -406.50, Max: -0.50, Std: 99.45
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 175/1000, Time: 10.89s, Mean: -69.77, Min: -311.50, Max: -7.00, Std: 71.25
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 176/1000, Time: 16.29s, Mean: -107.35, Min: -269.00, Max: -6.00, Std: 78.85
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 177/1000, Time: 12.66s, Mean: -78.00, Min: -382.50, Max: -0.50, Std: 88.44
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 178/1000, Time: 10.04s, Mean: -49.72, Min: -293.00, Max: -0.50, Std: 56.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 179/1000, Time: 11.83s, Mean: -62.55, Min: -321.50, Max: -1.50, Std: 72.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 180/1000, Time: 12.51s, Mean: -77.35, Min: -238.00, Max: -2.50, Std: 72.18
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 181/1000, Time: 17.25s, Mean: -105.35, Min: -440.50, Max: -9.00, Std: 96.51
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 182/1000, Time: 9.73s, Mean: -49.02, Min: -167.50, Max: -0.50, Std: 49.11
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 183/1000, Time: 10.09s, Mean: -52.32, Min: -266.50, Max: -1.00, Std: 61.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 184/1000, Time: 10.68s, Mean: -66.75, Min: -266.50, Max: -2.50, Std: 66.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 185/1000, Time: 10.42s, Mean: -49.90, Min: -207.00, Max: -1.00, Std: 57.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 186/1000, Time: 10.07s, Mean: -48.85, Min: -196.50, Max: -1.00, Std: 54.24
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 187/1000, Time: 10.05s, Mean: -47.62, Min: -142.00, Max: -2.50, Std: 38.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 188/1000, Time: 12.36s, Mean: -66.97, Min: -368.50, Max: -2.50, Std: 88.05
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 189/1000, Time: 13.05s, Mean: -49.15, Min: -160.00, Max: -0.50, Std: 45.31
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 190/1000, Time: 10.37s, Mean: -50.35, Min: -158.00, Max: -0.50, Std: 44.31
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 191/1000, Time: 10.22s, Mean: -46.82, Min: -196.00, Max: -0.50, Std: 52.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 192/1000, Time: 9.07s, Mean: -48.35, Min: -365.50, Max: -1.50, Std: 73.34
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 193/1000, Time: 9.74s, Mean: -43.77, Min: -250.00, Max: -0.50, Std: 52.30
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 194/1000, Time: 10.43s, Mean: -46.02, Min: -255.50, Max: -1.00, Std: 63.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 195/1000, Time: 8.89s, Mean: -31.23, Min: -113.00, Max: -0.50, Std: 29.36
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 196/1000, Time: 7.80s, Mean: -34.50, Min: -261.50, Max: -1.00, Std: 51.92
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 197/1000, Time: 8.42s, Mean: -30.03, Min: -222.00, Max: -1.00, Std: 42.23
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 198/1000, Time: 8.85s, Mean: -37.85, Min: -253.50, Max: -0.50, Std: 56.24
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 199/1000, Time: 11.76s, Mean: -44.02, Min: -332.50, Max: -0.50, Std: 75.67
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 200/1000, Time: 8.37s, Mean: -34.58, Min: -357.00, Max: -1.00, Std: 64.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 200: Mean -116.50  Min -169.00  Max -45.00  Std 44.28
+
+[Eval Completions - Step 200] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated: 法国的首都是巴黎（Paris），正式名称为巴黎-塞纳市（Paris-Île-德-法兰西区）。Paris是法国最大的城市和首都，也是欧洲的一个重要文化和经济中心。它以丰富的历史遗迹、艺术文化、美食等著称。请注意，法国还包括许多海外地区，如法属波斯尼亚、法属波利尼亚等，它们并不算作法国本土的一部分。如果你指的是法国本土，那么答案就是巴黎。如果你指的是整个法国版图，那答案就不仅仅是巴黎。请具体指明你指的是哪个地区。 (len=206)
+    Reward: -201.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated: \( 12 \times 7 = 84 \)
+
+如果有其他数学问题需要帮助，欢迎继续提问！ (len=45)
+    Reward: -43.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated: 这个陈述是正确的。所有猫都是哺乳动物（mammals）的一部分，因为它们满足哺乳动物的定义：母体能够分泌乳汁来喂养幼崽。具体来说，猫属于哺乳动物界，脊椎动物亚界，哺乳动物纲，食肉目，猫科，Felinae。所以，从生物学的角度来看，“所有猫都是哺乳动物”这一陈述是成立的。 (len=135)
+    Reward: -131.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated: 接下来的数是 10。这个序列是一个等差数列，每个数都比前一个数大 2。所以 8 之后是 10，再之后 10 之后是 12，依此类推。因此，空格中的答案是 10。 (len=80)
+    Reward: -78.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated: 可以的！"Hello"用西班牙语可以翻译为"¡Hola！"。如果你有更多具体的情境或者需要更正式或非正式的表达方式，可以告诉我。例如，如果是打招呼，可以说"¡Buenos días！"（Good morning）或者"¡Buenas晚上！"（Good evening）。如果你需要其他帮助，也可以继续说。 (len=152)
+    Reward: -148.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated: 要计算 15%的 200，可以按照以下步骤进行：
+
+\[ 15\% \text{ of } 200 = 200 \times \frac{15}{100} \]
+
+\[ 200 \times 0.15 = 30 \]
+
+所以，15%的200是30。 (len=124)
+    Reward: -122.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated: 红色是三种基本颜色之一。其他两种基本颜色是蓝色和黄色。在色彩理论中，这三种基本颜色可以混合出其他的颜色。但是请注意，这里的"基本颜色"是在特定颜色系统或教学模型中使用的概念。例如，RBY（减法）颜色系统中的三种基本颜色是红色、蓝色和黄色；而在 RYB（减法）颜色系统中，基本颜色则是红色、黄色和蓝。不同系统之间定义的基本颜色可能有所不同。 (len=169)
+    Reward: -166.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated: 在一个标准的公历周期里，一周有7天。具体来说：
+
+- 1个周 = 7个天
+
+这7个天通常被命名为：
+- 星期一
+- 星期二
+- 星期三
+- 星期四
+- 星期五
+- 星期六
+- 星期日
+
+需要注意的是，这个定义适用于大多数情况，但在一些特殊情况下，如某些研究或特定应用中，可能采用不同的定义。例如，在一些研究中，可能使用“工作周”来表示从周一到周五。希望这能帮助您 (len=181)
+    Reward: -180.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 200] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated: 等于 8。 (len=5)
+    Reward: -4.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated: 根据您给出的前提，如果所有鸟都能飞，并且假设您说的“所有鸟”确实包含企鹅，那么理论上企鹅也应该能够飞行。然而，实际上企鹅由于进化过程和环境选择，演化出了独特的生理结构和行为模式，这使得它们更适合在陆地上寻找食物和进行繁殖，而并不适合飞行。因此，即使从理论上来讲，企鹅也具备飞行的能力，但在现实中，企鹅并不能飞。所以，结论是，**即使理论上可以，实际上企鹅并不能飞。** 例如，企鹅的翅膀和体型并不是为飞行而设计的， (len=207)
+    Reward: -205.00
+
+--------------------------------------------------------------------------------
+Iteration 201/1000, Time: 11.05s, Mean: -42.20, Min: -196.50, Max: -0.50, Std: 49.01
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 202/1000, Time: 7.98s, Mean: -39.17, Min: -290.00, Max: 0.00, Std: 65.46
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 203/1000, Time: 6.57s, Mean: -16.80, Min: -69.00, Max: -0.50, Std: 17.08
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 204/1000, Time: 8.09s, Mean: -22.77, Min: -99.50, Max: -0.50, Std: 26.01
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 205/1000, Time: 8.60s, Mean: -37.15, Min: -250.00, Max: -0.50, Std: 58.01
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 206/1000, Time: 9.26s, Mean: -33.25, Min: -160.50, Max: -1.50, Std: 47.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 207/1000, Time: 9.77s, Mean: -33.32, Min: -206.50, Max: 0.00, Std: 46.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 208/1000, Time: 11.14s, Mean: -43.97, Min: -265.50, Max: -0.50, Std: 66.15
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 209/1000, Time: 8.34s, Mean: -30.92, Min: -233.50, Max: 0.00, Std: 49.37
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 210/1000, Time: 7.18s, Mean: -15.30, Min: -61.00, Max: -0.50, Std: 15.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 211/1000, Time: 7.60s, Mean: -30.02, Min: -222.00, Max: -0.50, Std: 44.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 212/1000, Time: 7.29s, Mean: -24.30, Min: -126.00, Max: -0.50, Std: 32.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 213/1000, Time: 7.00s, Mean: -20.42, Min: -123.50, Max: -1.00, Std: 27.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 214/1000, Time: 7.73s, Mean: -24.87, Min: -146.50, Max: -0.50, Std: 36.50
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 215/1000, Time: 8.31s, Mean: -42.93, Min: -271.50, Max: -1.50, Std: 75.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 216/1000, Time: 8.25s, Mean: -33.15, Min: -204.00, Max: 0.00, Std: 49.49
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 217/1000, Time: 7.78s, Mean: -15.23, Min: -158.50, Max: -0.50, Std: 28.54
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 218/1000, Time: 7.33s, Mean: -18.65, Min: -134.00, Max: -0.50, Std: 31.21
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 219/1000, Time: 7.25s, Mean: -22.35, Min: -295.50, Max: -0.50, Std: 53.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 220/1000, Time: 7.22s, Mean: -19.27, Min: -203.00, Max: 0.00, Std: 37.73
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 221/1000, Time: 9.11s, Mean: -27.88, Min: -183.50, Max: -1.00, Std: 39.11
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 222/1000, Time: 7.29s, Mean: -20.35, Min: -220.00, Max: -0.50, Std: 40.86
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 223/1000, Time: 7.42s, Mean: -30.72, Min: -391.00, Max: -1.00, Std: 73.01
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 224/1000, Time: 7.60s, Mean: -26.25, Min: -140.50, Max: -0.50, Std: 38.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 225/1000, Time: 8.47s, Mean: -27.97, Min: -261.00, Max: -1.00, Std: 49.16
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 226/1000, Time: 7.24s, Mean: -21.90, Min: -281.00, Max: -0.50, Std: 50.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 227/1000, Time: 7.17s, Mean: -21.20, Min: -205.50, Max: -0.50, Std: 38.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 228/1000, Time: 7.82s, Mean: -22.02, Min: -323.50, Max: -0.50, Std: 58.22
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 229/1000, Time: 6.80s, Mean: -17.77, Min: -122.00, Max: -0.50, Std: 27.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 230/1000, Time: 6.22s, Mean: -12.32, Min: -56.00, Max: -1.50, Std: 12.82
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 231/1000, Time: 7.10s, Mean: -28.77, Min: -460.50, Max: -0.50, Std: 82.46
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 232/1000, Time: 5.68s, Mean: -10.88, Min: -70.00, Max: -0.50, Std: 17.47
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 233/1000, Time: 5.66s, Mean: -15.88, Min: -72.00, Max: -1.00, Std: 19.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 234/1000, Time: 7.04s, Mean: -27.57, Min: -222.00, Max: 0.00, Std: 49.76
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 235/1000, Time: 6.94s, Mean: -16.87, Min: -103.00, Max: -1.00, Std: 25.33
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 236/1000, Time: 7.58s, Mean: -30.68, Min: -320.50, Max: -0.50, Std: 63.09
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 237/1000, Time: 5.79s, Mean: -11.50, Min: -87.00, Max: -0.50, Std: 16.94
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 238/1000, Time: 6.90s, Mean: -20.15, Min: -391.00, Max: -0.50, Std: 69.17
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 239/1000, Time: 11.15s, Mean: -34.30, Min: -401.50, Max: -0.50, Std: 82.85
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 240/1000, Time: 5.92s, Mean: -11.82, Min: -133.50, Max: 0.00, Std: 26.32
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 241/1000, Time: 5.12s, Mean: -9.73, Min: -68.50, Max: -0.50, Std: 15.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 242/1000, Time: 5.73s, Mean: -10.88, Min: -56.00, Max: -0.50, Std: 12.20
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 243/1000, Time: 5.80s, Mean: -9.07, Min: -60.50, Max: -0.50, Std: 13.04
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 244/1000, Time: 5.11s, Mean: -8.27, Min: -41.50, Max: -1.00, Std: 10.01
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 245/1000, Time: 5.75s, Mean: -14.05, Min: -62.50, Max: -0.50, Std: 16.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 246/1000, Time: 7.18s, Mean: -19.55, Min: -336.50, Max: -0.50, Std: 60.68
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 247/1000, Time: 5.48s, Mean: -12.05, Min: -130.00, Max: -0.50, Std: 24.54
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 248/1000, Time: 5.64s, Mean: -10.35, Min: -99.50, Max: 0.00, Std: 19.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 249/1000, Time: 5.22s, Mean: -8.90, Min: -39.00, Max: -0.50, Std: 9.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 250/1000, Time: 4.85s, Mean: -5.32, Min: -25.50, Max: -0.50, Std: 6.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 250: Mean -78.50  Min -137.00  Max -36.00  Std 30.37
+
+[Eval Completions - Step 250] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated: 法国的首都是巴黎（Paris），从历史上看，巴黎并不是严格意义上的首都，而是首都地区的行政中心。实际上，法国的行政首都是位于普瓦特内（Le Puy-普瓦图）和普瓦特内（Limoges -普奥 -普伊 ）等城市中的其中一些，因为它们是某些地区或特定部门的行政首府。但通常所说的“首府”指的是法国内政部和司法部所在的普瓦特内。而从更广泛的行政角度来说，首都是指整个国家的行政管理中心，这通常是总统和总理所在的城市，即 (len=206)
+    Reward: -201.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated: \( 12 \times 7 = 84 \)
+
+这是一个简单的乘法运算。如果有其他问题或需要帮助的，请随时告诉我！ (len=57)
+    Reward: -55.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated: 这个陈述是正确的。从生物学的角度来看，所有猫科动物都属于哺乳动物纲（Mammalia）中的哺乳动物。具体来说，猫科（Carnivore，例如：家猫、野生猫）都是哺乳动物，因为它们符合哺乳动物的定义：母体在特定时间周期内产生乳汁喂养幼体。因此，可以得出结论：“所有猫都是哺乳动物”这个陈述是正确的。当然，这适用于所有被分类为哺乳动物的生物。例如，狗也是哺乳动物，但它们不属于猫科。希望这能回答你的问题！ (len=200)
+    Reward: -196.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated: 在您提供的序列中，下一个数是按2递增。这个序列的规律是：2、4、6、8。每个数都是比前一个大2。所以，接下来的数是 8 + 2 = 10。因此，完整序列是：2、4、6、8、10。如果需要继续，请接10。如：20，22，24... 依次类推。希望这能帮到您！ (len=128)
+    Reward: -126.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated: "Hello"在西班牙语中可以翻译为 "¡$hola!"。请注意，大多数情况下我们直接使用 "¡$hola!" 作为问候用语。具体如下:
+
+- 一般：¡$ola!
+- 作 (len=85)
+    Reward: -81.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated: 计算 15%的 200，可以按照以下步骤进行：
+
+\[ 15\% \text{ of } 200 = 200 \times \frac{15}{100} \]
+
+\[= 200 \times 0.15 \]
+
+\[= 30\]
+
+因此，15%的 200是 30。 (len=131)
+    Reward: -129.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated: 红色是三种主要颜色之一。其他两种是绿色和蓝色。这三种颜色可以混合生成所有其他颜色。通常被称为RBY（红、蓝、绿）颜色系统。红色是一种基本颜色。 (len=71)
+    Reward: -68.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated: 在大多数文化中,一周有7天。具体来说:
+
+1. **公历**:采用国际通用的公历,一周由7天组成,分别是:
+
+- **星期一 (Monday)**
+- **星期二 (周二)**
+- **星期三 (周三)**
+- **星期四 (周四)**
+- **星期五 (周五)**
+- **星期六 (周六)**
+- **星期日 (周日)**
+
+2. **部分国家或地区**:有些地方,如印度、巴基斯坦等,采用不同的命名,但仍然保持7天为一周。
+
+3. **宗教和文化 (len=226)
+    Reward: -225.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 250] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated: 这看起来像是一道简单的算术题。正确的答案是：
+
+3 + 5 = 8
+
+希望你能继续提出更多有趣的问题！ (len=51)
+    Reward: -50.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated: 从这个假设出发，如果所有鸟类都具备飞行能力，并且假设这个能力适用于所有鸟种，那么理论上讲，即使在上述设定下，**也可以**说 penguins可以飞。然而，实际上，企鹅（注：企鹅是人们常说的“企”企误写成了“企”企，企鹅实际上是企鹅）确实不会飞。企鹅和大多数企鹅科的物种，如企鹅、跳岩雀、企雪企等，由于进化过程中的某些原因，失去了飞行的能力。因此，即使在你的设定内，也未改变这种生物学特性。所以 (len=197)
+    Reward: -195.00
+
+--------------------------------------------------------------------------------
+Iteration 251/1000, Time: 5.93s, Mean: -9.03, Min: -70.50, Max: -0.50, Std: 15.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 252/1000, Time: 5.18s, Mean: -6.87, Min: -26.00, Max: 0.00, Std: 7.12
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 253/1000, Time: 4.84s, Mean: -10.17, Min: -54.50, Max: -0.50, Std: 12.55
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 254/1000, Time: 5.34s, Mean: -7.32, Min: -25.00, Max: -0.50, Std: 7.16
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 255/1000, Time: 5.10s, Mean: -7.02, Min: -36.00, Max: -0.50, Std: 8.38
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 256/1000, Time: 5.29s, Mean: -6.72, Min: -38.00, Max: -0.50, Std: 9.55
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 257/1000, Time: 5.29s, Mean: -6.55, Min: -80.50, Max: 0.00, Std: 14.54
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 258/1000, Time: 6.97s, Mean: -15.47, Min: -170.00, Max: -0.50, Std: 32.27
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 259/1000, Time: 4.98s, Mean: -7.52, Min: -44.00, Max: -0.50, Std: 9.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 260/1000, Time: 5.16s, Mean: -7.82, Min: -41.50, Max: -0.50, Std: 10.45
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 261/1000, Time: 5.12s, Mean: -6.35, Min: -31.00, Max: -0.50, Std: 7.67
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 262/1000, Time: 5.29s, Mean: -10.77, Min: -73.50, Max: -0.50, Std: 17.50
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 263/1000, Time: 5.75s, Mean: -10.12, Min: -89.00, Max: -0.50, Std: 17.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 264/1000, Time: 5.24s, Mean: -5.22, Min: -23.50, Max: 0.00, Std: 6.10
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 265/1000, Time: 4.84s, Mean: -4.83, Min: -23.50, Max: -0.50, Std: 5.32
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 266/1000, Time: 5.14s, Mean: -9.13, Min: -41.00, Max: 0.00, Std: 12.15
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 267/1000, Time: 4.38s, Mean: -3.58, Min: -20.00, Max: 0.00, Std: 3.92
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 268/1000, Time: 4.76s, Mean: -5.97, Min: -22.00, Max: -0.50, Std: 5.97
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 269/1000, Time: 4.80s, Mean: -5.10, Min: -27.00, Max: -0.50, Std: 5.15
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 270/1000, Time: 5.51s, Mean: -5.73, Min: -31.00, Max: -1.00, Std: 6.87
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 271/1000, Time: 5.32s, Mean: -8.10, Min: -85.00, Max: -0.50, Std: 15.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 272/1000, Time: 6.04s, Mean: -7.82, Min: -100.00, Max: -1.00, Std: 19.60
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 273/1000, Time: 5.55s, Mean: -7.48, Min: -71.50, Max: -0.50, Std: 12.85
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 274/1000, Time: 5.14s, Mean: -3.58, Min: -20.00, Max: -0.50, Std: 4.82
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 275/1000, Time: 6.37s, Mean: -9.18, Min: -128.50, Max: -1.00, Std: 22.67
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 276/1000, Time: 5.00s, Mean: -9.13, Min: -50.50, Max: -0.50, Std: 11.32
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 277/1000, Time: 5.00s, Mean: -6.83, Min: -50.50, Max: -1.00, Std: 9.94
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 278/1000, Time: 5.21s, Mean: -5.60, Min: -88.50, Max: 0.00, Std: 15.75
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 279/1000, Time: 4.68s, Mean: -6.55, Min: -69.00, Max: -0.50, Std: 13.58
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 280/1000, Time: 5.05s, Mean: -7.10, Min: -89.50, Max: -0.50, Std: 15.89
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 281/1000, Time: 4.46s, Mean: -2.90, Min: -8.50, Max: 0.00, Std: 2.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 282/1000, Time: 5.04s, Mean: -6.12, Min: -59.50, Max: -0.50, Std: 10.65
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 283/1000, Time: 5.29s, Mean: -7.07, Min: -117.50, Max: 0.00, Std: 20.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 284/1000, Time: 4.69s, Mean: -3.20, Min: -19.00, Max: 0.00, Std: 4.42
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 285/1000, Time: 4.90s, Mean: -6.90, Min: -39.00, Max: -1.00, Std: 8.20
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 286/1000, Time: 4.57s, Mean: -4.45, Min: -21.00, Max: -0.50, Std: 5.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 287/1000, Time: 4.34s, Mean: -2.70, Min: -8.50, Max: -0.50, Std: 2.44
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 288/1000, Time: 4.43s, Mean: -2.50, Min: -7.50, Max: 0.00, Std: 1.68
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 289/1000, Time: 5.13s, Mean: -5.55, Min: -31.50, Max: -0.50, Std: 6.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 290/1000, Time: 4.57s, Mean: -3.92, Min: -20.50, Max: -0.50, Std: 4.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 291/1000, Time: 4.58s, Mean: -3.02, Min: -13.50, Max: -0.50, Std: 3.30
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 292/1000, Time: 4.48s, Mean: -3.25, Min: -14.50, Max: 0.00, Std: 3.44
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 293/1000, Time: 4.52s, Mean: -3.83, Min: -34.00, Max: -0.50, Std: 6.13
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 294/1000, Time: 4.54s, Mean: -3.20, Min: -18.00, Max: -0.50, Std: 3.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 295/1000, Time: 4.82s, Mean: -4.27, Min: -23.50, Max: -0.50, Std: 5.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 296/1000, Time: 4.65s, Mean: -4.00, Min: -23.00, Max: -1.00, Std: 5.04
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 297/1000, Time: 4.64s, Mean: -3.88, Min: -14.50, Max: -0.50, Std: 3.88
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 298/1000, Time: 4.65s, Mean: -4.97, Min: -57.50, Max: 0.00, Std: 10.54
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 299/1000, Time: 5.52s, Mean: -7.80, Min: -115.50, Max: -0.50, Std: 21.04
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 300/1000, Time: 5.46s, Mean: -17.80, Min: -419.00, Max: -0.50, Std: 74.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 300: Mean -66.50  Min -129.00  Max -2.00  Std 45.23
+
+[Eval Completions - Step 300] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated: 法国的首都，也是整个国家的首都，是巴黎（Paris）。 但需要注意的是，从严格定义上讲，法国并没有一个像大多数 (len=55)
+    Reward: -50.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated: 12乘以7等于 84。 (len=11)
+    Reward: -9.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated: "所有猫都是哺乳动物"这个陈述是正确的。猫属于脊椎动物亚纲的哺乳动物，这指的是猫在生物学分类中的特性。具体来说，猫（如家猫和大猫）是真兽亚纲（Cetother (len=79)
+    Reward: -75.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated: 这个序列的规律是: (len=9)
+    Reward: -7.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated: El (len=2)
+    Reward: -2.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated: 要计算 15%的200，可以按照以下步骤来计算：
+
+1.第一个数是200乘以15%，即 \(200 \times 0.15 \)。计算结果为 30。
+
+因此，15%的200等于 30。 (len=92)
+    Reward: -90.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated: 红、绿和蓝这三种颜色是颜色理论中的主要三原色，通常用它们混合生成其他颜色。 但是，在问题中你只提到"-primary颜色"，未具体指明颜色，所以这里可以理解为任意一种基本颜色。  例如：红。  请具体指明一种颜色。  例如：  红。   以 (len=120)
+    Reward: -117.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated: 按照国际历法定义,一个完整的公历周期里,有7天。这7天分别是:
+
+- (len=34)
+    Reward: -33.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 300] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated: 3加5等于8。具体来说， 3和5都代表两个数被相加起来得到8。这里8可以代表8这个结果，也可以代表8这一个数。 (len=55)
+    Reward: -54.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated: 根据您提供的信息，如果所有鸟都可以飞行，而假设每个“ (len=26)
+    Reward: -24.00
+
+--------------------------------------------------------------------------------
+Iteration 301/1000, Time: 5.85s, Mean: -5.58, Min: -91.00, Max: -0.50, Std: 16.07
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 302/1000, Time: 4.63s, Mean: -3.75, Min: -19.00, Max: -0.50, Std: 4.04
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 303/1000, Time: 4.46s, Mean: -3.27, Min: -13.50, Max: 0.00, Std: 3.42
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 304/1000, Time: 4.78s, Mean: -2.90, Min: -16.00, Max: -0.50, Std: 2.97
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 305/1000, Time: 4.77s, Mean: -3.78, Min: -37.50, Max: -0.50, Std: 6.69
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 306/1000, Time: 6.13s, Mean: -9.37, Min: -153.00, Max: -1.00, Std: 27.08
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 307/1000, Time: 4.70s, Mean: -6.13, Min: -74.00, Max: -1.00, Std: 13.86
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 308/1000, Time: 4.45s, Mean: -3.52, Min: -17.50, Max: -0.50, Std: 4.91
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 309/1000, Time: 4.37s, Mean: -3.05, Min: -22.50, Max: -0.50, Std: 3.97
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 310/1000, Time: 4.48s, Mean: -2.43, Min: -13.50, Max: 0.00, Std: 2.74
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 311/1000, Time: 4.35s, Mean: -3.47, Min: -47.50, Max: -1.00, Std: 8.26
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 312/1000, Time: 4.67s, Mean: -4.38, Min: -34.00, Max: 0.00, Std: 6.55
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 313/1000, Time: 4.31s, Mean: -2.78, Min: -11.50, Max: -1.00, Std: 2.57
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 314/1000, Time: 5.29s, Mean: -8.13, Min: -169.50, Max: -0.50, Std: 30.10
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 315/1000, Time: 4.63s, Mean: -4.85, Min: -30.50, Max: -0.50, Std: 7.45
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 316/1000, Time: 4.42s, Mean: -3.35, Min: -11.50, Max: -0.50, Std: 3.18
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 317/1000, Time: 5.11s, Mean: -5.47, Min: -26.50, Max: 0.00, Std: 6.42
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 318/1000, Time: 6.69s, Mean: -12.22, Min: -263.00, Max: -0.50, Std: 46.76
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 319/1000, Time: 4.63s, Mean: -4.20, Min: -20.50, Max: -0.50, Std: 4.67
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 320/1000, Time: 6.66s, Mean: -18.02, Min: -218.00, Max: -0.50, Std: 51.82
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 321/1000, Time: 4.93s, Mean: -4.28, Min: -49.00, Max: 0.00, Std: 8.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 322/1000, Time: 4.46s, Mean: -3.58, Min: -21.00, Max: -0.50, Std: 4.43
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 323/1000, Time: 4.40s, Mean: -3.37, Min: -26.00, Max: 0.00, Std: 5.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 324/1000, Time: 4.48s, Mean: -2.13, Min: -11.50, Max: 0.00, Std: 2.10
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 325/1000, Time: 4.89s, Mean: -3.77, Min: -57.00, Max: -0.50, Std: 10.01
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 326/1000, Time: 4.45s, Mean: -3.32, Min: -21.50, Max: 0.00, Std: 4.53
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 327/1000, Time: 4.43s, Mean: -2.53, Min: -7.50, Max: -1.00, Std: 1.86
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 328/1000, Time: 4.58s, Mean: -2.60, Min: -15.50, Max: -0.50, Std: 3.25
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 329/1000, Time: 4.39s, Mean: -2.82, Min: -18.50, Max: -0.50, Std: 3.38
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 330/1000, Time: 4.25s, Mean: -2.75, Min: -22.00, Max: -0.50, Std: 3.90
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 331/1000, Time: 4.30s, Mean: -1.83, Min: -6.50, Max: -1.00, Std: 1.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 332/1000, Time: 5.06s, Mean: -3.10, Min: -18.00, Max: -0.50, Std: 3.95
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 333/1000, Time: 4.64s, Mean: -4.02, Min: -27.00, Max: -0.50, Std: 5.28
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 334/1000, Time: 4.36s, Mean: -2.22, Min: -7.00, Max: -0.50, Std: 1.65
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 335/1000, Time: 4.43s, Mean: -3.27, Min: -17.00, Max: -0.50, Std: 3.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 336/1000, Time: 4.34s, Mean: -2.52, Min: -12.50, Max: -0.50, Std: 2.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 337/1000, Time: 4.47s, Mean: -2.75, Min: -14.50, Max: -0.50, Std: 3.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 338/1000, Time: 5.66s, Mean: -9.10, Min: -179.00, Max: -0.50, Std: 31.68
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 339/1000, Time: 4.44s, Mean: -3.05, Min: -14.50, Max: 0.00, Std: 3.88
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 340/1000, Time: 4.38s, Mean: -2.30, Min: -9.50, Max: 0.00, Std: 2.13
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 341/1000, Time: 4.50s, Mean: -2.83, Min: -27.00, Max: -0.50, Std: 4.91
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 342/1000, Time: 4.35s, Mean: -1.88, Min: -8.00, Max: -0.50, Std: 1.42
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 343/1000, Time: 4.43s, Mean: -1.58, Min: -5.00, Max: -0.50, Std: 0.81
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 344/1000, Time: 4.57s, Mean: -3.18, Min: -12.50, Max: -0.50, Std: 3.20
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 345/1000, Time: 5.76s, Mean: -8.92, Min: -194.00, Max: -0.50, Std: 34.48
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 346/1000, Time: 4.41s, Mean: -2.10, Min: -8.00, Max: -0.50, Std: 1.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 347/1000, Time: 4.53s, Mean: -2.50, Min: -18.00, Max: 0.00, Std: 3.43
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 348/1000, Time: 4.38s, Mean: -2.18, Min: -9.50, Max: -0.50, Std: 1.92
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 349/1000, Time: 4.73s, Mean: -3.38, Min: -39.50, Max: -1.00, Std: 6.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 350/1000, Time: 4.81s, Mean: -3.52, Min: -37.50, Max: -1.00, Std: 6.67
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 350: Mean -2.62  Min -5.00  Max -1.00  Std 1.32
+
+[Eval Completions - Step 350] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 350] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Iteration 351/1000, Time: 4.42s, Mean: -3.48, Min: -13.50, Max: -0.50, Std: 2.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 352/1000, Time: 4.72s, Mean: -3.97, Min: -57.50, Max: -0.50, Std: 10.24
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 353/1000, Time: 4.67s, Mean: -3.72, Min: -34.50, Max: -0.50, Std: 6.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 354/1000, Time: 4.46s, Mean: -2.37, Min: -18.00, Max: -0.50, Std: 3.31
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 355/1000, Time: 4.41s, Mean: -3.20, Min: -15.00, Max: -0.50, Std: 3.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 356/1000, Time: 4.43s, Mean: -2.48, Min: -17.00, Max: -0.50, Std: 3.27
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 357/1000, Time: 4.34s, Mean: -3.33, Min: -19.50, Max: -1.00, Std: 4.04
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 358/1000, Time: 4.35s, Mean: -3.72, Min: -34.50, Max: -0.50, Std: 7.46
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 359/1000, Time: 4.48s, Mean: -4.12, Min: -33.50, Max: -0.50, Std: 7.07
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 360/1000, Time: 4.46s, Mean: -2.73, Min: -10.00, Max: -0.50, Std: 2.47
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 361/1000, Time: 4.39s, Mean: -2.43, Min: -16.50, Max: -0.50, Std: 3.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 362/1000, Time: 4.34s, Mean: -1.67, Min: -5.00, Max: 0.00, Std: 0.92
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 363/1000, Time: 4.42s, Mean: -3.92, Min: -26.00, Max: -0.50, Std: 6.06
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 364/1000, Time: 4.63s, Mean: -3.48, Min: -23.50, Max: -0.50, Std: 5.46
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 365/1000, Time: 6.54s, Mean: -7.75, Min: -142.00, Max: -0.50, Std: 25.50
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 366/1000, Time: 4.44s, Mean: -2.85, Min: -25.00, Max: -0.50, Std: 4.26
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 367/1000, Time: 4.33s, Mean: -2.22, Min: -9.00, Max: 0.00, Std: 2.09
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 368/1000, Time: 4.30s, Mean: -2.52, Min: -23.00, Max: -0.50, Std: 4.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 369/1000, Time: 4.37s, Mean: -2.33, Min: -9.50, Max: -0.50, Std: 2.20
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 370/1000, Time: 4.42s, Mean: -3.27, Min: -16.50, Max: -0.50, Std: 4.34
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 371/1000, Time: 4.30s, Mean: -1.92, Min: -6.50, Max: -0.50, Std: 1.44
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 372/1000, Time: 4.33s, Mean: -1.95, Min: -7.00, Max: -1.00, Std: 1.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 373/1000, Time: 4.44s, Mean: -2.88, Min: -25.50, Max: 0.00, Std: 4.53
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 374/1000, Time: 4.34s, Mean: -2.45, Min: -7.50, Max: -0.50, Std: 1.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 375/1000, Time: 4.27s, Mean: -2.52, Min: -16.00, Max: 0.00, Std: 3.33
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 376/1000, Time: 4.30s, Mean: -2.65, Min: -8.50, Max: -0.50, Std: 1.91
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 377/1000, Time: 4.49s, Mean: -2.33, Min: -13.00, Max: -0.50, Std: 2.95
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 378/1000, Time: 4.34s, Mean: -2.45, Min: -12.50, Max: 0.00, Std: 2.50
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 379/1000, Time: 4.26s, Mean: -1.75, Min: -5.00, Max: -0.50, Std: 0.91
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 380/1000, Time: 4.24s, Mean: -2.03, Min: -8.00, Max: -0.50, Std: 1.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 381/1000, Time: 4.30s, Mean: -2.28, Min: -12.50, Max: -1.00, Std: 2.36
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 382/1000, Time: 4.28s, Mean: -2.25, Min: -9.50, Max: 0.00, Std: 1.94
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 383/1000, Time: 4.27s, Mean: -2.07, Min: -7.50, Max: -0.50, Std: 1.62
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 384/1000, Time: 4.38s, Mean: -2.77, Min: -16.50, Max: -0.50, Std: 3.51
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 385/1000, Time: 4.37s, Mean: -2.15, Min: -7.00, Max: -1.00, Std: 1.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 386/1000, Time: 4.36s, Mean: -2.02, Min: -7.50, Max: 0.00, Std: 1.69
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 387/1000, Time: 4.45s, Mean: -2.85, Min: -13.50, Max: -0.50, Std: 2.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 388/1000, Time: 4.36s, Mean: -2.05, Min: -12.00, Max: -0.50, Std: 2.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 389/1000, Time: 4.33s, Mean: -1.95, Min: -7.00, Max: -0.50, Std: 1.42
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 390/1000, Time: 4.31s, Mean: -2.27, Min: -7.00, Max: -1.00, Std: 1.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 391/1000, Time: 4.29s, Mean: -1.67, Min: -4.50, Max: -0.50, Std: 0.92
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 392/1000, Time: 5.27s, Mean: -9.73, Min: -211.00, Max: -1.00, Std: 37.60
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 393/1000, Time: 4.41s, Mean: -2.27, Min: -17.00, Max: -1.00, Std: 2.86
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 394/1000, Time: 4.30s, Mean: -1.72, Min: -8.00, Max: -0.50, Std: 1.28
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 395/1000, Time: 4.44s, Mean: -2.53, Min: -18.00, Max: -1.00, Std: 3.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 396/1000, Time: 4.24s, Mean: -1.98, Min: -17.50, Max: 0.00, Std: 2.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 397/1000, Time: 4.34s, Mean: -1.82, Min: -4.50, Max: -1.00, Std: 0.96
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 398/1000, Time: 4.35s, Mean: -1.75, Min: -11.50, Max: 0.00, Std: 1.92
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 399/1000, Time: 4.37s, Mean: -1.85, Min: -11.00, Max: -0.50, Std: 1.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 400/1000, Time: 4.49s, Mean: -2.83, Min: -11.00, Max: -1.00, Std: 2.64
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 400: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 400] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 400] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Iteration 401/1000, Time: 4.31s, Mean: -2.12, Min: -9.50, Max: -0.50, Std: 1.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 402/1000, Time: 4.30s, Mean: -2.37, Min: -9.50, Max: -1.00, Std: 2.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 403/1000, Time: 4.47s, Mean: -3.28, Min: -14.50, Max: -0.50, Std: 3.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 404/1000, Time: 4.30s, Mean: -2.08, Min: -13.00, Max: -1.00, Std: 2.15
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 405/1000, Time: 4.31s, Mean: -2.22, Min: -11.00, Max: 0.00, Std: 2.34
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 406/1000, Time: 4.31s, Mean: -2.23, Min: -12.00, Max: -0.50, Std: 2.24
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 407/1000, Time: 4.31s, Mean: -1.50, Min: -5.50, Max: -0.50, Std: 0.81
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 408/1000, Time: 4.43s, Mean: -2.15, Min: -10.50, Max: -0.50, Std: 2.36
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 409/1000, Time: 4.39s, Mean: -3.43, Min: -20.00, Max: 0.00, Std: 4.85
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 410/1000, Time: 4.30s, Mean: -1.47, Min: -4.00, Max: -0.50, Std: 0.64
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 411/1000, Time: 4.34s, Mean: -2.92, Min: -13.00, Max: -1.00, Std: 2.97
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 412/1000, Time: 4.41s, Mean: -3.20, Min: -18.00, Max: -0.50, Std: 3.86
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 413/1000, Time: 4.30s, Mean: -2.68, Min: -17.50, Max: -0.50, Std: 3.33
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 414/1000, Time: 4.39s, Mean: -2.00, Min: -6.50, Max: -0.50, Std: 1.46
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 415/1000, Time: 4.31s, Mean: -2.20, Min: -10.50, Max: 0.00, Std: 2.26
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 416/1000, Time: 4.42s, Mean: -2.62, Min: -21.00, Max: -0.50, Std: 3.64
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 417/1000, Time: 4.30s, Mean: -2.03, Min: -7.00, Max: -1.00, Std: 1.34
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 418/1000, Time: 4.42s, Mean: -2.20, Min: -12.00, Max: -1.00, Std: 2.19
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 419/1000, Time: 4.34s, Mean: -2.17, Min: -7.00, Max: 0.00, Std: 1.60
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 420/1000, Time: 4.46s, Mean: -2.00, Min: -16.00, Max: -0.50, Std: 2.65
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 421/1000, Time: 4.43s, Mean: -2.18, Min: -7.00, Max: -0.50, Std: 1.65
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 422/1000, Time: 4.30s, Mean: -2.77, Min: -9.50, Max: -0.50, Std: 2.57
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 423/1000, Time: 4.45s, Mean: -2.98, Min: -21.00, Max: -1.00, Std: 4.27
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 424/1000, Time: 4.46s, Mean: -2.98, Min: -13.50, Max: -1.00, Std: 3.18
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 425/1000, Time: 4.39s, Mean: -4.20, Min: -54.50, Max: -0.50, Std: 9.62
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 426/1000, Time: 5.17s, Mean: -8.63, Min: -193.50, Max: -0.50, Std: 34.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 427/1000, Time: 4.37s, Mean: -2.12, Min: -6.00, Max: -1.00, Std: 1.57
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 428/1000, Time: 4.35s, Mean: -1.75, Min: -6.00, Max: -0.50, Std: 1.09
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 429/1000, Time: 4.31s, Mean: -2.48, Min: -15.50, Max: -0.50, Std: 2.79
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 430/1000, Time: 6.18s, Mean: -7.63, Min: -165.50, Max: -0.50, Std: 29.37
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 431/1000, Time: 5.52s, Mean: -4.88, Min: -81.50, Max: -0.50, Std: 14.55
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 432/1000, Time: 4.38s, Mean: -3.05, Min: -14.00, Max: -1.00, Std: 3.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 433/1000, Time: 4.38s, Mean: -2.17, Min: -15.00, Max: -0.50, Std: 2.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 434/1000, Time: 4.37s, Mean: -1.75, Min: -5.00, Max: -1.00, Std: 0.96
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 435/1000, Time: 4.63s, Mean: -2.70, Min: -10.50, Max: -0.50, Std: 2.62
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 436/1000, Time: 4.46s, Mean: -2.03, Min: -8.00, Max: -0.50, Std: 1.48
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 437/1000, Time: 4.45s, Mean: -1.93, Min: -7.50, Max: 0.00, Std: 1.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 438/1000, Time: 4.38s, Mean: -2.67, Min: -14.50, Max: -1.00, Std: 2.88
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 439/1000, Time: 4.34s, Mean: -3.18, Min: -15.50, Max: -1.00, Std: 3.54
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 440/1000, Time: 4.37s, Mean: -1.57, Min: -6.00, Max: 0.00, Std: 1.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 441/1000, Time: 4.42s, Mean: -5.25, Min: -82.00, Max: -0.50, Std: 14.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 442/1000, Time: 4.36s, Mean: -2.48, Min: -13.00, Max: 0.00, Std: 2.79
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 443/1000, Time: 4.52s, Mean: -3.40, Min: -27.50, Max: 0.00, Std: 5.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 444/1000, Time: 4.37s, Mean: -2.62, Min: -19.50, Max: -0.50, Std: 3.51
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 445/1000, Time: 4.39s, Mean: -3.25, Min: -20.00, Max: -0.50, Std: 4.82
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 446/1000, Time: 4.31s, Mean: -2.05, Min: -7.50, Max: -0.50, Std: 1.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 447/1000, Time: 4.38s, Mean: -2.23, Min: -12.50, Max: 0.00, Std: 2.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 448/1000, Time: 4.39s, Mean: -1.83, Min: -6.50, Max: -0.50, Std: 1.18
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 449/1000, Time: 4.40s, Mean: -2.67, Min: -17.00, Max: -1.00, Std: 2.90
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 450/1000, Time: 4.30s, Mean: -2.92, Min: -8.50, Max: -1.00, Std: 2.36
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 450: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 450] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 450] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Iteration 451/1000, Time: 4.27s, Mean: -2.00, Min: -7.50, Max: -1.00, Std: 1.51
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 452/1000, Time: 4.28s, Mean: -3.58, Min: -40.00, Max: -0.50, Std: 7.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 453/1000, Time: 4.26s, Mean: -1.75, Min: -11.50, Max: -0.50, Std: 1.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 454/1000, Time: 4.30s, Mean: -1.40, Min: -3.50, Max: -0.50, Std: 0.65
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 455/1000, Time: 4.33s, Mean: -2.28, Min: -11.00, Max: -0.50, Std: 2.46
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 456/1000, Time: 4.42s, Mean: -1.88, Min: -8.50, Max: -0.50, Std: 1.41
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 457/1000, Time: 4.43s, Mean: -2.12, Min: -8.50, Max: 0.00, Std: 1.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 458/1000, Time: 6.00s, Mean: -9.15, Min: -221.00, Max: -0.50, Std: 39.36
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 459/1000, Time: 4.46s, Mean: -3.17, Min: -16.50, Max: -1.00, Std: 4.00
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 460/1000, Time: 4.27s, Mean: -1.93, Min: -6.00, Max: -1.00, Std: 1.20
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 461/1000, Time: 4.30s, Mean: -2.42, Min: -8.00, Max: -0.50, Std: 1.84
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 462/1000, Time: 4.31s, Mean: -2.18, Min: -9.50, Max: -0.50, Std: 1.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 463/1000, Time: 4.39s, Mean: -2.27, Min: -11.50, Max: -1.00, Std: 2.04
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 464/1000, Time: 4.41s, Mean: -2.22, Min: -10.00, Max: -0.50, Std: 2.21
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 465/1000, Time: 4.35s, Mean: -2.00, Min: -12.00, Max: -0.50, Std: 2.15
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 466/1000, Time: 4.38s, Mean: -2.37, Min: -17.00, Max: -0.50, Std: 3.38
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 467/1000, Time: 4.35s, Mean: -1.98, Min: -6.50, Max: -1.00, Std: 1.42
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 468/1000, Time: 4.32s, Mean: -1.82, Min: -8.00, Max: -1.00, Std: 1.31
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 469/1000, Time: 4.47s, Mean: -1.97, Min: -10.50, Max: -0.50, Std: 1.88
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 470/1000, Time: 4.29s, Mean: -2.33, Min: -9.00, Max: -0.50, Std: 1.96
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 471/1000, Time: 4.44s, Mean: -2.35, Min: -10.50, Max: -0.50, Std: 2.10
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 472/1000, Time: 5.53s, Mean: -4.80, Min: -85.50, Max: -0.50, Std: 15.16
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 473/1000, Time: 4.37s, Mean: -2.03, Min: -9.50, Max: -0.50, Std: 1.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 474/1000, Time: 4.35s, Mean: -2.83, Min: -16.50, Max: -1.00, Std: 3.28
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 475/1000, Time: 4.28s, Mean: -1.68, Min: -5.50, Max: -0.50, Std: 0.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 476/1000, Time: 4.36s, Mean: -2.75, Min: -13.00, Max: -0.50, Std: 3.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 477/1000, Time: 4.43s, Mean: -3.32, Min: -38.00, Max: -0.50, Std: 6.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 478/1000, Time: 4.39s, Mean: -2.50, Min: -12.00, Max: -0.50, Std: 2.25
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 479/1000, Time: 4.25s, Mean: -1.75, Min: -7.50, Max: -0.50, Std: 1.32
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 480/1000, Time: 4.30s, Mean: -2.03, Min: -10.50, Max: -0.50, Std: 1.97
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 481/1000, Time: 4.49s, Mean: -2.38, Min: -16.50, Max: -0.50, Std: 2.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 482/1000, Time: 4.34s, Mean: -1.77, Min: -9.50, Max: -0.50, Std: 1.52
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 483/1000, Time: 4.32s, Mean: -2.22, Min: -7.00, Max: -0.50, Std: 1.59
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 484/1000, Time: 4.71s, Mean: -5.68, Min: -57.00, Max: -0.50, Std: 11.74
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 485/1000, Time: 4.32s, Mean: -1.88, Min: -5.50, Max: -0.50, Std: 1.33
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 486/1000, Time: 4.23s, Mean: -1.70, Min: -5.00, Max: -0.50, Std: 0.95
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 487/1000, Time: 4.60s, Mean: -3.55, Min: -56.00, Max: -0.50, Std: 9.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 488/1000, Time: 4.31s, Mean: -1.85, Min: -7.00, Max: 0.00, Std: 1.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 489/1000, Time: 4.34s, Mean: -2.17, Min: -12.50, Max: -0.50, Std: 2.17
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 490/1000, Time: 4.85s, Mean: -3.72, Min: -39.50, Max: -1.00, Std: 7.95
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 491/1000, Time: 4.26s, Mean: -1.98, Min: -12.50, Max: 0.00, Std: 2.25
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 492/1000, Time: 4.27s, Mean: -1.68, Min: -6.50, Max: -1.00, Std: 1.23
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 493/1000, Time: 4.29s, Mean: -2.15, Min: -11.50, Max: -0.50, Std: 2.01
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 494/1000, Time: 4.33s, Mean: -2.40, Min: -11.50, Max: -0.50, Std: 2.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 495/1000, Time: 4.34s, Mean: -2.20, Min: -13.50, Max: -0.50, Std: 2.55
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 496/1000, Time: 4.41s, Mean: -1.95, Min: -7.00, Max: -0.50, Std: 1.35
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 497/1000, Time: 4.32s, Mean: -1.98, Min: -5.50, Max: -1.00, Std: 1.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 498/1000, Time: 4.27s, Mean: -2.62, Min: -12.00, Max: -1.00, Std: 2.60
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 499/1000, Time: 4.34s, Mean: -2.05, Min: -11.50, Max: -0.50, Std: 2.00
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 500/1000, Time: 4.31s, Mean: -2.02, Min: -10.00, Max: -1.00, Std: 1.62
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 500: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 500] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 500] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Saving checkpoint at iteration 500 to /n/netscratch/sham_lab/Everyone/jbejjani/evolutionary-alignment/conciseness/ES/final/conciseness/Qwen/Qwen2.5-7B-Instruct/2/es_random_seed2_pop30_iter500_sigma0.01_alpha0.0015_bf16_threads1_question_num2_checkpoint...
+Warning: The cache directory for DeepSpeed Triton autotune, /n/home08/jbejjani/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Checkpoint saved successfully.
+Iteration 501/1000, Time: 5.48s, Mean: -2.00, Min: -17.00, Max: -0.50, Std: 2.90
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 502/1000, Time: 5.39s, Mean: -3.13, Min: -36.00, Max: -1.00, Std: 6.24
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 503/1000, Time: 5.40s, Mean: -2.25, Min: -19.00, Max: 0.00, Std: 3.29
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 504/1000, Time: 5.31s, Mean: -1.78, Min: -6.00, Max: -1.00, Std: 1.17
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 505/1000, Time: 5.41s, Mean: -1.68, Min: -8.00, Max: -0.50, Std: 1.37
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 506/1000, Time: 5.94s, Mean: -5.03, Min: -79.50, Max: -1.00, Std: 14.11
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 507/1000, Time: 5.43s, Mean: -2.05, Min: -7.50, Max: -1.00, Std: 1.43
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 508/1000, Time: 5.38s, Mean: -1.82, Min: -6.00, Max: -0.50, Std: 1.35
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 509/1000, Time: 5.46s, Mean: -2.32, Min: -7.50, Max: -0.50, Std: 1.87
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 510/1000, Time: 5.30s, Mean: -4.90, Min: -74.00, Max: -0.50, Std: 13.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 511/1000, Time: 5.32s, Mean: -2.55, Min: -18.00, Max: -0.50, Std: 3.29
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 512/1000, Time: 5.32s, Mean: -2.28, Min: -11.00, Max: 0.00, Std: 2.23
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 513/1000, Time: 5.50s, Mean: -2.62, Min: -11.00, Max: -1.00, Std: 2.35
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 514/1000, Time: 5.39s, Mean: -1.72, Min: -4.50, Max: -0.50, Std: 0.86
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 515/1000, Time: 5.35s, Mean: -2.08, Min: -6.00, Max: -1.00, Std: 1.34
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 516/1000, Time: 5.45s, Mean: -2.23, Min: -10.50, Max: -0.50, Std: 1.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 517/1000, Time: 5.35s, Mean: -1.98, Min: -7.00, Max: -0.50, Std: 1.56
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 518/1000, Time: 5.33s, Mean: -1.58, Min: -3.50, Max: -1.00, Std: 0.59
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 519/1000, Time: 5.44s, Mean: -2.25, Min: -7.50, Max: -0.50, Std: 1.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 520/1000, Time: 5.36s, Mean: -2.13, Min: -7.50, Max: -1.00, Std: 1.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 521/1000, Time: 5.33s, Mean: -1.95, Min: -8.50, Max: -0.50, Std: 1.55
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 522/1000, Time: 5.43s, Mean: -2.03, Min: -10.00, Max: -0.50, Std: 1.85
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 523/1000, Time: 6.22s, Mean: -6.67, Min: -113.50, Max: -0.50, Std: 20.41
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 524/1000, Time: 5.38s, Mean: -2.13, Min: -11.50, Max: -1.00, Std: 2.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 525/1000, Time: 5.35s, Mean: -1.48, Min: -3.00, Max: 0.00, Std: 0.51
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 526/1000, Time: 5.45s, Mean: -3.07, Min: -26.50, Max: -1.00, Std: 4.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 527/1000, Time: 5.28s, Mean: -2.03, Min: -9.50, Max: 0.00, Std: 1.75
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 528/1000, Time: 5.37s, Mean: -2.05, Min: -14.50, Max: -0.50, Std: 2.52
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 529/1000, Time: 5.41s, Mean: -2.42, Min: -8.00, Max: -0.50, Std: 1.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 530/1000, Time: 5.32s, Mean: -1.98, Min: -10.00, Max: -0.50, Std: 1.62
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 531/1000, Time: 5.36s, Mean: -1.88, Min: -7.00, Max: -1.00, Std: 1.15
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 532/1000, Time: 5.26s, Mean: -2.05, Min: -8.50, Max: 0.00, Std: 1.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 533/1000, Time: 5.34s, Mean: -1.85, Min: -7.50, Max: -0.50, Std: 1.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 534/1000, Time: 5.33s, Mean: -1.72, Min: -8.50, Max: -0.50, Std: 1.30
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 535/1000, Time: 5.43s, Mean: -2.75, Min: -12.50, Max: -0.50, Std: 2.86
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 536/1000, Time: 5.37s, Mean: -4.47, Min: -67.50, Max: -0.50, Std: 12.05
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 537/1000, Time: 5.37s, Mean: -2.50, Min: -24.00, Max: -0.50, Std: 4.21
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 538/1000, Time: 5.52s, Mean: -2.22, Min: -8.00, Max: -0.50, Std: 1.97
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 539/1000, Time: 5.45s, Mean: -2.05, Min: -8.00, Max: -1.00, Std: 1.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 540/1000, Time: 5.46s, Mean: -2.25, Min: -12.50, Max: -0.50, Std: 2.22
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 541/1000, Time: 5.29s, Mean: -1.67, Min: -5.50, Max: -0.50, Std: 0.90
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 542/1000, Time: 5.25s, Mean: -1.77, Min: -5.50, Max: -1.00, Std: 1.10
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 543/1000, Time: 5.31s, Mean: -1.98, Min: -10.00, Max: -1.00, Std: 1.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 544/1000, Time: 5.54s, Mean: -3.00, Min: -24.00, Max: -0.50, Std: 4.42
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 545/1000, Time: 5.45s, Mean: -2.30, Min: -9.00, Max: -1.00, Std: 1.88
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 546/1000, Time: 5.41s, Mean: -2.03, Min: -7.00, Max: -0.50, Std: 1.35
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 547/1000, Time: 5.41s, Mean: -1.87, Min: -10.00, Max: -0.50, Std: 1.62
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 548/1000, Time: 5.37s, Mean: -2.67, Min: -23.50, Max: -0.50, Std: 4.64
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 549/1000, Time: 5.33s, Mean: -1.90, Min: -9.50, Max: -0.50, Std: 1.57
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 550/1000, Time: 5.44s, Mean: -2.73, Min: -14.50, Max: -0.50, Std: 3.29
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 550: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 550] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 550] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Iteration 551/1000, Time: 5.44s, Mean: -2.33, Min: -16.50, Max: -0.50, Std: 3.09
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 552/1000, Time: 5.42s, Mean: -2.53, Min: -26.00, Max: -1.00, Std: 4.46
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 553/1000, Time: 5.37s, Mean: -1.78, Min: -4.00, Max: -0.50, Std: 0.94
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 554/1000, Time: 5.34s, Mean: -2.42, Min: -8.50, Max: -1.00, Std: 1.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 555/1000, Time: 5.37s, Mean: -1.85, Min: -8.50, Max: -0.50, Std: 1.47
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 556/1000, Time: 5.36s, Mean: -1.77, Min: -5.50, Max: 0.00, Std: 1.17
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 557/1000, Time: 5.37s, Mean: -2.47, Min: -12.00, Max: -0.50, Std: 2.41
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 558/1000, Time: 5.31s, Mean: -1.97, Min: -8.00, Max: -0.50, Std: 1.44
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 559/1000, Time: 5.37s, Mean: -1.80, Min: -7.50, Max: -1.00, Std: 1.19
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 560/1000, Time: 5.31s, Mean: -1.70, Min: -5.00, Max: -0.50, Std: 1.00
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 561/1000, Time: 5.45s, Mean: -2.53, Min: -17.00, Max: -0.50, Std: 3.04
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 562/1000, Time: 5.40s, Mean: -1.43, Min: -3.00, Max: -0.50, Std: 0.48
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 563/1000, Time: 5.35s, Mean: -3.00, Min: -25.00, Max: -0.50, Std: 4.77
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 564/1000, Time: 5.33s, Mean: -1.85, Min: -7.50, Max: 0.00, Std: 1.50
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 565/1000, Time: 5.27s, Mean: -1.52, Min: -4.50, Max: -0.50, Std: 0.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 566/1000, Time: 5.62s, Mean: -3.23, Min: -35.00, Max: -0.50, Std: 6.30
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 567/1000, Time: 6.61s, Mean: -15.17, Min: -397.00, Max: -0.50, Std: 70.94
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 568/1000, Time: 5.35s, Mean: -1.90, Min: -7.50, Max: -0.50, Std: 1.42
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 569/1000, Time: 5.37s, Mean: -2.23, Min: -10.00, Max: -0.50, Std: 2.31
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 570/1000, Time: 5.34s, Mean: -1.72, Min: -9.00, Max: -0.50, Std: 1.53
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 571/1000, Time: 5.38s, Mean: -1.53, Min: -4.50, Max: -1.00, Std: 0.69
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 572/1000, Time: 5.35s, Mean: -2.78, Min: -21.50, Max: -1.00, Std: 3.91
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 573/1000, Time: 5.40s, Mean: -2.65, Min: -15.50, Max: -0.50, Std: 3.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 574/1000, Time: 5.41s, Mean: -2.23, Min: -8.50, Max: -1.00, Std: 1.85
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 575/1000, Time: 5.28s, Mean: -2.02, Min: -11.00, Max: -1.00, Std: 1.84
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 576/1000, Time: 5.30s, Mean: -1.78, Min: -11.50, Max: -0.50, Std: 1.85
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 577/1000, Time: 5.44s, Mean: -2.47, Min: -11.00, Max: -0.50, Std: 2.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 578/1000, Time: 5.41s, Mean: -1.77, Min: -7.00, Max: -0.50, Std: 1.35
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 579/1000, Time: 5.29s, Mean: -1.75, Min: -6.50, Max: -0.50, Std: 1.31
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 580/1000, Time: 5.33s, Mean: -1.70, Min: -7.00, Max: -0.50, Std: 1.31
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 581/1000, Time: 5.67s, Mean: -3.32, Min: -25.50, Max: -1.00, Std: 5.81
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 582/1000, Time: 5.32s, Mean: -2.18, Min: -20.00, Max: -1.00, Std: 3.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 583/1000, Time: 5.46s, Mean: -2.47, Min: -10.50, Max: -0.50, Std: 2.18
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 584/1000, Time: 5.50s, Mean: -2.05, Min: -9.50, Max: -0.50, Std: 1.75
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 585/1000, Time: 5.62s, Mean: -2.47, Min: -14.50, Max: 0.00, Std: 3.23
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 586/1000, Time: 7.41s, Mean: -38.60, Min: -768.50, Max: -0.50, Std: 147.12
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 587/1000, Time: 5.46s, Mean: -2.10, Min: -6.00, Max: -0.50, Std: 1.47
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 588/1000, Time: 5.40s, Mean: -2.82, Min: -16.50, Max: -0.50, Std: 3.26
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 589/1000, Time: 5.80s, Mean: -3.93, Min: -64.50, Max: -1.00, Std: 11.29
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 590/1000, Time: 5.37s, Mean: -2.23, Min: -8.00, Max: -1.00, Std: 1.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 591/1000, Time: 5.39s, Mean: -2.30, Min: -11.50, Max: -1.00, Std: 2.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 592/1000, Time: 5.47s, Mean: -1.88, Min: -8.00, Max: -1.00, Std: 1.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 593/1000, Time: 5.31s, Mean: -2.33, Min: -12.50, Max: -0.50, Std: 2.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 594/1000, Time: 5.31s, Mean: -2.33, Min: -6.50, Max: -1.00, Std: 1.60
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 595/1000, Time: 5.45s, Mean: -2.40, Min: -10.00, Max: -1.00, Std: 2.31
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 596/1000, Time: 5.28s, Mean: -1.80, Min: -7.00, Max: -0.50, Std: 1.35
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 597/1000, Time: 5.32s, Mean: -2.67, Min: -16.00, Max: -0.50, Std: 3.01
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 598/1000, Time: 5.45s, Mean: -4.52, Min: -89.50, Max: 0.00, Std: 15.79
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 599/1000, Time: 5.32s, Mean: -1.55, Min: -3.50, Max: -0.50, Std: 0.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 600/1000, Time: 5.42s, Mean: -2.53, Min: -17.00, Max: -0.50, Std: 3.22
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 600: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 600] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 600] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Iteration 601/1000, Time: 5.26s, Mean: -1.70, Min: -5.50, Max: -0.50, Std: 0.96
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 602/1000, Time: 5.36s, Mean: -1.58, Min: -5.50, Max: -0.50, Std: 1.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 603/1000, Time: 5.30s, Mean: -2.90, Min: -25.00, Max: -0.50, Std: 4.45
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 604/1000, Time: 5.30s, Mean: -2.25, Min: -15.00, Max: -0.50, Std: 3.38
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 605/1000, Time: 5.38s, Mean: -1.57, Min: -7.50, Max: -0.50, Std: 1.13
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 606/1000, Time: 5.30s, Mean: -1.68, Min: -4.00, Max: -1.00, Std: 0.74
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 607/1000, Time: 5.35s, Mean: -2.75, Min: -24.50, Max: -1.50, Std: 4.21
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 608/1000, Time: 5.26s, Mean: -1.97, Min: -7.50, Max: -1.00, Std: 1.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 609/1000, Time: 5.34s, Mean: -1.73, Min: -4.00, Max: -0.50, Std: 0.84
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 610/1000, Time: 5.35s, Mean: -2.00, Min: -10.00, Max: -0.50, Std: 1.76
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 611/1000, Time: 5.31s, Mean: -5.28, Min: -104.00, Max: 0.00, Std: 18.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 612/1000, Time: 5.35s, Mean: -1.97, Min: -4.50, Max: -0.50, Std: 1.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 613/1000, Time: 7.44s, Mean: -18.43, Min: -215.50, Max: -1.00, Std: 53.96
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 614/1000, Time: 5.30s, Mean: -1.32, Min: -1.50, Max: 0.00, Std: 0.38
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 615/1000, Time: 5.37s, Mean: -1.62, Min: -6.00, Max: -0.50, Std: 0.95
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 616/1000, Time: 5.28s, Mean: -1.60, Min: -3.50, Max: -0.50, Std: 0.65
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 617/1000, Time: 5.29s, Mean: -2.32, Min: -6.50, Max: -0.50, Std: 1.60
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 618/1000, Time: 5.29s, Mean: -2.42, Min: -21.00, Max: 0.00, Std: 3.64
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 619/1000, Time: 5.33s, Mean: -4.48, Min: -33.00, Max: -1.00, Std: 7.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 620/1000, Time: 5.28s, Mean: -1.62, Min: -5.00, Max: -0.50, Std: 0.89
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 621/1000, Time: 5.58s, Mean: -6.95, Min: -139.50, Max: -0.50, Std: 24.77
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 622/1000, Time: 5.40s, Mean: -4.22, Min: -55.50, Max: -1.00, Std: 9.87
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 623/1000, Time: 5.34s, Mean: -2.43, Min: -11.50, Max: -0.50, Std: 2.17
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 624/1000, Time: 5.37s, Mean: -1.53, Min: -5.00, Max: 0.00, Std: 0.97
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 625/1000, Time: 5.44s, Mean: -2.52, Min: -17.00, Max: -0.50, Std: 3.34
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 626/1000, Time: 5.30s, Mean: -1.57, Min: -4.00, Max: -0.50, Std: 0.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 627/1000, Time: 5.32s, Mean: -2.38, Min: -11.00, Max: -0.50, Std: 2.37
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 628/1000, Time: 6.00s, Mean: -5.77, Min: -110.00, Max: -1.00, Std: 19.46
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 629/1000, Time: 5.38s, Mean: -2.85, Min: -19.00, Max: -0.50, Std: 4.04
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 630/1000, Time: 5.35s, Mean: -2.70, Min: -10.00, Max: 0.00, Std: 2.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 631/1000, Time: 5.33s, Mean: -1.92, Min: -10.50, Max: -1.00, Std: 1.81
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 632/1000, Time: 5.30s, Mean: -1.65, Min: -5.50, Max: -1.00, Std: 0.81
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 633/1000, Time: 5.37s, Mean: -2.00, Min: -5.00, Max: -0.50, Std: 1.32
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 634/1000, Time: 5.30s, Mean: -1.67, Min: -6.50, Max: -0.50, Std: 1.06
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 635/1000, Time: 5.31s, Mean: -2.65, Min: -20.50, Max: -0.50, Std: 4.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 636/1000, Time: 6.13s, Mean: -14.08, Min: -194.50, Max: -0.50, Std: 43.90
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 637/1000, Time: 5.34s, Mean: -1.98, Min: -9.00, Max: 0.00, Std: 1.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 638/1000, Time: 5.30s, Mean: -1.48, Min: -4.50, Max: -0.50, Std: 0.64
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 639/1000, Time: 5.30s, Mean: -2.68, Min: -35.50, Max: -0.50, Std: 6.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 640/1000, Time: 5.31s, Mean: -1.60, Min: -4.00, Max: -0.50, Std: 0.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 641/1000, Time: 5.26s, Mean: -1.50, Min: -4.00, Max: -1.00, Std: 0.50
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 642/1000, Time: 5.43s, Mean: -2.58, Min: -9.00, Max: -1.00, Std: 1.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 643/1000, Time: 5.35s, Mean: -2.33, Min: -9.00, Max: -1.00, Std: 2.12
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 644/1000, Time: 5.36s, Mean: -2.25, Min: -9.50, Max: -1.00, Std: 1.92
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 645/1000, Time: 5.38s, Mean: -1.97, Min: -6.50, Max: -0.50, Std: 1.32
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 646/1000, Time: 5.30s, Mean: -1.97, Min: -16.00, Max: -0.50, Std: 2.65
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 647/1000, Time: 5.39s, Mean: -3.23, Min: -17.00, Max: 0.00, Std: 3.57
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 648/1000, Time: 5.30s, Mean: -2.30, Min: -10.00, Max: -0.50, Std: 2.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 649/1000, Time: 5.36s, Mean: -1.75, Min: -10.00, Max: -1.00, Std: 1.58
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 650/1000, Time: 5.33s, Mean: -1.73, Min: -6.50, Max: -1.00, Std: 1.10
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 650: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 650] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 650] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Iteration 651/1000, Time: 5.26s, Mean: -1.65, Min: -7.00, Max: -0.50, Std: 1.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 652/1000, Time: 5.33s, Mean: -1.62, Min: -4.00, Max: -1.00, Std: 0.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 653/1000, Time: 5.35s, Mean: -2.30, Min: -19.50, Max: -0.50, Std: 3.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 654/1000, Time: 5.40s, Mean: -2.47, Min: -17.50, Max: -0.50, Std: 3.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 655/1000, Time: 5.33s, Mean: -2.17, Min: -10.50, Max: -0.50, Std: 2.04
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 656/1000, Time: 5.41s, Mean: -2.30, Min: -7.00, Max: -1.00, Std: 1.52
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 657/1000, Time: 5.35s, Mean: -1.73, Min: -6.50, Max: 0.00, Std: 1.08
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 658/1000, Time: 5.34s, Mean: -1.48, Min: -4.00, Max: -0.50, Std: 0.56
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 659/1000, Time: 5.34s, Mean: -3.03, Min: -32.50, Max: -0.50, Std: 5.68
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 660/1000, Time: 5.46s, Mean: -2.72, Min: -10.50, Max: -0.50, Std: 2.19
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 661/1000, Time: 5.37s, Mean: -2.22, Min: -15.00, Max: -0.50, Std: 2.58
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 662/1000, Time: 5.41s, Mean: -3.38, Min: -33.00, Max: -0.50, Std: 5.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 663/1000, Time: 5.28s, Mean: -2.03, Min: -9.00, Max: -0.50, Std: 1.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 664/1000, Time: 5.30s, Mean: -2.72, Min: -32.00, Max: -1.00, Std: 5.50
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 665/1000, Time: 5.43s, Mean: -2.22, Min: -9.00, Max: -0.50, Std: 1.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 666/1000, Time: 5.37s, Mean: -2.42, Min: -23.50, Max: -0.50, Std: 4.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 667/1000, Time: 5.30s, Mean: -1.98, Min: -13.00, Max: 0.00, Std: 2.19
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 668/1000, Time: 5.36s, Mean: -2.17, Min: -6.50, Max: -1.00, Std: 1.47
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 669/1000, Time: 5.49s, Mean: -2.90, Min: -14.00, Max: -0.50, Std: 3.18
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 670/1000, Time: 5.53s, Mean: -7.38, Min: -139.50, Max: -1.00, Std: 24.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 671/1000, Time: 5.60s, Mean: -3.50, Min: -38.50, Max: -0.50, Std: 6.95
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 672/1000, Time: 5.49s, Mean: -2.20, Min: -14.00, Max: -0.50, Std: 2.56
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 673/1000, Time: 5.37s, Mean: -2.03, Min: -8.50, Max: -0.50, Std: 1.81
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 674/1000, Time: 5.33s, Mean: -2.05, Min: -19.00, Max: -0.50, Std: 3.18
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 675/1000, Time: 5.49s, Mean: -2.10, Min: -9.00, Max: -0.50, Std: 1.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 676/1000, Time: 5.32s, Mean: -1.72, Min: -4.50, Max: -0.50, Std: 0.89
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 677/1000, Time: 5.41s, Mean: -2.02, Min: -10.00, Max: -0.50, Std: 1.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 678/1000, Time: 5.44s, Mean: -1.67, Min: -4.00, Max: -0.50, Std: 0.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 679/1000, Time: 5.34s, Mean: -1.92, Min: -8.00, Max: -1.00, Std: 1.36
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 680/1000, Time: 5.33s, Mean: -2.48, Min: -21.00, Max: -0.50, Std: 3.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 681/1000, Time: 5.32s, Mean: -2.90, Min: -13.50, Max: -1.00, Std: 3.17
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 682/1000, Time: 5.31s, Mean: -1.68, Min: -4.00, Max: -0.50, Std: 0.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 683/1000, Time: 5.43s, Mean: -2.10, Min: -8.00, Max: -0.50, Std: 1.85
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 684/1000, Time: 5.37s, Mean: -3.15, Min: -23.50, Max: -1.00, Std: 4.53
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 685/1000, Time: 5.42s, Mean: -2.03, Min: -8.50, Max: -1.00, Std: 1.49
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 686/1000, Time: 5.41s, Mean: -1.72, Min: -5.50, Max: 0.00, Std: 1.05
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 687/1000, Time: 5.43s, Mean: -2.73, Min: -20.50, Max: -1.00, Std: 3.73
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 688/1000, Time: 5.40s, Mean: -2.23, Min: -10.50, Max: -0.50, Std: 2.16
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 689/1000, Time: 5.32s, Mean: -2.08, Min: -11.00, Max: -1.00, Std: 1.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 690/1000, Time: 5.44s, Mean: -2.28, Min: -14.50, Max: -1.00, Std: 2.92
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 691/1000, Time: 5.46s, Mean: -2.83, Min: -20.50, Max: -1.00, Std: 4.00
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 692/1000, Time: 5.32s, Mean: -3.17, Min: -46.50, Max: -1.00, Std: 8.10
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 693/1000, Time: 5.39s, Mean: -2.40, Min: -10.50, Max: -1.00, Std: 2.20
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 694/1000, Time: 5.47s, Mean: -2.23, Min: -15.00, Max: -1.00, Std: 2.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 695/1000, Time: 5.34s, Mean: -1.85, Min: -7.00, Max: 0.00, Std: 1.20
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 696/1000, Time: 5.35s, Mean: -1.92, Min: -8.00, Max: -0.50, Std: 1.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 697/1000, Time: 5.48s, Mean: -1.98, Min: -9.50, Max: -0.50, Std: 1.65
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 698/1000, Time: 5.38s, Mean: -1.95, Min: -15.00, Max: -0.50, Std: 2.46
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 699/1000, Time: 5.38s, Mean: -2.97, Min: -11.00, Max: 0.00, Std: 2.81
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 700/1000, Time: 5.43s, Mean: -2.32, Min: -11.50, Max: -1.00, Std: 2.45
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 700: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 700] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 700] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Iteration 701/1000, Time: 5.33s, Mean: -1.60, Min: -4.00, Max: -1.00, Std: 0.55
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 702/1000, Time: 5.37s, Mean: -1.88, Min: -8.00, Max: -1.00, Std: 1.49
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 703/1000, Time: 5.44s, Mean: -2.05, Min: -13.00, Max: -0.50, Std: 2.23
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 704/1000, Time: 5.29s, Mean: -1.52, Min: -3.50, Max: -0.50, Std: 0.54
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 705/1000, Time: 5.34s, Mean: -1.85, Min: -5.00, Max: -0.50, Std: 0.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 706/1000, Time: 5.45s, Mean: -4.05, Min: -27.50, Max: -0.50, Std: 6.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 707/1000, Time: 5.33s, Mean: -2.40, Min: -13.00, Max: -0.50, Std: 2.62
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 708/1000, Time: 5.35s, Mean: -2.32, Min: -17.50, Max: -0.50, Std: 2.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 709/1000, Time: 5.39s, Mean: -1.85, Min: -5.00, Max: -0.50, Std: 1.09
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 710/1000, Time: 5.29s, Mean: -1.63, Min: -3.50, Max: -1.00, Std: 0.48
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 711/1000, Time: 5.49s, Mean: -1.97, Min: -11.00, Max: -1.00, Std: 1.86
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 712/1000, Time: 5.33s, Mean: -2.32, Min: -12.00, Max: -0.50, Std: 2.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 713/1000, Time: 5.45s, Mean: -2.47, Min: -7.50, Max: -1.00, Std: 1.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 714/1000, Time: 5.38s, Mean: -3.08, Min: -44.00, Max: 0.00, Std: 7.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 715/1000, Time: 5.44s, Mean: -2.37, Min: -11.00, Max: -0.50, Std: 2.09
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 716/1000, Time: 5.30s, Mean: -1.72, Min: -5.00, Max: -1.00, Std: 0.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 717/1000, Time: 5.36s, Mean: -1.88, Min: -6.00, Max: -0.50, Std: 1.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 718/1000, Time: 5.36s, Mean: -2.90, Min: -30.00, Max: -0.50, Std: 5.25
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 719/1000, Time: 5.63s, Mean: -2.08, Min: -9.50, Max: -0.50, Std: 1.76
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 720/1000, Time: 6.20s, Mean: -13.40, Min: -327.50, Max: -0.50, Std: 58.45
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 721/1000, Time: 5.38s, Mean: -2.27, Min: -13.50, Max: -0.50, Std: 2.54
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 722/1000, Time: 5.44s, Mean: -12.93, Min: -340.00, Max: -0.50, Std: 60.75
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 723/1000, Time: 5.33s, Mean: -1.67, Min: -4.50, Max: -0.50, Std: 0.62
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 724/1000, Time: 5.33s, Mean: -1.68, Min: -6.50, Max: -0.50, Std: 1.11
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 725/1000, Time: 5.30s, Mean: -2.12, Min: -8.50, Max: -0.50, Std: 1.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 726/1000, Time: 6.45s, Mean: -13.58, Min: -216.50, Max: -1.00, Std: 44.08
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 727/1000, Time: 5.40s, Mean: -2.05, Min: -9.00, Max: -1.00, Std: 1.92
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 728/1000, Time: 5.30s, Mean: -1.52, Min: -4.50, Max: -0.50, Std: 0.60
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 729/1000, Time: 5.40s, Mean: -1.87, Min: -11.50, Max: -0.50, Std: 1.92
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 730/1000, Time: 5.33s, Mean: -1.77, Min: -6.50, Max: -0.50, Std: 1.13
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 731/1000, Time: 5.33s, Mean: -1.65, Min: -3.50, Max: -1.00, Std: 0.56
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 732/1000, Time: 5.39s, Mean: -2.42, Min: -12.00, Max: -0.50, Std: 2.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 733/1000, Time: 5.43s, Mean: -2.00, Min: -17.50, Max: -0.50, Std: 2.96
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 734/1000, Time: 5.35s, Mean: -1.63, Min: -3.50, Max: -0.50, Std: 0.73
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 735/1000, Time: 5.42s, Mean: -2.15, Min: -11.00, Max: -0.50, Std: 2.01
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 736/1000, Time: 5.26s, Mean: -2.13, Min: -12.50, Max: -0.50, Std: 2.20
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 737/1000, Time: 5.37s, Mean: -1.70, Min: -5.50, Max: -1.00, Std: 0.87
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 738/1000, Time: 5.37s, Mean: -2.27, Min: -8.50, Max: 0.00, Std: 2.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 739/1000, Time: 5.27s, Mean: -1.82, Min: -9.50, Max: -0.50, Std: 1.51
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 740/1000, Time: 5.31s, Mean: -1.87, Min: -5.50, Max: -0.50, Std: 0.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 741/1000, Time: 5.34s, Mean: -1.63, Min: -9.00, Max: -0.50, Std: 1.41
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 742/1000, Time: 5.29s, Mean: -2.12, Min: -18.00, Max: -1.00, Std: 3.00
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 743/1000, Time: 5.31s, Mean: -1.80, Min: -6.50, Max: -1.00, Std: 1.05
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 744/1000, Time: 5.34s, Mean: -1.77, Min: -5.50, Max: -1.00, Std: 1.03
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 745/1000, Time: 5.38s, Mean: -2.67, Min: -12.00, Max: -1.00, Std: 2.68
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 746/1000, Time: 5.38s, Mean: -2.28, Min: -10.50, Max: -0.50, Std: 2.41
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 747/1000, Time: 5.30s, Mean: -2.23, Min: -7.00, Max: -0.50, Std: 1.62
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 748/1000, Time: 5.45s, Mean: -2.33, Min: -9.50, Max: -0.50, Std: 2.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 749/1000, Time: 5.35s, Mean: -1.68, Min: -4.50, Max: -1.00, Std: 0.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 750/1000, Time: 5.34s, Mean: -2.48, Min: -9.00, Max: -0.50, Std: 2.06
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 750: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 750] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 750] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Iteration 751/1000, Time: 5.62s, Mean: -3.58, Min: -48.00, Max: -1.00, Std: 8.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 752/1000, Time: 5.60s, Mean: -2.17, Min: -15.50, Max: -0.50, Std: 2.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 753/1000, Time: 5.29s, Mean: -1.80, Min: -6.50, Max: -0.50, Std: 1.29
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 754/1000, Time: 5.34s, Mean: -2.87, Min: -27.50, Max: -1.00, Std: 4.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 755/1000, Time: 5.34s, Mean: -1.88, Min: -7.50, Max: -1.00, Std: 1.30
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 756/1000, Time: 5.45s, Mean: -2.30, Min: -15.00, Max: -0.50, Std: 2.60
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 757/1000, Time: 5.40s, Mean: -1.88, Min: -6.00, Max: -0.50, Std: 1.25
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 758/1000, Time: 5.30s, Mean: -1.58, Min: -5.00, Max: -0.50, Std: 0.90
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 759/1000, Time: 5.29s, Mean: -1.98, Min: -7.50, Max: -0.50, Std: 1.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 760/1000, Time: 5.29s, Mean: -2.65, Min: -13.00, Max: -1.00, Std: 2.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 761/1000, Time: 5.38s, Mean: -2.35, Min: -12.50, Max: 0.00, Std: 2.59
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 762/1000, Time: 5.41s, Mean: -1.88, Min: -5.00, Max: -1.00, Std: 0.87
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 763/1000, Time: 5.40s, Mean: -2.10, Min: -9.00, Max: 0.00, Std: 1.91
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 764/1000, Time: 5.35s, Mean: -1.87, Min: -6.00, Max: -0.50, Std: 1.34
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 765/1000, Time: 5.32s, Mean: -2.03, Min: -7.50, Max: -1.00, Std: 1.28
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 766/1000, Time: 5.41s, Mean: -2.05, Min: -7.00, Max: -1.00, Std: 1.43
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 767/1000, Time: 5.31s, Mean: -2.40, Min: -8.50, Max: -1.00, Std: 1.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 768/1000, Time: 5.33s, Mean: -1.57, Min: -4.00, Max: -0.50, Std: 0.74
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 769/1000, Time: 5.43s, Mean: -1.95, Min: -8.00, Max: -1.00, Std: 1.53
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 770/1000, Time: 5.39s, Mean: -2.15, Min: -12.50, Max: -1.50, Std: 2.15
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 771/1000, Time: 5.34s, Mean: -2.33, Min: -18.00, Max: -1.00, Std: 3.18
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 772/1000, Time: 5.50s, Mean: -2.30, Min: -13.50, Max: -0.50, Std: 2.57
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 773/1000, Time: 5.39s, Mean: -2.25, Min: -8.50, Max: -0.50, Std: 1.62
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 774/1000, Time: 5.32s, Mean: -2.30, Min: -10.50, Max: -1.00, Std: 1.96
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 775/1000, Time: 5.34s, Mean: -1.95, Min: -11.50, Max: -1.00, Std: 1.90
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 776/1000, Time: 5.29s, Mean: -1.73, Min: -5.00, Max: -1.00, Std: 0.74
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 777/1000, Time: 5.31s, Mean: -1.65, Min: -6.00, Max: -1.00, Std: 0.87
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 778/1000, Time: 5.37s, Mean: -1.97, Min: -9.50, Max: -0.50, Std: 1.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 779/1000, Time: 5.36s, Mean: -1.60, Min: -4.50, Max: -1.00, Std: 0.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 780/1000, Time: 5.37s, Mean: -2.38, Min: -11.00, Max: -0.50, Std: 2.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 781/1000, Time: 5.34s, Mean: -2.23, Min: -14.50, Max: 0.00, Std: 2.64
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 782/1000, Time: 5.31s, Mean: -1.92, Min: -10.50, Max: 0.00, Std: 1.74
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 783/1000, Time: 5.34s, Mean: -1.87, Min: -4.50, Max: -0.50, Std: 0.91
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 784/1000, Time: 5.35s, Mean: -2.58, Min: -15.00, Max: -0.50, Std: 2.74
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 785/1000, Time: 5.34s, Mean: -2.02, Min: -8.50, Max: 0.00, Std: 1.73
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 786/1000, Time: 5.36s, Mean: -1.92, Min: -7.50, Max: -1.00, Std: 1.41
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 787/1000, Time: 5.33s, Mean: -1.95, Min: -5.00, Max: -1.00, Std: 0.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 788/1000, Time: 6.40s, Mean: -8.58, Min: -218.00, Max: -0.50, Std: 38.89
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 789/1000, Time: 5.30s, Mean: -1.83, Min: -7.00, Max: -1.00, Std: 1.05
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 790/1000, Time: 5.38s, Mean: -2.50, Min: -11.00, Max: -0.50, Std: 2.50
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 791/1000, Time: 5.31s, Mean: -2.72, Min: -21.50, Max: -1.00, Std: 3.88
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 792/1000, Time: 5.38s, Mean: -2.07, Min: -9.00, Max: -1.00, Std: 1.45
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 793/1000, Time: 5.28s, Mean: -1.58, Min: -5.50, Max: -1.00, Std: 0.75
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 794/1000, Time: 5.32s, Mean: -1.50, Min: -3.00, Max: -0.50, Std: 0.47
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 795/1000, Time: 5.47s, Mean: -2.00, Min: -10.00, Max: -0.50, Std: 1.76
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 796/1000, Time: 5.29s, Mean: -2.33, Min: -17.00, Max: -0.50, Std: 3.11
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 797/1000, Time: 5.32s, Mean: -2.20, Min: -8.00, Max: -0.50, Std: 1.69
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 798/1000, Time: 5.29s, Mean: -1.62, Min: -4.00, Max: -0.50, Std: 0.77
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 799/1000, Time: 5.41s, Mean: -2.20, Min: -9.50, Max: -0.50, Std: 2.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 800/1000, Time: 5.36s, Mean: -1.68, Min: -4.00, Max: -0.50, Std: 0.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 800: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 800] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 800] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Iteration 801/1000, Time: 5.30s, Mean: -1.68, Min: -3.50, Max: -0.50, Std: 0.77
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 802/1000, Time: 5.47s, Mean: -2.77, Min: -20.50, Max: -0.50, Std: 3.84
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 803/1000, Time: 5.32s, Mean: -1.82, Min: -6.00, Max: -1.00, Std: 1.01
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 804/1000, Time: 5.29s, Mean: -1.67, Min: -6.00, Max: -1.00, Std: 0.97
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 805/1000, Time: 5.34s, Mean: -7.37, Min: -167.50, Max: -0.50, Std: 29.77
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 806/1000, Time: 5.31s, Mean: -2.02, Min: -7.00, Max: -1.00, Std: 1.42
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 807/1000, Time: 5.77s, Mean: -4.12, Min: -41.50, Max: -0.50, Std: 8.28
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 808/1000, Time: 5.43s, Mean: -1.82, Min: -8.00, Max: -0.50, Std: 1.50
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 809/1000, Time: 5.31s, Mean: -1.55, Min: -4.50, Max: -0.50, Std: 0.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 810/1000, Time: 5.30s, Mean: -1.70, Min: -3.50, Max: -1.00, Std: 0.60
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 811/1000, Time: 5.31s, Mean: -2.33, Min: -13.00, Max: -0.50, Std: 2.67
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 812/1000, Time: 5.36s, Mean: -1.70, Min: -6.00, Max: -0.50, Std: 0.95
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 813/1000, Time: 5.45s, Mean: -2.33, Min: -13.50, Max: -0.50, Std: 2.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 814/1000, Time: 5.30s, Mean: -1.88, Min: -7.50, Max: -0.50, Std: 1.41
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 815/1000, Time: 5.38s, Mean: -2.67, Min: -16.50, Max: -0.50, Std: 3.62
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 816/1000, Time: 5.41s, Mean: -1.85, Min: -5.50, Max: -1.00, Std: 1.01
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 817/1000, Time: 5.34s, Mean: -3.53, Min: -41.50, Max: -0.50, Std: 7.81
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 818/1000, Time: 6.38s, Mean: -4.37, Min: -64.50, Max: -0.50, Std: 11.41
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 819/1000, Time: 5.31s, Mean: -2.25, Min: -10.00, Max: -0.50, Std: 2.17
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 820/1000, Time: 5.35s, Mean: -2.23, Min: -9.00, Max: -0.50, Std: 1.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 821/1000, Time: 5.39s, Mean: -2.15, Min: -14.50, Max: -0.50, Std: 2.51
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 822/1000, Time: 5.35s, Mean: -1.55, Min: -4.50, Max: -0.50, Std: 0.86
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 823/1000, Time: 5.30s, Mean: -2.58, Min: -19.50, Max: -0.50, Std: 3.44
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 824/1000, Time: 5.38s, Mean: -2.18, Min: -7.50, Max: 0.00, Std: 1.76
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 825/1000, Time: 5.34s, Mean: -1.67, Min: -5.00, Max: 0.00, Std: 0.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 826/1000, Time: 5.39s, Mean: -2.95, Min: -15.50, Max: -0.50, Std: 3.00
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 827/1000, Time: 5.32s, Mean: -1.82, Min: -6.50, Max: -0.50, Std: 1.04
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 828/1000, Time: 5.32s, Mean: -1.77, Min: -5.00, Max: -0.50, Std: 0.92
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 829/1000, Time: 5.30s, Mean: -1.97, Min: -5.50, Max: 0.00, Std: 1.43
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 830/1000, Time: 5.29s, Mean: -2.37, Min: -10.50, Max: -1.00, Std: 2.09
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 831/1000, Time: 5.33s, Mean: -1.72, Min: -7.00, Max: -0.50, Std: 1.33
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 832/1000, Time: 5.40s, Mean: -4.67, Min: -53.50, Max: -0.50, Std: 9.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 833/1000, Time: 5.35s, Mean: -5.28, Min: -97.00, Max: -1.50, Std: 17.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 834/1000, Time: 5.30s, Mean: -2.07, Min: -6.50, Max: -0.50, Std: 1.48
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 835/1000, Time: 5.32s, Mean: -1.97, Min: -13.00, Max: 0.00, Std: 2.27
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 836/1000, Time: 5.27s, Mean: -1.90, Min: -12.50, Max: -1.00, Std: 1.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 837/1000, Time: 5.28s, Mean: -1.85, Min: -6.00, Max: -0.50, Std: 1.08
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 838/1000, Time: 5.32s, Mean: -1.88, Min: -7.50, Max: -1.00, Std: 1.45
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 839/1000, Time: 5.36s, Mean: -2.33, Min: -27.50, Max: -0.50, Std: 4.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 840/1000, Time: 5.41s, Mean: -3.38, Min: -38.00, Max: -0.50, Std: 6.68
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 841/1000, Time: 5.44s, Mean: -2.68, Min: -15.00, Max: -1.00, Std: 3.19
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 842/1000, Time: 5.36s, Mean: -2.12, Min: -11.00, Max: -0.50, Std: 2.26
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 843/1000, Time: 5.45s, Mean: -2.18, Min: -7.50, Max: -1.00, Std: 1.60
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 844/1000, Time: 5.31s, Mean: -1.63, Min: -5.00, Max: -0.50, Std: 1.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 845/1000, Time: 5.35s, Mean: -1.58, Min: -5.50, Max: -0.50, Std: 0.88
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 846/1000, Time: 5.45s, Mean: -2.48, Min: -25.00, Max: -0.50, Std: 4.30
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 847/1000, Time: 5.37s, Mean: -2.38, Min: -7.50, Max: -0.50, Std: 1.74
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 848/1000, Time: 5.32s, Mean: -2.00, Min: -6.50, Max: -1.00, Std: 1.30
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 849/1000, Time: 5.44s, Mean: -2.52, Min: -15.50, Max: -1.50, Std: 2.84
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 850/1000, Time: 5.28s, Mean: -1.50, Min: -3.50, Max: -0.50, Std: 0.55
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 850: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 850] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 850] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Iteration 851/1000, Time: 5.33s, Mean: -2.20, Min: -18.00, Max: -0.50, Std: 3.25
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 852/1000, Time: 5.30s, Mean: -1.63, Min: -4.50, Max: -1.00, Std: 0.73
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 853/1000, Time: 5.50s, Mean: -2.18, Min: -8.50, Max: -0.50, Std: 1.97
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 854/1000, Time: 5.37s, Mean: -2.22, Min: -19.50, Max: -0.50, Std: 3.30
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 855/1000, Time: 5.28s, Mean: -1.52, Min: -4.00, Max: -0.50, Std: 0.58
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 856/1000, Time: 5.35s, Mean: -1.78, Min: -5.50, Max: -1.00, Std: 1.07
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 857/1000, Time: 5.30s, Mean: -1.80, Min: -6.50, Max: -1.00, Std: 1.00
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 858/1000, Time: 5.42s, Mean: -2.15, Min: -15.00, Max: -1.00, Std: 2.47
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 859/1000, Time: 5.45s, Mean: -3.40, Min: -20.00, Max: -0.50, Std: 4.29
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 860/1000, Time: 5.35s, Mean: -2.45, Min: -14.50, Max: -0.50, Std: 2.76
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 861/1000, Time: 5.47s, Mean: -4.92, Min: -47.50, Max: -0.50, Std: 8.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 862/1000, Time: 5.27s, Mean: -1.53, Min: -3.50, Max: -1.00, Std: 0.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 863/1000, Time: 5.47s, Mean: -6.43, Min: -92.00, Max: -1.00, Std: 16.48
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 864/1000, Time: 5.60s, Mean: -4.52, Min: -54.50, Max: -1.00, Std: 10.08
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 865/1000, Time: 5.36s, Mean: -2.33, Min: -10.50, Max: -0.50, Std: 2.45
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 866/1000, Time: 5.30s, Mean: -1.77, Min: -5.00, Max: 0.00, Std: 0.97
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 867/1000, Time: 5.29s, Mean: -2.08, Min: -7.00, Max: -0.50, Std: 1.38
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 868/1000, Time: 6.12s, Mean: -10.62, Min: -269.50, Max: -1.00, Std: 48.08
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 869/1000, Time: 5.35s, Mean: -2.83, Min: -27.50, Max: -0.50, Std: 4.89
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 870/1000, Time: 5.39s, Mean: -1.87, Min: -9.50, Max: -0.50, Std: 1.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 871/1000, Time: 5.50s, Mean: -1.93, Min: -5.50, Max: -1.00, Std: 1.12
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 872/1000, Time: 5.31s, Mean: -1.83, Min: -5.00, Max: -0.50, Std: 1.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 873/1000, Time: 5.33s, Mean: -1.77, Min: -7.50, Max: -0.50, Std: 1.27
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 874/1000, Time: 5.46s, Mean: -2.40, Min: -8.00, Max: -0.50, Std: 1.80
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 875/1000, Time: 5.34s, Mean: -2.03, Min: -6.50, Max: -0.50, Std: 1.52
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 876/1000, Time: 5.36s, Mean: -2.40, Min: -10.00, Max: -1.00, Std: 2.09
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 877/1000, Time: 5.27s, Mean: -1.60, Min: -3.00, Max: -0.50, Std: 0.51
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 878/1000, Time: 5.30s, Mean: -1.52, Min: -3.50, Max: -0.50, Std: 0.46
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 879/1000, Time: 5.47s, Mean: -2.95, Min: -12.50, Max: -1.00, Std: 2.96
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 880/1000, Time: 5.33s, Mean: -3.30, Min: -38.50, Max: -1.00, Std: 6.69
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 881/1000, Time: 5.29s, Mean: -1.80, Min: -5.50, Max: -1.00, Std: 1.08
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 882/1000, Time: 5.41s, Mean: -3.00, Min: -35.00, Max: -0.50, Std: 6.11
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 883/1000, Time: 5.31s, Mean: -2.10, Min: -12.50, Max: -1.00, Std: 2.16
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 884/1000, Time: 5.28s, Mean: -2.20, Min: -14.50, Max: 0.00, Std: 2.74
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 885/1000, Time: 5.37s, Mean: -2.27, Min: -7.00, Max: -0.50, Std: 1.74
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 886/1000, Time: 5.47s, Mean: -2.40, Min: -15.00, Max: -0.50, Std: 2.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 887/1000, Time: 5.26s, Mean: -1.62, Min: -3.50, Max: -0.50, Std: 0.56
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 888/1000, Time: 5.35s, Mean: -2.35, Min: -23.00, Max: -1.00, Std: 3.90
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 889/1000, Time: 5.31s, Mean: -2.32, Min: -18.50, Max: -1.00, Std: 3.13
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 890/1000, Time: 5.30s, Mean: -2.68, Min: -22.00, Max: -0.50, Std: 4.13
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 891/1000, Time: 5.29s, Mean: -2.18, Min: -12.50, Max: -0.50, Std: 2.47
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 892/1000, Time: 5.32s, Mean: -1.65, Min: -4.50, Max: -0.50, Std: 0.84
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 893/1000, Time: 5.36s, Mean: -2.05, Min: -7.00, Max: -0.50, Std: 1.36
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 894/1000, Time: 5.35s, Mean: -1.40, Min: -2.50, Max: -0.50, Std: 0.35
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 895/1000, Time: 5.37s, Mean: -3.32, Min: -41.50, Max: -1.00, Std: 7.29
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 896/1000, Time: 5.30s, Mean: -2.63, Min: -29.00, Max: -0.50, Std: 4.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 897/1000, Time: 5.34s, Mean: -1.50, Min: -3.00, Max: -0.50, Std: 0.39
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 898/1000, Time: 6.24s, Mean: -14.58, Min: -323.00, Max: -0.50, Std: 57.95
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 899/1000, Time: 5.28s, Mean: -3.12, Min: -42.50, Max: -1.00, Std: 7.43
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 900/1000, Time: 5.28s, Mean: -2.28, Min: -14.50, Max: -0.50, Std: 2.71
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 900: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 900] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 900] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Iteration 901/1000, Time: 5.33s, Mean: -1.83, Min: -5.50, Max: -0.50, Std: 1.02
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 902/1000, Time: 5.34s, Mean: -2.38, Min: -17.50, Max: -0.50, Std: 2.97
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 903/1000, Time: 5.36s, Mean: -2.22, Min: -10.50, Max: -1.00, Std: 2.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 904/1000, Time: 5.34s, Mean: -4.17, Min: -66.50, Max: 0.00, Std: 11.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 905/1000, Time: 7.45s, Mean: -23.30, Min: -633.50, Max: -1.00, Std: 113.33
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 906/1000, Time: 5.30s, Mean: -2.38, Min: -12.00, Max: -0.50, Std: 2.42
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 907/1000, Time: 5.33s, Mean: -1.77, Min: -4.50, Max: -1.00, Std: 0.86
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 908/1000, Time: 5.32s, Mean: -2.43, Min: -11.00, Max: -0.50, Std: 2.54
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 909/1000, Time: 5.32s, Mean: -2.28, Min: -9.50, Max: -0.50, Std: 2.18
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 910/1000, Time: 5.32s, Mean: -2.48, Min: -12.00, Max: -0.50, Std: 2.38
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 911/1000, Time: 5.37s, Mean: -2.33, Min: -10.00, Max: -0.50, Std: 2.05
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 912/1000, Time: 5.26s, Mean: -1.55, Min: -4.00, Max: -0.50, Std: 0.64
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 913/1000, Time: 5.43s, Mean: -1.87, Min: -5.00, Max: -0.50, Std: 1.05
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 914/1000, Time: 5.28s, Mean: -2.38, Min: -16.50, Max: -0.50, Std: 2.87
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 915/1000, Time: 5.34s, Mean: -2.02, Min: -6.00, Max: -1.50, Std: 1.27
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 916/1000, Time: 5.44s, Mean: -1.90, Min: -10.00, Max: -1.50, Std: 1.57
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 917/1000, Time: 5.28s, Mean: -2.15, Min: -9.50, Max: -0.50, Std: 1.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 918/1000, Time: 5.31s, Mean: -1.80, Min: -10.00, Max: -0.50, Std: 1.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 919/1000, Time: 5.28s, Mean: -1.92, Min: -5.50, Max: 0.00, Std: 1.37
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 920/1000, Time: 5.29s, Mean: -2.42, Min: -15.50, Max: -0.50, Std: 2.79
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 921/1000, Time: 5.27s, Mean: -2.42, Min: -18.00, Max: -0.50, Std: 3.14
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 922/1000, Time: 5.33s, Mean: -2.02, Min: -10.50, Max: -1.00, Std: 1.82
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 923/1000, Time: 5.40s, Mean: -2.02, Min: -13.50, Max: -0.50, Std: 2.28
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 924/1000, Time: 5.35s, Mean: -2.28, Min: -8.50, Max: -0.50, Std: 1.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 925/1000, Time: 5.42s, Mean: -3.13, Min: -32.50, Max: -0.50, Std: 6.40
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 926/1000, Time: 5.40s, Mean: -2.63, Min: -19.00, Max: -1.00, Std: 3.46
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 927/1000, Time: 5.28s, Mean: -2.42, Min: -13.00, Max: -1.00, Std: 2.47
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 928/1000, Time: 5.37s, Mean: -2.90, Min: -14.50, Max: -0.50, Std: 2.98
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 929/1000, Time: 5.30s, Mean: -1.92, Min: -8.50, Max: -0.50, Std: 1.54
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 930/1000, Time: 5.45s, Mean: -2.47, Min: -11.50, Max: -0.50, Std: 2.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 931/1000, Time: 5.39s, Mean: -2.35, Min: -7.00, Max: -1.00, Std: 1.67
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 932/1000, Time: 5.32s, Mean: -1.97, Min: -6.50, Max: -0.50, Std: 1.35
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 933/1000, Time: 5.30s, Mean: -1.87, Min: -8.50, Max: -0.50, Std: 1.48
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 934/1000, Time: 5.32s, Mean: -1.93, Min: -6.50, Max: -0.50, Std: 1.22
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 935/1000, Time: 5.32s, Mean: -1.88, Min: -8.50, Max: -0.50, Std: 1.45
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 936/1000, Time: 5.49s, Mean: -1.78, Min: -9.00, Max: -0.50, Std: 1.57
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 937/1000, Time: 5.40s, Mean: -1.85, Min: -9.50, Max: -0.50, Std: 1.56
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 938/1000, Time: 5.37s, Mean: -2.77, Min: -17.00, Max: -1.00, Std: 3.23
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 939/1000, Time: 5.30s, Mean: -2.63, Min: -13.00, Max: -1.00, Std: 2.95
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 940/1000, Time: 5.28s, Mean: -2.27, Min: -12.50, Max: -1.00, Std: 2.26
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 941/1000, Time: 5.37s, Mean: -1.85, Min: -6.00, Max: -1.00, Std: 1.21
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 942/1000, Time: 5.30s, Mean: -1.77, Min: -7.00, Max: -1.00, Std: 1.12
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 943/1000, Time: 5.32s, Mean: -1.43, Min: -3.00, Max: -0.50, Std: 0.51
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 944/1000, Time: 5.34s, Mean: -2.02, Min: -10.50, Max: -1.00, Std: 1.85
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 945/1000, Time: 5.34s, Mean: -3.50, Min: -43.50, Max: -1.00, Std: 7.79
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 946/1000, Time: 5.48s, Mean: -2.15, Min: -8.50, Max: -0.50, Std: 1.87
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 947/1000, Time: 5.35s, Mean: -2.33, Min: -13.00, Max: -1.00, Std: 2.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 948/1000, Time: 5.38s, Mean: -2.28, Min: -9.50, Max: -1.00, Std: 1.94
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 949/1000, Time: 5.28s, Mean: -1.77, Min: -6.50, Max: -1.00, Std: 1.01
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 950/1000, Time: 5.31s, Mean: -1.88, Min: -10.00, Max: -1.00, Std: 1.60
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 950: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 950] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 950] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Iteration 951/1000, Time: 5.42s, Mean: -1.98, Min: -16.50, Max: -1.00, Std: 2.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 952/1000, Time: 5.49s, Mean: -2.28, Min: -10.00, Max: -1.00, Std: 1.90
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 953/1000, Time: 5.35s, Mean: -2.87, Min: -25.00, Max: -0.50, Std: 4.70
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 954/1000, Time: 5.30s, Mean: -4.93, Min: -99.00, Max: -0.50, Std: 17.49
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 955/1000, Time: 5.33s, Mean: -1.73, Min: -4.50, Max: -1.00, Std: 0.73
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 956/1000, Time: 5.34s, Mean: -2.25, Min: -11.00, Max: 0.00, Std: 2.20
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 957/1000, Time: 5.36s, Mean: -2.62, Min: -22.50, Max: -0.50, Std: 3.90
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 958/1000, Time: 5.30s, Mean: -2.35, Min: -15.00, Max: -0.50, Std: 2.75
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 959/1000, Time: 5.27s, Mean: -3.30, Min: -39.00, Max: -0.50, Std: 6.88
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 960/1000, Time: 5.30s, Mean: -1.87, Min: -8.00, Max: -0.50, Std: 1.36
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 961/1000, Time: 5.29s, Mean: -1.98, Min: -7.00, Max: -1.00, Std: 1.32
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 962/1000, Time: 5.37s, Mean: -1.62, Min: -6.00, Max: -1.00, Std: 0.86
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 963/1000, Time: 5.27s, Mean: -1.55, Min: -4.50, Max: -0.50, Std: 0.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 964/1000, Time: 5.28s, Mean: -1.65, Min: -7.00, Max: -0.50, Std: 1.06
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 965/1000, Time: 5.40s, Mean: -1.75, Min: -8.00, Max: -1.00, Std: 1.24
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 966/1000, Time: 5.28s, Mean: -1.83, Min: -7.00, Max: -1.00, Std: 1.27
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 967/1000, Time: 5.33s, Mean: -2.17, Min: -7.50, Max: -0.50, Std: 1.68
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 968/1000, Time: 5.29s, Mean: -1.52, Min: -2.50, Max: -1.00, Std: 0.38
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 969/1000, Time: 5.42s, Mean: -2.52, Min: -12.50, Max: -0.50, Std: 2.95
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 970/1000, Time: 5.31s, Mean: -1.82, Min: -6.50, Max: -0.50, Std: 1.25
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 971/1000, Time: 5.33s, Mean: -2.03, Min: -13.50, Max: -0.50, Std: 2.29
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 972/1000, Time: 5.31s, Mean: -2.03, Min: -15.00, Max: -0.50, Std: 2.66
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 973/1000, Time: 5.34s, Mean: -2.55, Min: -11.50, Max: -0.50, Std: 2.51
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 974/1000, Time: 5.34s, Mean: -2.40, Min: -19.00, Max: -1.00, Std: 3.27
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 975/1000, Time: 5.41s, Mean: -1.98, Min: -12.00, Max: -0.50, Std: 1.99
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 976/1000, Time: 5.35s, Mean: -2.23, Min: -10.50, Max: -0.50, Std: 2.13
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 977/1000, Time: 5.30s, Mean: -1.58, Min: -4.00, Max: -0.50, Std: 0.72
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 978/1000, Time: 5.29s, Mean: -1.53, Min: -3.00, Max: -1.00, Std: 0.45
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 979/1000, Time: 5.34s, Mean: -2.05, Min: -9.50, Max: -0.50, Std: 1.88
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 980/1000, Time: 5.37s, Mean: -2.47, Min: -14.00, Max: 0.00, Std: 2.89
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 981/1000, Time: 5.28s, Mean: -1.58, Min: -5.00, Max: -0.50, Std: 0.81
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 982/1000, Time: 5.24s, Mean: -2.00, Min: -11.50, Max: -1.00, Std: 1.87
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 983/1000, Time: 5.30s, Mean: -2.93, Min: -33.50, Max: -1.00, Std: 5.85
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 984/1000, Time: 5.34s, Mean: -2.32, Min: -14.50, Max: -0.50, Std: 2.61
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 985/1000, Time: 5.40s, Mean: -2.40, Min: -10.50, Max: -1.00, Std: 2.13
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 986/1000, Time: 5.28s, Mean: -2.35, Min: -11.50, Max: -0.50, Std: 2.41
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 987/1000, Time: 5.48s, Mean: -2.93, Min: -20.50, Max: -0.50, Std: 4.17
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 988/1000, Time: 5.63s, Mean: -4.58, Min: -57.00, Max: 0.00, Std: 11.12
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 989/1000, Time: 5.44s, Mean: -3.40, Min: -15.50, Max: -0.50, Std: 3.78
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 990/1000, Time: 5.44s, Mean: -3.15, Min: -30.00, Max: -0.50, Std: 5.69
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 991/1000, Time: 5.29s, Mean: -1.80, Min: -6.00, Max: -0.50, Std: 1.24
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 992/1000, Time: 5.29s, Mean: -1.75, Min: -8.50, Max: -1.00, Std: 1.33
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 993/1000, Time: 5.37s, Mean: -2.63, Min: -22.50, Max: -1.00, Std: 3.83
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 994/1000, Time: 5.34s, Mean: -2.63, Min: -12.50, Max: 0.00, Std: 2.75
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 995/1000, Time: 5.31s, Mean: -2.08, Min: -7.00, Max: -0.50, Std: 1.58
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 996/1000, Time: 5.37s, Mean: -3.35, Min: -23.50, Max: 0.00, Std: 4.63
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 997/1000, Time: 5.35s, Mean: -1.93, Min: -12.00, Max: -1.00, Std: 2.05
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 998/1000, Time: 5.63s, Mean: -2.12, Min: -7.50, Max: -1.00, Std: 1.32
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 999/1000, Time: 5.48s, Mean: -2.35, Min: -15.00, Max: -1.00, Std: 2.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+Iteration 1000/1000, Time: 5.32s, Mean: -2.93, Min: -14.00, Max: -1.00, Std: 2.93
+GPU Memory: 15662.64MB allocated, 17742.64MB peak
+[Eval] Iteration 1000: Mean -2.88  Min -5.00  Max -1.00  Std 1.27
+
+[Eval Completions - Step 1000] (8 samples)
+--------------------------------------------------------------------------------
+  [1/8] idx=0
+    Prompt: What is the capital of France?
+    Target: Paris (len=5)
+    Generated:  (len=0)
+    Reward: -5.00
+
+  [2/8] idx=1
+    Prompt: Calculate: 12 × 7 =
+    Target: 84 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [3/8] idx=2
+    Prompt: Is the statement "All cats are mammals" true or false?
+    Target: True (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [4/8] idx=3
+    Prompt: What comes next in the sequence: 2, 4, 6, 8, ?
+    Target: 10 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [5/8] idx=4
+    Prompt: Translate "Hello" to Spanish:
+    Target: Hola (len=4)
+    Generated:  (len=0)
+    Reward: -4.00
+
+  [6/8] idx=5
+    Prompt: What is 15% of 200?
+    Target: 30 (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+  [7/8] idx=6
+    Prompt: Name one primary color:
+    Target: Red (len=3)
+    Generated:  (len=0)
+    Reward: -3.00
+
+  [8/8] idx=7
+    Prompt: How many days are in a week?
+    Target: 7 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+--------------------------------------------------------------------------------
+
+[Train Completions - Step 1000] (2 samples)
+--------------------------------------------------------------------------------
+  [1/2] idx=0
+    Prompt: Solve: 3 + 5 =
+    Target: 8 (len=1)
+    Generated:  (len=0)
+    Reward: -1.00
+
+  [2/2] idx=1
+    Prompt: If all birds can fly and penguins are birds, can penguins fly?
+    Target: No (len=2)
+    Generated:  (len=0)
+    Reward: -2.00
+
+--------------------------------------------------------------------------------
+Saving checkpoint at iteration 1000 to /n/netscratch/sham_lab/Everyone/jbejjani/evolutionary-alignment/conciseness/ES/final/conciseness/Qwen/Qwen2.5-7B-Instruct/2/es_random_seed2_pop30_iter1000_sigma0.01_alpha0.0015_bf16_threads1_question_num2_checkpoint...
+Checkpoint saved successfully.
+
+============================================================
+Training completed in 8300.14s (138.34 minutes)
+Saving final model to /n/netscratch/sham_lab/Everyone/jbejjani/evolutionary-alignment/conciseness/ES/final/conciseness/Qwen/Qwen2.5-7B-Instruct/2/es_random_seed2_pop30_iter1000_sigma0.01_alpha0.0015_bf16_threads1_question_num2_final...
+Final model saved successfully.
+============================================================
+wandb: updating run metadata
+wandb: uploading history steps 999-999, summary, console lines 3554-3555
+wandb: 
+wandb: Run history:
+wandb:        checkpoint_iteration ▁█
+wandb:                 eval/reward ▁▆▅▃▄▅██████████████
+wandb:             eval/reward/max ▄█▆▁▂███████████████
+wandb:             eval/reward/min ▁▆▅▅▅▆██████████████
+wandb:             eval/reward_std █▃▃▃▃▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: eval/rewards/reward_fn/mean ▁▆▅▃▄▅██████████████
+wandb:  eval/rewards/reward_fn/std █▃▃▃▃▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     gpu_memory/allocated_mb ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          gpu_memory/peak_mb ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                   iteration ▁▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▅▅▅▆▆▆▆▆▆▆▇▇▇▇▇▇▇▇████
+wandb:                          +7 ...
+wandb: 
+wandb: Run summary:
+wandb:        checkpoint_iteration 1000
+wandb:             checkpoint_path /n/netscratch/sham_l...
+wandb:            checkpoint_saved True
+wandb:                 eval/reward -2.875
+wandb:             eval/reward/max -1
+wandb:             eval/reward/min -5
+wandb:             eval/reward_std 1.26861
+wandb: eval/rewards/reward_fn/mean -2.875
+wandb:  eval/rewards/reward_fn/std 1.26861
+wandb:            final_model_path /n/netscratch/sham_l...
+wandb:                         +11 ...
+wandb: 
+wandb: 🚀 View run qwen2.5-7b_es_conciseness_alpha0.0015_sigma0.01_seed2 at: https://wandb.ai/KURE-Spring-25/conciseness_1_9/runs/lqyz9sdx
+wandb: ⭐️ View project at: https://wandb.ai/KURE-Spring-25/conciseness_1_9
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260111_194356-lqyz9sdx/logs

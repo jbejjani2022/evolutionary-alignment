@@ -1,0 +1,57 @@
+[
+  {
+    "alpha": 0.0005,
+    "sigma": 0.001,
+    "aggregate_reward_mean": -58.949999999999996,
+    "aggregate_reward_std": 22.34060073960076,
+    "aggregate_normalized_reward_mean": 0.970039980009995,
+    "aggregate_normalized_reward_std": 0.011164718010794984,
+    "num_seeds_hacked_reward": 0,
+    "mean_kl": 0.5613900062738346,
+    "std_kl": 0.7217591554740573
+  },
+  {
+    "alpha": 0.0005,
+    "sigma": 0.01,
+    "aggregate_reward_mean": -33.796875,
+    "aggregate_reward_std": 19.60244050694007,
+    "aggregate_normalized_reward_mean": 0.9826102573713144,
+    "aggregate_normalized_reward_std": 0.009796322092423811,
+    "num_seeds_hacked_reward": 0,
+    "mean_kl": 4.140621604062661,
+    "std_kl": 1.7981609327976185
+  },
+  {
+    "alpha": 0.0015,
+    "sigma": 0.001,
+    "aggregate_reward_mean": -18.4203125,
+    "aggregate_reward_std": 21.07530785241864,
+    "aggregate_normalized_reward_mean": 0.9902946964017992,
+    "aggregate_normalized_reward_std": 0.010532387732343152,
+    "num_seeds_hacked_reward": 0,
+    "mean_kl": 24.60201891232197,
+    "std_kl": 9.278894256032615
+  },
+  {
+    "alpha": 0.0015,
+    "sigma": 0.01,
+    "aggregate_reward_mean": -10.125,
+    "aggregate_reward_std": 0.0,
+    "aggregate_normalized_reward_mean": 0.99444027986007,
+    "aggregate_normalized_reward_std": 0.0,
+    "num_seeds_hacked_reward": 0,
+    "mean_kl": 39.043647384643556,
+    "std_kl": 0.0
+  },
+  {
+    "alpha": 0.001,
+    "sigma": 0.005,
+    "aggregate_reward_mean": -4.5421875,
+    "aggregate_reward_std": 1.656564681190792,
+    "aggregate_normalized_reward_mean": 0.9972302911044477,
+    "aggregate_normalized_reward_std": 0.0008278684063922463,
+    "num_seeds_hacked_reward": 1,
+    "mean_kl": 22.84782969782898,
+    "std_kl": 7.651225361555448
+  }
+]
