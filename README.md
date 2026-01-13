@@ -10,7 +10,7 @@ mamba activate evolutionary-alignment
 pip install -r requirements.txt
 ```
 
-## Credit
+## References
 
 Our data and Evolution Strategies train scripts for Conciseness and Countdown tasks are based on the following work:
 ```bibtex
