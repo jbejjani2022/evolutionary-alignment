@@ -28,7 +28,7 @@ evolutionary-alignment/
 │   ├── research_context.md      # Research goals, findings, team assignments
 │   ├── paper-workflow.md        # Overleaf sync instructions
 │   ├── paper_writing.md         # AI content guidelines (\ai{} command)
-│   ├── structure.txt            # This file
+│   ├── structure.md            # This file
 │   └── logs/                    # Session logs
 │       └── YYYY-MM-DD/          # Daily log directories
 │           └── HHMM_topic.md    # Individual session logs
