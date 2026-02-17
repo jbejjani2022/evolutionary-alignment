@@ -3,11 +3,11 @@ ES (Evolution Strategies) fine-tuning for the Countdown math task.
 Baseline (non-accelerated) version using HuggingFace generate + Accelerate
 for multi-GPU data parallelism.
 
-NOTE on data loading: The JSON data file contains a pre-baked "context"
-field with raw (un-templated) prompts. This script ignores that field and
-always constructs prompts via _process_context(), which applies the model's
-chat template with proper special tokens. Any separate evaluation scripts
-should do the same — do NOT pass the JSON "context" field directly to the model.
+NOTE on data loading: By default (--chat_template, the default), prompts are
+constructed via _process_context() which applies the model's chat template
+with proper special tokens. When --no_chat_template is passed, the raw
+pre-baked "context" field from the JSON data is used directly without any
+chat template processing.
 """
 
 import argparse
@@ -133,6 +133,12 @@ def parse_args():
     parser.add_argument("--wandb_entity", type=str, default=None,
                         help="W&B entity (team or username)")
 
+    # Chat template
+    parser.add_argument("--chat_template", dest="chat_template", action="store_true", default=True,
+                        help="Apply chat template to prompts (default)")
+    parser.add_argument("--no_chat_template", dest="chat_template", action="store_false",
+                        help="Pass raw context strings to the model")
+
     return parser.parse_args()
 
 
@@ -159,6 +165,11 @@ def _process_context(task_data: Dict[str, Any], tokenizer) -> str:
     )
     prompt_str += RESPONSE_PROMPT
     return prompt_str
+
+
+def _process_context_raw(task_data: Dict[str, Any], tokenizer) -> str:
+    """Return the pre-baked 'context' field directly (no chat template)."""
+    return task_data["context"]
 
 
 # ---------------------------------------------------------------------------
@@ -414,18 +425,20 @@ def main():
     )
 
     # --- Build train / eval splits ---
+    _ctx_fn = _process_context if args.chat_template else _process_context_raw
     train_task_datas = all_task_datas[: args.train_samples]
-    train_prompts = [_process_context(d, tokenizer) for d in train_task_datas]
+    train_prompts = [_ctx_fn(d, tokenizer) for d in train_task_datas]
 
     eval_task_datas = []
     eval_prompts = []
     if args.eval_interval > 0:
         eval_task_datas = all_task_datas[args.train_samples :]
-        eval_prompts = [_process_context(d, tokenizer) for d in eval_task_datas]
+        eval_prompts = [_ctx_fn(d, tokenizer) for d in eval_task_datas]
 
     if accelerator.is_main_process:
         print(f"Loaded {len(train_task_datas)} train samples from {args.data_path}")
         print(f"Loaded {len(eval_task_datas)} eval samples from {args.data_path}")
+        print(f"Chat template: {'ON' if args.chat_template else 'OFF (raw context)'}")
         print(f"Total processes: {accelerator.num_processes}, "
               f"GPU threads per process: {args.gpu_threads}")
         print(f"Population size: {args.population_size}, "

@@ -1,8 +1,10 @@
 # Eval script for accelerated countdown checkpoints (ES fine-tuning).
 #
-# NOTE: This script applies the model's chat template via _process_context()
-# to match training-time prompt formatting exactly. The raw "context" field
-# in the JSON data file is ignored — do NOT pass it directly to the model.
+# By default (--chat_template), prompts are constructed via _process_context()
+# which applies the model's chat template with proper special tokens — matching
+# training-time formatting. When --no_chat_template is passed, the raw pre-baked
+# "context" field from the JSON data is tokenized directly. Make sure this flag
+# matches the setting used during training for the checkpoint being evaluated.
 #
 # Example usage:
 # python eval_countdown_vllm.py \
@@ -78,6 +80,17 @@ def _process_context(task_data, tokenizer):
 
     return TokensPrompt(prompt_token_ids=prompts['input_ids'])
 
+
+def _process_context_raw(task_data, tokenizer):
+    """Tokenize the pre-baked 'context' field directly (no chat template)."""
+    raw_text = task_data["context"]
+    prompts = tokenizer(
+        raw_text,
+        add_special_tokens=False
+    )
+    return TokensPrompt(prompt_token_ids=prompts['input_ids'])
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description='vLLM evaluation for ES models (Qwen/Llama/etc)')
     parser.add_argument('--model_id', type=str, default="Qwen/Qwen2.5-3B-Instruct",
@@ -126,6 +139,12 @@ def parse_args():
                         help='Random seed for reproducible generation')
     parser.add_argument('--hf_cache_dir', type=str, default=None,
                         help='Custom HuggingFace cache directory')
+
+    parser.add_argument('--chat_template', dest='chat_template', action='store_true', default=True,
+                        help='Apply chat template to prompts (default)')
+    parser.add_argument('--no_chat_template', dest='chat_template', action='store_false',
+                        help='Pass raw context strings to the model (must match training setting)')
+
     return parser.parse_args()
 
 
@@ -324,6 +343,7 @@ def save_results(results: Dict[str, Any], output_dir: str, args):
             'batch_size': args.batch_size,
             'tensor_parallel_size': args.tensor_parallel_size,
             'dtype': args.dtype,
+            'chat_template': args.chat_template,
         }
     }
 
@@ -385,8 +405,9 @@ def main():
     print(f"Dtype: {args.dtype}")
     if args.seed is not None:
         print(f"Seed: {args.seed}")
+    print(f"Chat template: {'ON' if args.chat_template else 'OFF (raw context)'}")
 
-    # Load tokenizer for chat template application
+    # Load tokenizer for prompt processing
     tokenizer = AutoTokenizer.from_pretrained(args.model_id)
 
     # Initialize vLLM engine with correct dtype
@@ -410,9 +431,10 @@ def main():
     )
     print(f"Loaded {len(eval_dataset)} evaluation samples")
 
-    # Apply chat template to all samples (matches training script exactly)
+    # Process prompts (must match the training-time setting for the checkpoint)
+    _ctx_fn = _process_context if args.chat_template else _process_context_raw
     for d in eval_dataset:
-        d["context"] = _process_context(d, tokenizer)
+        d["context"] = _ctx_fn(d, tokenizer)
 
     # Evaluate
     eval_stats = evaluate_dataset_vllm(llm, eval_dataset, args, "Eval", batch_size=args.batch_size)

@@ -4,11 +4,11 @@ Source: https://github.com/VsonicV/es-fine-tuning-paper/blob/0df25ee70fa4928db75
 ES (Evolution Strategies) fine-tuning for the Countdown math task with
 static scheduling across multiple vLLM engines via Ray + NCCL.
 
-NOTE on data loading: The JSON data file may contain a pre-baked "context"
-field with raw (un-templated) prompts. This script ignores that field and
-always constructs prompts via _process_context(), which applies the model's
-chat template with proper special tokens. Any separate evaluation scripts
-should do the same — do NOT pass the JSON "context" field directly to the model.
+NOTE on data loading: By default (--chat_template, the default), prompts are
+constructed via _process_context() which applies the model's chat template
+with proper special tokens. When --no_chat_template is passed, the raw
+pre-baked "context" field from the JSON data is tokenized and fed directly
+to the model without any chat template processing.
 """
 
 
@@ -103,6 +103,11 @@ def parse_args():
     parser.add_argument("--hf_cache_dir", type=str, default=None,
                         help="Custom HuggingFace cache directory")
 
+    parser.add_argument("--chat_template", dest="chat_template", action="store_true", default=True,
+                        help="Apply chat template to prompts (default)")
+    parser.add_argument("--no_chat_template", dest="chat_template", action="store_false",
+                        help="Pass raw context strings to the model")
+
     args = parser.parse_args()
     os.environ["CUDA_VISIBLE_DEVICES"] = args.cuda_devices
 
@@ -146,6 +151,16 @@ def _process_context(task_data, tokenizer):
         add_special_tokens=False
     )
 
+    return TokensPrompt(prompt_token_ids=prompts['input_ids'])
+
+
+def _process_context_raw(task_data, tokenizer):
+    """Tokenize the pre-baked 'context' field directly (no chat template)."""
+    raw_text = task_data["context"]
+    prompts = tokenizer(
+        raw_text,
+        add_special_tokens=False
+    )
     return TokensPrompt(prompt_token_ids=prompts['input_ids'])
 
 
@@ -340,6 +355,7 @@ def main(args):
         all_task_datas = json.load(f)
     task_datas = all_task_datas[:args.train_samples]
     print(f"Loaded {len(task_datas)} train samples from {args.data_path}")
+    print(f"Chat template: {'ON' if args.chat_template else 'OFF (raw context)'}")
 
     eval_task_datas = []
     if args.eval_interval > 0:
@@ -347,8 +363,9 @@ def main(args):
         print(f"Loaded {len(eval_task_datas)} eval samples from {args.data_path}")
 
         # pre-process eval contexts
+        _ctx_fn = _process_context if args.chat_template else _process_context_raw
         for d in eval_task_datas:
-            d["context"] = _process_context(d, tokenizer)
+            d["context"] = _ctx_fn(d, tokenizer)
 
     engines, pgs = launch_engines(args.num_engines, args.model_name, precision=args.precision)
 
@@ -370,7 +387,8 @@ def main(args):
             except: pass
         ray.shutdown()
 
-    prompts = [_process_context(d, tokenizer) for d in task_datas]
+    _ctx_fn = _process_context if args.chat_template else _process_context_raw
+    prompts = [_ctx_fn(d, tokenizer) for d in task_datas]
 
     for i in range(args.num_iterations):
         print(f"\n\n=== Generation {i} (static scheduling) ===")
