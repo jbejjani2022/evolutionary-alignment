@@ -1,4 +1,4 @@
-## TRL GRPO config for the Countdown task (Qwen-2.5-1.5B-Instruct)
+## TRL GRPO config for the Countdown task
 
 # Base model
 model_name: Qwen/Qwen2.5-1.5B-Instruct
@@ -31,19 +31,19 @@ lr_scheduler_type: constant
 warmup_steps: 0
 num_train_epochs: 1
 max_steps: 500
-gradient_accumulation_steps: 16
+gradient_accumulation_steps: 15
 
 # Evaluation during training (every N steps; set eval_strategy to "no" to disable)
-eval_strategy: steps
+eval_strategy: "no"
 eval_steps: 25
 num_generations_eval: 4
 
 # Logging / output
-project: es_countdown
+project: es_accl_countdown
 entity: KURE-Spring-25
 report_to:
   - wandb
-output_dir: /n/netscratch/sham_lab/Everyone/jbejjani/evolutionary-alignment/countdown/GRPO
+output_dir: /n/netscratch/sham_lab/Everyone/jbejjani/evolutionary-alignment/countdown/GRPO/qwen-1.5b
 save_steps: 200
 logging_steps: 10
 

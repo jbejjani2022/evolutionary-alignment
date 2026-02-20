@@ -39,14 +39,14 @@ def read_json_rows(path: str) -> List[Dict[str, Any]]:
         return json.load(f)
 
 
-def build_datasets(cfg: dict, tokenizer):
+def build_datasets(cfg: dict, tokenizer, use_chat_template: bool = True):
     """
     Return (train_dataset, eval_dataset_or_None) for TRL GRPO.
 
-    Prompts are constructed from the raw ``numbers`` / ``target`` fields using
-    the same chat template + RESPONSE_PROMPT as the ES script.  The pre-baked
-    ``context`` field in the JSON is intentionally ignored (it lacks the chat
-    template special tokens).
+    When *use_chat_template* is True (default), prompts are constructed from
+    the raw ``numbers`` / ``target`` fields using the same chat template +
+    RESPONSE_PROMPT as the ES script.  When False, the pre-baked ``context``
+    field in the JSON is used directly (no chat template special tokens).
     """
     from datasets import Dataset
 
@@ -84,9 +84,15 @@ def build_datasets(cfg: dict, tokenizer):
         ) + RESPONSE_PROMPT
         return prompt
 
+    def _build_prompt_raw(row):
+        """Return the pre-baked 'context' field directly (no chat template)."""
+        return row["context"]
+
+    prompt_fn = _build_prompt if use_chat_template else _build_prompt_raw
+
     train_prompts = [
         {
-            "prompt": _build_prompt(r),
+            "prompt": prompt_fn(r),
             "numbers": list(r.get(nkey, [])),
             "target": _to_float(r.get(tkey)),
         }
@@ -94,7 +100,7 @@ def build_datasets(cfg: dict, tokenizer):
     ]
     eval_prompts = [
         {
-            "prompt": _build_prompt(r),
+            "prompt": prompt_fn(r),
             "numbers": list(r.get(nkey, [])),
             "target": _to_float(r.get(tkey)),
         }
@@ -103,6 +109,7 @@ def build_datasets(cfg: dict, tokenizer):
 
     d_train = Dataset.from_list(train_prompts)
     d_eval = Dataset.from_list(eval_prompts) if eval_prompts else None
+    print(f"Chat template: {'ON' if use_chat_template else 'OFF (raw context)'}")
     print(f"Countdown sample prompt (first 300 chars):\n{train_prompts[0]['prompt'][:300]}...")
 
     return d_train, d_eval
@@ -166,6 +173,10 @@ def main():
     parser.add_argument("--beta", type=float, required=True)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--learning_rate", type=float, default=None, help="Override LR from config")
+    parser.add_argument("--chat_template", dest="chat_template", action="store_true", default=True,
+                        help="Apply chat template to prompts (default)")
+    parser.add_argument("--no_chat_template", dest="chat_template", action="store_false",
+                        help="Pass raw context strings to the model")
     args = parser.parse_args()
 
     cfg = load_yaml(args.config)
@@ -201,8 +212,8 @@ def main():
         tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "left"
 
-    # Dataset (prompts built via chat template + RESPONSE_PROMPT, matching ES)
-    train_ds, eval_ds = build_datasets(cfg, tokenizer)
+    # Dataset (prompt construction matches ES scripts)
+    train_ds, eval_ds = build_datasets(cfg, tokenizer, use_chat_template=args.chat_template)
 
     # GRPO args
     use_vllm = bool(int(os.environ.get("USE_VLLM", "0")))
@@ -231,7 +242,7 @@ def main():
         logging_steps=cfg.get("logging_steps", 10),
         save_steps=cfg.get("save_steps", 200),
         report_to=report_to,
-        run_name=f"qwen2.5-1.5b_grpo_countdown_beta{args.beta}_lr{lr}_seed{args.seed}_left_pad",
+        run_name=f"{cfg['model_name'].split('/')[-1]}_grpo_countdown_beta{args.beta}_lr{lr}_seed{args.seed}",
         bf16=True,
         remove_unused_columns=False,
 

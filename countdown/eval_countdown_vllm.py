@@ -408,7 +408,7 @@ def main():
     print(f"Chat template: {'ON' if args.chat_template else 'OFF (raw context)'}")
 
     # Load tokenizer for prompt processing
-    tokenizer = AutoTokenizer.from_pretrained(args.model_id)
+    tokenizer = AutoTokenizer.from_pretrained(args.model_id, fix_mistral_regex=True)
 
     # Initialize vLLM engine with correct dtype
     llm, _ = launch_engines(
