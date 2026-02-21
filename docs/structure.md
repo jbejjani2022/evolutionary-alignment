@@ -37,21 +37,34 @@ evolutionary-alignment/
 │       └── scripts/
 │           ├── temperature_sampling.py
 │           ├── perturbation_sampling.py
-│           └── plot_temperature.py # Downstream plots for temperature results
+│           ├── plot_temperature.py        # Downstream plots for temperature results
+│           ├── plot_perturbation.py       # Downstream plots for perturbation results
+│           ├── plot_comparison.py         # Downstream: temp vs perturb comparison
+│           └── build_solve_explorer.py    # Downstream: interactive HTML explorer
 │
 ├── configs/
 │   └── sampling_analysis_v1/
 │       ├── temperature_sampling.yaml
 │       ├── temperature_sampling_low.yaml
 │       ├── perturbation_sampling.yaml
-│       └── plot_temperature.yaml   # Downstream config
+│       ├── perturbation_sampling_low.yaml
+│       ├── plot_temperature.yaml
+│       ├── plot_temperature_low.yaml
+│       ├── plot_perturbation.yaml
+│       ├── plot_comparison.yaml
+│       └── solve_explorer.yaml
 │
 ├── scripts/
 │   └── sampling_analysis_v1/
 │       ├── temperature_sampling.sh
 │       ├── temperature_sampling_low.sh
 │       ├── perturbation_sampling.sh
-│       └── plot_temperature.sh
+│       ├── perturbation_sampling_low.sh
+│       ├── plot_temperature.sh
+│       ├── plot_temperature_low.sh
+│       ├── plot_perturbation.sh
+│       ├── plot_comparison.sh
+│       └── solve_explorer.sh
 │
 ├── data/                           # Experiment outputs (gitignored)
 │   └── sampling_analysis_v1/

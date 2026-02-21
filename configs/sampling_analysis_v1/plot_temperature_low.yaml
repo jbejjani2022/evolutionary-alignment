@@ -1,0 +1,2 @@
+upstream_dir: "data/sampling_analysis_v1/temperature_sampling_low"
+output_dir: "data/sampling_analysis_v1/temperature_sampling_low/downstream/plots"

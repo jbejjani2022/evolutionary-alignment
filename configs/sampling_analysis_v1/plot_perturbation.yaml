@@ -1,0 +1,2 @@
+upstream_dir: "data/sampling_analysis_v1/perturbation_sampling"
+output_dir: "data/sampling_analysis_v1/perturbation_sampling/downstream/plots"

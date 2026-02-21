@@ -13,12 +13,16 @@ uv sync
 ```bash
 # Temperature sampling (Countdown, base model)
 bash scripts/sampling_analysis_v1/temperature_sampling.sh
-
-# Temperature sampling (low temperatures)
 bash scripts/sampling_analysis_v1/temperature_sampling_low.sh
 
 # Weight perturbation sampling (Countdown, ES-style, no training)
 bash scripts/sampling_analysis_v1/perturbation_sampling.sh
+
+# Downstream plots and analysis
+bash scripts/sampling_analysis_v1/plot_temperature.sh
+bash scripts/sampling_analysis_v1/plot_perturbation.sh
+bash scripts/sampling_analysis_v1/plot_comparison.sh
+bash scripts/sampling_analysis_v1/solve_explorer.sh
 
 # Debug mode (32 problems, 32 samples)
 bash scripts/sampling_analysis_v1/temperature_sampling.sh --debug
