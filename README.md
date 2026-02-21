@@ -14,6 +14,9 @@ uv sync
 # Temperature sampling (Countdown, base model)
 bash scripts/sampling_analysis_v1/temperature_sampling.sh
 
+# Temperature sampling (low temperatures)
+bash scripts/sampling_analysis_v1/temperature_sampling_low.sh
+
 # Weight perturbation sampling (Countdown, ES-style, no training)
 bash scripts/sampling_analysis_v1/perturbation_sampling.sh
 

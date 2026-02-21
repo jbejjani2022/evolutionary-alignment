@@ -36,17 +36,22 @@ evolutionary-alignment/
 │       ├── worker_extension.py     # vLLM extension for weight perturbation
 │       └── scripts/
 │           ├── temperature_sampling.py
-│           └── perturbation_sampling.py
+│           ├── perturbation_sampling.py
+│           └── plot_temperature.py # Downstream plots for temperature results
 │
 ├── configs/
 │   └── sampling_analysis_v1/
 │       ├── temperature_sampling.yaml
-│       └── perturbation_sampling.yaml
+│       ├── temperature_sampling_low.yaml
+│       ├── perturbation_sampling.yaml
+│       └── plot_temperature.yaml   # Downstream config
 │
 ├── scripts/
 │   └── sampling_analysis_v1/
 │       ├── temperature_sampling.sh
-│       └── perturbation_sampling.sh
+│       ├── temperature_sampling_low.sh
+│       ├── perturbation_sampling.sh
+│       └── plot_temperature.sh
 │
 ├── data/                           # Experiment outputs (gitignored)
 │   └── sampling_analysis_v1/
