@@ -1,7 +1,9 @@
 temperature_upstream_dirs:
   - "data/sampling_analysis_v1/temperature_sampling_low"
   - "data/sampling_analysis_v1/temperature_sampling"
-perturbation_upstream_dir: "data/sampling_analysis_v1/perturbation_sampling"
+perturbation_upstream_dirs:
+  - "data/sampling_analysis_v1/perturbation_sampling_low"
+  - "data/sampling_analysis_v1/perturbation_sampling"
 data_path: "countdown/data/countdown.json"
 data_offset: 200
 data_num_samples: 128

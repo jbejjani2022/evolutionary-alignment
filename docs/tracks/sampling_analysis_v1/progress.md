@@ -20,10 +20,11 @@ ES clearly does something the base model and GRPO don't. But is it the iterative
 
 ## Status
 - **Created**: 2026-02-20
-- **State**: Temperature (all) and perturbation (σ=0.001–0.01) complete; σ=0.0005 run in progress
+- **State**: All sampling runs complete. All plots regenerated with full data.
 - **2026-02-21 (early)**: Simplified temperature sampling, scaled down to 128p×512s
 - **2026-02-21 (morning)**: Ran temperature sampling (T=0.4–1.0). Created downstream plots. Added low-T config.
 - **2026-02-21 (afternoon)**: Ran perturbation sampling (σ=0.001–0.01) and low-T sampling (T=0.05–0.2). Created downstream plots for perturbation, comparison plots (temp vs perturb), solve overlap analysis, and interactive HTML explorer. Added σ=0.0005 config (running).
+- **2026-02-21 (evening)**: σ=0.0005 complete. Updated all downstream scripts (plot_perturbation, plot_comparison, build_solve_explorer) to merge multiple perturbation upstream dirs (matching how temperature already works). Regenerated all plots with full 5-sigma sweep.
 
 ## Results
 
@@ -42,15 +43,18 @@ ES clearly does something the base model and GRPO don't. But is it the iterative
 - Too low (T≤0.1): not enough diversity, too close to greedy
 - Too high (T≥0.8): too much noise, degrades quality
 
-### Perturbation sampling (σ=0.001–0.01)
-| σ     | pass@1 | pass@64 | pass@512 | Prompts solved |
-|-------|--------|---------|----------|----------------|
-| 0.001 | 0.23%  | 11.3%   | 35.2%    | 45/128         |
-| 0.003 | 0.01%  | 0.6%    | 3.9%     | 5/128          |
-| 0.005 | 0%     | 0%      | 0%       | 0/128          |
-| 0.01  | 0%     | 0%      | 0%       | 0/128          |
+### Perturbation sampling — full sweep (σ=0.0005–0.01)
+| σ      | pass@1 | pass@64 | pass@512 | Prompts solved |
+|--------|--------|---------|----------|----------------|
+| 0.0005 | 0.27%  | 11.1%   | 32.0%    | 41/128         |
+| 0.001  | 0.23%  | 11.3%   | 35.2%    | 45/128         |
+| 0.003  | 0.01%  | 0.6%    | 3.9%     | 5/128          |
+| 0.005  | 0%     | 0%      | 0%       | 0/128          |
+| 0.01   | 0%     | 0%      | 0%       | 0/128          |
 
-- Only σ=0.001 is useful; σ≥0.005 completely destroys the model
+- σ=0.001 is the sweet spot; performance degrades in both directions
+- σ=0.0005 slightly worse (32% vs 35% at pass@512) — too little perturbation
+- σ≥0.005 completely destroys the model
 - Much more sensitive than temperature — narrow viable band
 
 ### Comparison: Temperature vs Perturbation
@@ -82,7 +86,7 @@ configs/sampling_analysis_v1/
 ├── temperature_sampling.yaml        # T=0.4, 0.6, 0.8, 1.0
 ├── temperature_sampling_low.yaml    # T=0.05, 0.1, 0.2
 ├── perturbation_sampling.yaml       # σ=0.001, 0.003, 0.005, 0.01
-├── perturbation_sampling_low.yaml   # σ=0.0005 (pending)
+├── perturbation_sampling_low.yaml   # σ=0.0005 (complete)
 ├── plot_temperature.yaml
 ├── plot_temperature_low.yaml
 ├── plot_perturbation.yaml
@@ -120,7 +124,7 @@ scripts/sampling_analysis_v1/
 
 ### Perturbation sampling
 - Sigmas (main): [0.001, 0.003, 0.005, 0.01] — complete
-- Sigmas (low): [0.0005] — running
+- Sigmas (low): [0.0005] — complete
 - Decoding: greedy (T=0) — isolates weight noise from token noise
 - Greedy baseline included (no perturbation)
 

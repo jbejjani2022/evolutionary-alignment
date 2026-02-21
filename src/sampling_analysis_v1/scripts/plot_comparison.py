@@ -29,6 +29,18 @@ def merge_temperature_results(result_list: list[dict]) -> dict:
     return merged
 
 
+def merge_perturbation_results(result_list: list[dict]) -> dict:
+    """Merge results from multiple perturbation sampling runs into one dict."""
+    merged = {"results": {}}
+    for results in result_list:
+        for key, val in results["results"].items():
+            if key.startswith("sigma_"):
+                merged["results"][key] = val
+            elif key == "greedy_baseline" and "greedy_baseline" not in merged["results"]:
+                merged["results"]["greedy_baseline"] = val
+    return merged
+
+
 def plot_pass_at_k_comparison(temp_results: dict, perturb_results: dict, output_dir: Path):
     """pass@k curves: temperature (solid) vs perturbation (dashed) on same axes."""
     fig, ax = plt.subplots(figsize=(7, 4.5))
@@ -267,20 +279,21 @@ def main(config_path: str, overwrite: bool = False):
 
     if "temperature_upstream_dirs" not in config:
         raise ValueError("FATAL: 'temperature_upstream_dirs' (list) required")
-    if "perturbation_upstream_dir" not in config:
-        raise ValueError("FATAL: 'perturbation_upstream_dir' required")
+    if "perturbation_upstream_dirs" not in config:
+        raise ValueError("FATAL: 'perturbation_upstream_dirs' (list) required")
     if "output_dir" not in config:
         raise ValueError("FATAL: 'output_dir' required")
 
     temp_dirs = [Path(d) for d in config["temperature_upstream_dirs"]]
-    perturb_dir = Path(config["perturbation_upstream_dir"])
+    perturb_dirs = [Path(d) for d in config["perturbation_upstream_dirs"]]
     output_dir = Path(config["output_dir"])
 
     for d in temp_dirs:
         if not d.exists():
             raise FileNotFoundError(f"Temperature upstream not found: {d}")
-    if not perturb_dir.exists():
-        raise FileNotFoundError(f"Perturbation upstream not found: {perturb_dir}")
+    for d in perturb_dirs:
+        if not d.exists():
+            raise FileNotFoundError(f"Perturbation upstream not found: {d}")
 
     if output_dir.exists() and not overwrite:
         raise ValueError(f"Output {output_dir} exists. Use --overwrite to replace.")
@@ -290,10 +303,13 @@ def main(config_path: str, overwrite: bool = False):
 
     temp_results_list = [load_results(d) for d in temp_dirs]
     temp_results = merge_temperature_results(temp_results_list)
-    perturb_results = load_results(perturb_dir)
+    perturb_results_list = [load_results(d) for d in perturb_dirs]
+    perturb_results = merge_perturbation_results(perturb_results_list)
 
     print(f"Merged {len(temp_dirs)} temperature runs: "
           f"{sum(1 for k in temp_results['results'] if k.startswith('temp_'))} temperatures total")
+    print(f"Merged {len(perturb_dirs)} perturbation runs: "
+          f"{sum(1 for k in perturb_results['results'] if k.startswith('sigma_'))} sigmas total")
 
     print("Generating comparison plots...")
     plot_pass_at_k_comparison(temp_results, perturb_results, output_dir)

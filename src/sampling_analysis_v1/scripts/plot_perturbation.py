@@ -17,6 +17,18 @@ def load_results(upstream_dir: Path) -> dict:
         return json.load(f)
 
 
+def merge_perturbation_results(result_list: list[dict]) -> dict:
+    """Merge results from multiple perturbation sampling runs into one dict."""
+    merged = {"results": {}}
+    for results in result_list:
+        for key, val in results["results"].items():
+            if key.startswith("sigma_"):
+                merged["results"][key] = val
+            elif key == "greedy_baseline" and "greedy_baseline" not in merged["results"]:
+                merged["results"]["greedy_baseline"] = val
+    return merged
+
+
 def plot_pass_at_k(results: dict, output_dir: Path):
     """pass@k curves: one line per sigma."""
     fig, ax = plt.subplots(figsize=(6, 4))
@@ -135,16 +147,17 @@ def main(config_path: str, overwrite: bool = False):
     with open(config_path) as f:
         config = yaml.safe_load(f)
 
-    if "upstream_dir" not in config:
-        raise ValueError("FATAL: 'upstream_dir' required for downstream work")
+    if "upstream_dirs" not in config:
+        raise ValueError("FATAL: 'upstream_dirs' (list) required for downstream work")
     if "output_dir" not in config:
         raise ValueError("FATAL: 'output_dir' required")
 
-    upstream_dir = Path(config["upstream_dir"])
+    upstream_dirs = [Path(d) for d in config["upstream_dirs"]]
     output_dir = Path(config["output_dir"])
 
-    if not upstream_dir.exists():
-        raise FileNotFoundError(f"Upstream dir not found: {upstream_dir}")
+    for d in upstream_dirs:
+        if not d.exists():
+            raise FileNotFoundError(f"Upstream dir not found: {d}")
 
     if output_dir.exists() and not overwrite:
         raise ValueError(f"Output {output_dir} exists. Use --overwrite to replace.")
@@ -152,7 +165,10 @@ def main(config_path: str, overwrite: bool = False):
     output_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy2(config_path, output_dir / "config.yaml")
 
-    results = load_results(upstream_dir)
+    result_list = [load_results(d) for d in upstream_dirs]
+    results = merge_perturbation_results(result_list)
+    print(f"Merged {len(upstream_dirs)} perturbation runs: "
+          f"{sum(1 for k in results['results'] if k.startswith('sigma_'))} sigmas total")
     print("Generating plots...")
     plot_pass_at_k(results, output_dir)
     plot_correct_distribution(results, output_dir)

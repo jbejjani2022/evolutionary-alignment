@@ -88,6 +88,7 @@ On helpful-harmless alignment with Alpaca-7B:
 1. **Sampling vs. Optimization**: Does ES's behavioral difference come from its sampling distribution or its optimization dynamics?
    - Potential experiment: Get rollouts via ES perturbations, then optimize via backprop
    - Would disentangle exploration (sampling) from optimization (weight update rule)
+   - **Partial answer (sampling_analysis_v1)**: On Countdown (Qwen-2.5-0.5B-Instruct), temperature sampling (token-space diversity) actually beats weight perturbation (weight-space diversity) at every operating point (pass@512: 44% vs 35%). Both fall far short of ES post-training (greedy ~15.7%), confirming ES's iterative optimization matters — it's not just weight-space exploration.
 
 2. **Solution Coverage**: Does ES increase the diversity of solutions found?
    - Recent work shows RL doesn't increase coverage over base LLM (can match with higher k in pass@k)

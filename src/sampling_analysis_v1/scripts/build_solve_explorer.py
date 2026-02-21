@@ -28,6 +28,17 @@ def merge_temperature_results(result_list: list[dict]) -> dict:
     return merged
 
 
+def merge_perturbation_results(result_list: list[dict]) -> dict:
+    merged = {"results": {}}
+    for results in result_list:
+        for key, val in results["results"].items():
+            if key.startswith("sigma_"):
+                merged["results"][key] = val
+            elif key == "greedy_baseline" and "greedy_baseline" not in merged["results"]:
+                merged["results"]["greedy_baseline"] = val
+    return merged
+
+
 def build_html(task_datas, temp_results, perturb_results, output_path):
     # Best temperature
     temps = [k for k in temp_results["results"] if k.startswith("temp_")]
@@ -280,8 +291,8 @@ def main(config_path: str, overwrite: bool = False):
 
     if "temperature_upstream_dirs" not in config:
         raise ValueError("FATAL: 'temperature_upstream_dirs' (list) required")
-    if "perturbation_upstream_dir" not in config:
-        raise ValueError("FATAL: 'perturbation_upstream_dir' required")
+    if "perturbation_upstream_dirs" not in config:
+        raise ValueError("FATAL: 'perturbation_upstream_dirs' (list) required")
     if "data_path" not in config:
         raise ValueError("FATAL: 'data_path' required")
     if "output_dir" not in config:
@@ -303,17 +314,19 @@ def main(config_path: str, overwrite: bool = False):
 
     # Load results
     temp_dirs = [Path(d) for d in config["temperature_upstream_dirs"]]
-    perturb_dir = Path(config["perturbation_upstream_dir"])
+    perturb_dirs = [Path(d) for d in config["perturbation_upstream_dirs"]]
 
     for d in temp_dirs:
         if not d.exists():
             raise FileNotFoundError(f"Temperature upstream not found: {d}")
-    if not perturb_dir.exists():
-        raise FileNotFoundError(f"Perturbation upstream not found: {perturb_dir}")
+    for d in perturb_dirs:
+        if not d.exists():
+            raise FileNotFoundError(f"Perturbation upstream not found: {d}")
 
     temp_results_list = [load_results(d) for d in temp_dirs]
     temp_results = merge_temperature_results(temp_results_list)
-    perturb_results = load_results(perturb_dir)
+    perturb_results_list = [load_results(d) for d in perturb_dirs]
+    perturb_results = merge_perturbation_results(perturb_results_list)
 
     print("Building solve explorer HTML...")
     build_html(task_datas, temp_results, perturb_results, output_dir / "index.html")
