@@ -1,0 +1,20 @@
+model_id: "Qwen/Qwen2.5-0.5B-Instruct"
+dtype: "float16"
+
+data:
+  path: "countdown/data/countdown.json"
+  offset: 200
+  num_samples: 2000
+
+generation:
+  max_new_tokens: 1024
+  top_p: 1.0
+  top_k: -1
+  samples_per_prompt: 1024
+  samples_per_call: 64  # vLLM n parameter per generate() call; total = samples_per_prompt / samples_per_call rounds
+
+temperatures: [0.4, 0.6, 0.8, 1.0]
+
+seed: 42
+
+output_dir: "data/sampling_analysis_v1/temperature_sampling"

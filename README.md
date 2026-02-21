@@ -1,13 +1,24 @@
 # Evolutionary Alignment
-Aligning LLMs more reliably with Evolution Strategies.
+
+Investigating Evolution Strategies (ES) as an alternative to Reinforcement Learning (GRPO) for LLM fine-tuning. ES uses weight perturbation rather than gradient-based optimization, and we find it explores qualitatively different solution spaces with less reward hacking on safety tasks.
 
 ## Setup
 
-We use Python 3.12.11. Create an environment and install dependencies:
 ```bash
-mamba create --name evolutionary-alignment python=3.12.11
-mamba activate evolutionary-alignment
-pip install -r requirements.txt
+uv sync
+```
+
+## Running Experiments
+
+```bash
+# Temperature sampling (Countdown, base model)
+bash scripts/sampling_analysis_v1/temperature_sampling.sh
+
+# Weight perturbation sampling (Countdown, ES-style, no training)
+bash scripts/sampling_analysis_v1/perturbation_sampling.sh
+
+# Debug mode (32 problems, 32 samples)
+bash scripts/sampling_analysis_v1/temperature_sampling.sh --debug
 ```
 
 ## References
@@ -15,12 +26,12 @@ pip install -r requirements.txt
 Our data and Evolution Strategies train scripts for Conciseness and Countdown tasks are based on the following work:
 ```bibtex
 @misc{qiu2025evolutionstrategiesscalellm,
-      title={Evolution Strategies at Scale: LLM Fine-Tuning Beyond Reinforcement Learning}, 
+      title={Evolution Strategies at Scale: LLM Fine-Tuning Beyond Reinforcement Learning},
       author={Xin Qiu and Yulu Gan and Conor F. Hayes and Qiyao Liang and Elliot Meyerson and Babak Hodjat and Risto Miikkulainen},
       year={2025},
       eprint={2509.24372},
       archivePrefix={arXiv},
       primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2509.24372}, 
+      url={https://arxiv.org/abs/2509.24372},
 }
 ```

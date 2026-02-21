@@ -8,6 +8,15 @@ old_evals/
 *.err
 *.out
 
+# Data outputs (use DVC for sharing)
+data/
+
+# Paper (separate Overleaf git repo)
+paper/
+
+# Resources (local reference materials)
+resources/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

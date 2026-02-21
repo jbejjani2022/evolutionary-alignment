@@ -1,0 +1,21 @@
+[project]
+name = "evolutionary-alignment"
+version = "0.1.0"
+description = "Aligning LLMs more reliably with Evolution Strategies"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "transformers>=4.30.0,<5.0.0",
+    "accelerate>=0.20.0",
+    "numpy>=1.21.0",
+    "psutil>=5.8.0",
+    "pandas>=2.3.0",
+    "vllm==0.11.0",
+    "tensorboard==2.20.0",
+    "wandb==0.23.0",
+    "trl==0.26.2",
+    "datasets==4.4.2",
+    "deepspeed==0.18.3",
+    "matplotlib==3.10.8",
+    "hf_transfer==0.1.9",
+    "pyyaml",
+]

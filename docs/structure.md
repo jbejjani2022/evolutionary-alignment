@@ -1,44 +1,75 @@
 evolutionary-alignment/
-├── README.md                    # Project overview and setup
-├── requirements.txt             # Python dependencies
-├── LICENSE                      # MIT License
+├── README.md
+├── CLAUDE.md
+├── pyproject.toml
+├── uv.lock
+├── .python-version
+├── requirements.txt                # Legacy (use pyproject.toml / uv sync)
+├── LICENSE
 │
-├── conciseness/                 # Main experiment code
+├── conciseness/                    # Conciseness task experiments (legacy structure)
 │   ├── data/
-│   │   ├── train.jsonl          # Training samples (2)
-│   │   └── eval.jsonl           # Evaluation samples (8)
-│   │
-│   ├── ES/                      # Evolution Strategies
-│   │   ├── es_fine-tuning_conciseness_iid.py  # Main ES training
-│   │   ├── run_es.sh            # SLURM training script
-│   │   └── eval_es.sh           # SLURM eval script
-│   │
-│   ├── GRPO/                    # Group Relative Policy Optimization
-│   │   ├── train_grpo_conciseness_trl.py      # GRPO training
-│   │   ├── run_grpo_sweep.sh    # SLURM sweep script
-│   │   ├── conciseness_grpo_eval.sh           # SLURM eval script
-│   │   ├── grpo_conciseness_trl.yaml          # Training config
-│   │   ├── accelerate_trl_grpo.yaml           # Accelerate config
-│   │   └── ds_zero2.json        # DeepSpeed ZeRO-2 config
-│   │
-│   ├── conciseness_eval.py      # Single model evaluation
-│   └── conciseness_eval_seeds_sweep.py        # Multi-seed eval
+│   │   ├── train.jsonl
+│   │   └── eval.jsonl
+│   ├── ES/
+│   ├── GRPO/
+│   ├── conciseness_eval.py
+│   └── conciseness_eval_seeds_sweep.py
 │
-├── docs/                        # Documentation
-│   ├── research_context.md      # Research goals, findings, team assignments
-│   ├── paper-workflow.md        # Overleaf sync instructions
-│   ├── paper_writing.md         # AI content guidelines (\ai{} command)
-│   ├── structure.md            # This file
-│   └── logs/                    # Session logs
-│       └── YYYY-MM-DD/          # Daily log directories
-│           └── HHMM_topic.md    # Individual session logs
+├── countdown/                      # Countdown task experiments (legacy structure)
+│   ├── data/
+│   │   └── countdown.json
+│   ├── ES/
+│   ├── GRPO/
+│   ├── countdown_task.py
+│   └── eval_countdown_vllm.py
 │
-├── resources/                   # Reference materials
-│   └── es-fine-tuning-paper/    # Old working repo (archived)
+├── utils/                          # Shared utilities (legacy)
+│   ├── __init__.py
+│   └── worker_extn.py
 │
-└── paper/                       # Overleaf paper (GITIGNORED - separate repo)
-    ├── main.tex
-    ├── sections/
-    ├── appendix/
-    ├── figures/
-    └── ...
+├── src/                            # Track-based code (new structure)
+│   ├── __init__.py
+│   └── sampling_analysis_v1/
+│       ├── __init__.py
+│       ├── utils.py                # Data loading, prompt building, pass@k
+│       ├── worker_extension.py     # vLLM extension for weight perturbation
+│       └── scripts/
+│           ├── temperature_sampling.py
+│           └── perturbation_sampling.py
+│
+├── configs/
+│   └── sampling_analysis_v1/
+│       ├── temperature_sampling.yaml
+│       └── perturbation_sampling.yaml
+│
+├── scripts/
+│   └── sampling_analysis_v1/
+│       ├── temperature_sampling.sh
+│       └── perturbation_sampling.sh
+│
+├── data/                           # Experiment outputs (gitignored)
+│   └── sampling_analysis_v1/
+│
+├── docs/
+│   ├── repo_usage.md
+│   ├── research_context.md
+│   ├── structure.md
+│   ├── start.md
+│   ├── closing_tasks.md
+│   ├── paper-workflow.md
+│   ├── paper_writing.md
+│   ├── conciseness_eval_comparison.md
+│   ├── neurosymbolic_es.md
+│   ├── logs/
+│   │   ├── 2026-01-05/
+│   │   └── 2026-02-21/
+│   └── tracks/
+│       └── sampling_analysis_v1/
+│           └── progress.md
+│
+├── paper/                          # Overleaf paper (gitignored, separate git repo)
+│
+└── resources/                      # Reference materials (gitignored)
+    ├── eggroll/
+    └── es-fine-tuning-paper/

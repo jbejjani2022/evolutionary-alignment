@@ -1,0 +1,17 @@
+model_id: "Qwen/Qwen2.5-0.5B-Instruct"
+dtype: "float16"
+
+data:
+  path: "countdown/data/countdown.json"
+  offset: 200
+  num_samples: 2000
+
+generation:
+  max_new_tokens: 1024
+  num_perturbations: 1024
+
+sigmas: [0.001, 0.003, 0.005, 0.01]
+
+seed: 42
+
+output_dir: "data/sampling_analysis_v1/perturbation_sampling"
