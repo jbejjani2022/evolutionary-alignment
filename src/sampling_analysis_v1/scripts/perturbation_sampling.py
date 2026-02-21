@@ -38,7 +38,7 @@ from src.sampling_analysis_v1.utils import (
     load_countdown_data,
 )
 
-K_VALUES = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
+K_VALUES = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
 
 
 class _RayLLM(LLM):

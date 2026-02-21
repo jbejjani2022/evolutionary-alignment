@@ -4,14 +4,13 @@ dtype: "float16"
 data:
   path: "countdown/data/countdown.json"
   offset: 200
-  num_samples: 2000
+  num_samples: 128
 
 generation:
   max_new_tokens: 1024
   top_p: 1.0
   top_k: -1
-  samples_per_prompt: 1024
-  samples_per_call: 64  # vLLM n parameter per generate() call; total = samples_per_prompt / samples_per_call rounds
+  samples_per_prompt: 512
 
 temperatures: [0.4, 0.6, 0.8, 1.0]
 

@@ -32,7 +32,7 @@ from src.sampling_analysis_v1.utils import (
     load_countdown_data,
 )
 
-K_VALUES = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
+K_VALUES = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
 
 
 def main(config_path, overwrite=False, debug=False):
@@ -58,9 +58,7 @@ def main(config_path, overwrite=False, debug=False):
     if debug:
         task_datas = task_datas[:32]
         config["temperatures"] = config["temperatures"][:1]
-        gen_cfg = config["generation"]
-        gen_cfg["samples_per_prompt"] = 32
-        gen_cfg["samples_per_call"] = min(gen_cfg.get("samples_per_call", 64), 32)
+        config["generation"]["samples_per_prompt"] = 32
         print(f"DEBUG: 32 problems, 1 temperature ({config['temperatures'][0]}), 32 samples/prompt")
 
     # Init vLLM
@@ -78,13 +76,6 @@ def main(config_path, overwrite=False, debug=False):
 
     gen_cfg = config["generation"]
     total_samples = gen_cfg["samples_per_prompt"]
-    samples_per_call = gen_cfg.get("samples_per_call", 64)
-    if total_samples % samples_per_call != 0:
-        raise ValueError(
-            f"samples_per_prompt ({total_samples}) must be divisible by "
-            f"samples_per_call ({samples_per_call})"
-        )
-    num_rounds = total_samples // samples_per_call
     base_seed = config.get("seed", 42)
 
     all_results = {}
@@ -111,34 +102,26 @@ def main(config_path, overwrite=False, debug=False):
 
     # --- Temperature sampling ---
     for temp in config["temperatures"]:
-        print(f"\n=== Temperature {temp} ({total_samples} samples/prompt, {num_rounds} rounds of {samples_per_call}) ===")
-        correct_counts = [0] * len(task_datas)
+        print(f"\n=== Temperature {temp} ({total_samples} samples/prompt) ===")
         t_start = time.time()
 
-        for r_idx in range(num_rounds):
-            sampling_params = SamplingParams(
-                temperature=temp,
-                top_p=gen_cfg["top_p"],
-                top_k=gen_cfg.get("top_k", -1),
-                max_tokens=gen_cfg["max_new_tokens"],
-                n=samples_per_call,
-                seed=base_seed + r_idx,
-            )
-            outputs = llm.generate(prompts, sampling_params, use_tqdm=False)
+        sampling_params = SamplingParams(
+            temperature=temp,
+            top_p=gen_cfg["top_p"],
+            top_k=gen_cfg.get("top_k", -1),
+            max_tokens=gen_cfg["max_new_tokens"],
+            n=total_samples,
+            seed=base_seed,
+        )
+        outputs = llm.generate(prompts, sampling_params, use_tqdm=True)
 
-            for i, (out, data) in enumerate(zip(outputs, task_datas)):
-                for completion in out.outputs:
-                    response = RESPONSE_PROMPT + completion.text
-                    r = reward_function(response, data["numbers"], data["target"])
-                    if r["reward_info"]["answer_reward"] > 0:
-                        correct_counts[i] += 1
-
-            elapsed = time.time() - t_start
-            done = (r_idx + 1) * samples_per_call
-            print(
-                f"  Round {r_idx + 1}/{num_rounds} "
-                f"({done}/{total_samples} samples) [{elapsed:.1f}s]"
-            )
+        correct_counts = [0] * len(task_datas)
+        for i, (out, data) in enumerate(zip(outputs, task_datas)):
+            for completion in out.outputs:
+                response = RESPONSE_PROMPT + completion.text
+                r = reward_function(response, data["numbers"], data["target"])
+                if r["reward_info"]["answer_reward"] > 0:
+                    correct_counts[i] += 1
 
         # Compute pass@k
         k_values = [k for k in K_VALUES if k <= total_samples]

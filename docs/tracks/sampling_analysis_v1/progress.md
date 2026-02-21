@@ -4,10 +4,10 @@
 
 Does ES even need training? This track tests the hypothesis that ES's advantage comes from weight-space exploration (sampling), not iterative optimization. We compare:
 
-1. **Temperature sampling**: Sample 1024 rollouts per prompt from the unmodified base model at different temperatures
-2. **Weight perturbation sampling**: Apply 1024 random weight perturbations (ES-style, no updates), generate greedy per perturbation
+1. **Temperature sampling**: Sample 512 rollouts per prompt from the unmodified base model at different temperatures
+2. **Weight perturbation sampling**: Apply 512 random weight perturbations (ES-style, no updates), generate greedy per perturbation
 
-Both compute pass@k curves on Countdown (Qwen-2.5-0.5B-Instruct, 2000 test problems).
+Both compute pass@k curves on Countdown (Qwen-2.5-0.5B-Instruct, 128 test problems from the eval split).
 
 ## Motivation
 
@@ -20,7 +20,8 @@ ES clearly does something the base model and GRPO don't. But is it the iterative
 
 ## Status
 - **Created**: 2026-02-20
-- **State**: Scripts written, ready to run
+- **State**: Scripts cleaned up, ready to run
+- **2026-02-21**: Simplified temperature sampling (removed unnecessary round-based batching), scaled down to 128 prompts × 512 samples for feasibility (~1.8h vs ~58h)
 
 ## Files
 
@@ -46,16 +47,17 @@ scripts/sampling_analysis_v1/
 
 ### Shared
 - Model: Qwen/Qwen2.5-0.5B-Instruct (float16)
-- Test set: countdown.json indices 200-2199 (2000 problems)
+- Test set: countdown.json indices 200-327 (128 problems, from eval split)
 - Chat template: ON
 - Max new tokens: 1024
-- Total rollouts: 1024 per prompt
+- Total rollouts: 512 per prompt
 - Seed: 42
 
 ### Temperature sampling
 - Temperatures: [0.4, 0.6, 0.8, 1.0]
 - top_p: 1.0, top_k: disabled
 - Greedy baseline included (T=0, 1 sample)
+- Single vLLM generate() call per temperature with n=512
 
 ### Perturbation sampling
 - Sigmas: [0.001, 0.003, 0.005, 0.01]
@@ -67,7 +69,7 @@ scripts/sampling_analysis_v1/
 ```bash
 # Temperature sampling
 bash scripts/sampling_analysis_v1/temperature_sampling.sh
-bash scripts/sampling_analysis_v1/temperature_sampling.sh --debug  # 20 samples
+bash scripts/sampling_analysis_v1/temperature_sampling.sh --debug  # 32 samples
 
 # Perturbation sampling
 bash scripts/sampling_analysis_v1/perturbation_sampling.sh

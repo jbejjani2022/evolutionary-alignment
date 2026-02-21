@@ -4,11 +4,11 @@ dtype: "float16"
 data:
   path: "countdown/data/countdown.json"
   offset: 200
-  num_samples: 2000
+  num_samples: 128
 
 generation:
   max_new_tokens: 1024
-  num_perturbations: 1024
+  num_perturbations: 512
 
 sigmas: [0.001, 0.003, 0.005, 0.01]
 
